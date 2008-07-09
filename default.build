@@ -1,0 +1,34 @@
+<project name='Gnip' default='all'>
+	<target name='clean'>
+		<delete failonerror='false'>
+			<fileset>
+				<include name='**/bin/**'/>
+				<include name='**/obj/**'/>
+				<include name='*.zip'/>
+			</fileset>
+		</delete>
+	</target>
+
+	<target name='compile'>
+		<exec program='msbuild.exe'
+			basedir='c:\WINDOWS\Microsoft.NET\Framework\v3.5'
+			workingdir='.'>
+			<arg value='Gnip.sln' />
+			<arg value='/property:Configuration=Debug' />
+			<arg value='/nologo' />
+			<arg value='/verbosity:quiet' />
+		</exec>
+	</target>
+
+	<target name='dist'>
+	</target>
+
+	<target name='test' depends='compile'>
+		<exec program='Tools/NUnit-2.4/nunit-console.exe'>
+			<arg value='/xml=gnip-results.xml' />
+			<arg value='Gnip.Tests/Bin/Debug/Gnip.Tests.dll' />
+		</exec>
+	</target>
+	
+	<target name='all' depends='clean, test, dist'/>
+</project>

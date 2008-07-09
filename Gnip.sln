@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual C# Express 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gnip", "Gnip\Gnip.csproj", "{8B46EAA0-CCE5-47E8-85D1-10ED68F059C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gnip.Tests", "Gnip.Tests\Gnip.Tests.csproj", "{6683DE2C-7A36-4083-8472-384C6689DB33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B46EAA0-CCE5-47E8-85D1-10ED68F059C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B46EAA0-CCE5-47E8-85D1-10ED68F059C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B46EAA0-CCE5-47E8-85D1-10ED68F059C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B46EAA0-CCE5-47E8-85D1-10ED68F059C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6683DE2C-7A36-4083-8472-384C6689DB33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6683DE2C-7A36-4083-8472-384C6689DB33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6683DE2C-7A36-4083-8472-384C6689DB33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6683DE2C-7A36-4083-8472-384C6689DB33}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
