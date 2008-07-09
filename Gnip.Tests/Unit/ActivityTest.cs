@@ -10,13 +10,13 @@ namespace Gnip.Tests.Unit
         public void CanSerialize()
         {
             Activity a = new Activity();
-            a.At = DateTime.Parse("2008-07-01T19:19:36-04:00");
+            a.At = DateTime.Parse("2008-07-01T19:19:36-04:00").ToUniversalTime();
             a.Guid = "152623406";
             a.Type = "dugg";
             a.Uid = "joe";
 
             Assert.AreEqual(@"<?xml version=""1.0"" encoding=""utf-8""?>
-<activity xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" uid=""joe"" at=""2008-07-01T19:19:36-04:00"" guid=""152623406"" type=""dugg"" />",
+<activity xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" uid=""joe"" at=""2008-07-01T23:19:36Z"" guid=""152623406"" type=""dugg"" />",
                             a.ToXml());
 
             Activities activities = new Activities();
@@ -24,7 +24,7 @@ namespace Gnip.Tests.Unit
 
             Assert.AreEqual(@"<?xml version=""1.0"" encoding=""utf-8""?>
 <activities xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-    <activity uid=""joe"" at=""2008-07-01T19:19:36-04:00"" guid=""152623406"" type=""dugg"" />
+    <activity uid=""joe"" at=""2008-07-01T23:19:36Z"" guid=""152623406"" type=""dugg"" />
 </activities>",
             activities.ToXml());
         }
