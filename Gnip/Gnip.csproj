@@ -60,6 +60,9 @@
     <None Include="..\default.build">
       <Link>default.build</Link>
     </None>
+    <None Include="..\README">
+      <Link>README</Link>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

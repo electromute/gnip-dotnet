@@ -1,11 +1,14 @@
 <project name='Gnip' default='all'>
-	<target name='clean'>
+  <property name='version' value='1.0' />
+
+  <target name='clean'>
 		<delete failonerror='false'>
 			<fileset>
 				<include name='**/bin/**'/>
 				<include name='**/obj/**'/>
-				<include name='*.zip'/>
-			</fileset>
+        <include name='*.zip'/>
+        <include name='*.dll'/>
+      </fileset>
 		</delete>
 	</target>
 
@@ -20,8 +23,32 @@
 		</exec>
 	</target>
 
-	<target name='dist'>
-	</target>
+	<target name='dist' depends='compile'>
+    <delete failonerror='false'>
+      <fileset>
+        <include name='*.zip'/>
+      </fileset>
+    </delete>
+
+    <mkdir dir='bin'/>
+    <copy file='Gnip/bin/Debug/Gnip.dll' todir='bin'/>
+
+    <zip zipfile="gnip-dotnet.${version}.zip">
+      <fileset basedir=".">
+        <include name="**/*"/>
+        <exclude name=".git/**"/>
+        <exclude name=".gitignore"/>
+        <exclude name='*/bin/**'/>
+        <exclude name='**/obj/**'/>
+        <exclude name="**/*.cache"/>
+        <exclude name="**/*.suo"/>
+        <exclude name="**/*.csproj.user"/>
+        <exclude name="**/*.zip"/>
+        <exclude name="*results.xml"/>
+        <include name="bin/**"/>
+      </fileset>
+    </zip>
+  </target>
 
 	<target name='test' depends='compile'>
 		<exec program='Tools/NUnit-2.4/nunit-console.exe'>

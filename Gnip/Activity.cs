@@ -24,7 +24,7 @@ namespace Gnip
         public string Uid;
 
         [XmlAttribute("at")]
-        public string At;
+        public DateTime At;
 
         [XmlAttribute("guid")]
         public string Guid;
@@ -42,12 +42,16 @@ namespace Gnip
 
         public Activity() { }
 
-        public Activity(string uid, string at, string guid, string type, Publisher publisher)
+        public Activity(string uid, string type, DateTime at, string guid, Publisher publisher) : this(uid, type, at, guid)
+        {
+            this.Publisher = publisher;
+        }
+
+        public Activity(string uid, string type, DateTime at, string guid)
         {
             this.Uid = uid;
             this.At = at;
             this.Guid = guid;
-            this.Publisher = publisher;
         }
 
         public override bool Equals(object obj)

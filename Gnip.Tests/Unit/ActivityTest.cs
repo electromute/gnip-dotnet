@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace Gnip.Tests.Unit
 {    
@@ -9,7 +10,7 @@ namespace Gnip.Tests.Unit
         public void CanSerialize()
         {
             Activity a = new Activity();
-            a.At = "2008-07-01T19:19:36-04:00";
+            a.At = DateTime.Parse("2008-07-01T19:19:36-04:00");
             a.Guid = "152623406";
             a.Type = "dugg";
             a.Uid = "joe";
@@ -43,10 +44,16 @@ namespace Gnip.Tests.Unit
         [Test]
         public void EqualitySemantics()
         {
-            Assert.AreEqual(new Activity("me", "then", "1234", "doh", new Publisher("foo")),
-                            new Activity("me", "then", "1234", "doh", new Publisher("foo")));
-            Assert.AreNotEqual(new Activity("me", "then", "1234", "doh", new Publisher("foo")),
-                               new Activity("me", "then", "1234d", "doh", new Publisher("foo")));
+            DateTime now = DateTime.Now;
+
+            Assert.AreEqual(new Activity("me", "post", now, "http://foo.bar", new Publisher("foo")),
+                            new Activity("me", "post", now, "http://foo.bar", new Publisher("foo")));
+            Assert.AreEqual(new Activity("me", "post", now, "http://foo.bar"),
+                            new Activity("me", "post", now, "http://foo.bar"));
+            Assert.AreNotEqual(new Activity("me", "post", now, "http://foo.bar"),
+                               new Activity("me", "post", now, "http://food.bar"));
+            Assert.AreNotEqual(new Activity("me", "post", now, "http://foo.bar"),
+                               new Activity("me", "post", now, "http://foo.bar", new Publisher("foo")));
         }
     }
 }
