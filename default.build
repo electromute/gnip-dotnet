@@ -33,7 +33,7 @@
     <mkdir dir='bin'/>
     <copy file='Gnip/bin/Debug/Gnip.dll' todir='bin'/>
 
-    <zip zipfile="gnip-dotnet.${version}.zip">
+    <zip zipfile="gnip-dotnet-${version}.zip">
       <fileset basedir=".">
         <include name="**/*"/>
         <exclude name=".git/**"/>
