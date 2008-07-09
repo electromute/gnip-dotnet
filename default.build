@@ -1,5 +1,5 @@
 <project name='Gnip' default='all'>
-  <property name='version' value='1.0' />
+  <property name='version' value='0.1' />
 
   <target name='clean'>
 		<delete failonerror='false'>
