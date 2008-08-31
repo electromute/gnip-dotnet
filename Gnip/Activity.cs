@@ -51,6 +51,7 @@ namespace Gnip
         {
             this.Uid = uid;
             this.At = at;
+            this.Type = type;
             this.Guid = guid;
         }
 
