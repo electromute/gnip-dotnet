@@ -53,11 +53,11 @@ new matching activity has occured.
 	Connection gnip = new Connection("me@mydomain.com", "my-password");
 
 
-	Collection myCollection = new Collection("myCollection");
-	myCollection.Rules.Add(new Rule("actor", "me"));
+	Filter myFilter = new Filter("myFilter");
+	myFilter.Rules.Add(new Rule("actor", "me"));
 
-	gnip.Create("digg", myCollection);
-	Activities activities = gnip.GetActivities("digg", myCollection);
+	gnip.Create("digg", myFilter);
+	Activities activities = gnip.GetActivities("digg", myFilter);
 
 === Example 4: Delete a collection
 
@@ -69,7 +69,7 @@ past you can remove it.
 
 	Connection gnip = new Connection("me@mydomain.com", "my-password");
 
-	gnip.Delete("digg", "myCollection");
+	gnip.Delete("digg", "myFilter");
 
 == Publisher
 
