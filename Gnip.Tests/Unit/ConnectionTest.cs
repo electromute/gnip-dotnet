@@ -11,7 +11,7 @@ namespace Gnip.Tests.Unit
         DynamicMock server;
         IConnection gnip;
         Activities activitiesForTest;
-        Collection collectionForTest;
+        Filter filterForTest;
         Publisher digg = new Publisher("digg");
 
         [SetUp]
@@ -21,7 +21,7 @@ namespace Gnip.Tests.Unit
             gnip = new Connection((IServer)server.MockInstance);
 
             activitiesForTest = TestFactory.Activities();
-            collectionForTest = TestFactory.Collection();
+            filterForTest = TestFactory.Filter();
         }
 
         [TearDown]
@@ -59,38 +59,38 @@ namespace Gnip.Tests.Unit
         }
 
 
-        // collections
+        // filters
 
         [Test]
-        public void CanGetCollection()
+        public void CanGetFilter()
         {
-            server.ExpectAndReturn("Get", collectionForTest.ToXml(), "/collections/mycollection.xml");
+            server.ExpectAndReturn("Get", filterForTest.ToXml(), "/publishers/digg/filters/myfilter.xml");
 
-            Assert.AreEqual(collectionForTest, gnip.GetCollection("mycollection"));
+            Assert.AreEqual(filterForTest, gnip.GetFilter("digg", "myfilter"));
         }
 
         [Test]
-        public void CanCreateACollection()
+        public void CanCreateAFilter()
         {
-            server.Expect("Post", "/collections.xml", collectionForTest.ToXml());
+            server.Expect("Post", "/publishers/digg/filters.xml", filterForTest.ToXml());
 
-            gnip.Create(collectionForTest);
+            gnip.Create("digg", filterForTest);
         }
 
         [Test]
-        public void CanDeleteACollection()
+        public void CanDeleteAFilter()
         {
-            server.Expect("Delete", "/collections/bob.xml");
+            server.Expect("Delete", "/publishers/digg/filters/example1.xml");
 
-            gnip.Delete(new Collection("bob"));
+            gnip.Delete("digg", "example1");
         }
 
         [Test]
-        public void CanUpdateACollection()
+        public void CanUpdateAFilter()
         {
-            server.Expect("Put", "/collections/example1.xml", collectionForTest.ToXml());
+            server.Expect("Put", "/publishers/digg/filters/example1.xml", filterForTest.ToXml());
 
-            gnip.Update(collectionForTest);
+            gnip.Update("digg", filterForTest);
         }
 
         // activities
@@ -100,15 +100,15 @@ namespace Gnip.Tests.Unit
         {
             server.ExpectAndReturn("Get", activitiesForTest.ToXml(), "/publishers/digg/activity/current.xml");
             
-            CollectionAssert.AreEqual(activitiesForTest, gnip.GetActivities(new Publisher("digg")));
+            CollectionAssert.AreEqual(activitiesForTest, gnip.GetPublisherActivities("digg"));
         }
 
         [Test]
-        public void CanGetCurrentActivitiesForCollection()
+        public void CanGetCurrentActivitiesForFilter()
         {
-            server.ExpectAndReturn("Get", activitiesForTest.ToXml(), "/collections/mycollection/activity/current.xml");
+            server.ExpectAndReturn("Get", activitiesForTest.ToXml(), "/publishers/digg/filters/myfilter/activity/current.xml");
 
-            CollectionAssert.AreEqual(activitiesForTest, gnip.GetActivities(new Collection("mycollection")));
+            CollectionAssert.AreEqual(activitiesForTest, gnip.GetFilterActivities("digg", "myfilter"));
         }
 
         [Test]
@@ -116,7 +116,7 @@ namespace Gnip.Tests.Unit
         {
             server.ExpectAndReturn("Get", activitiesForTest.ToXml(), "/publishers/digg/activity/200807081755.xml");
 
-            CollectionAssert.AreEqual(activitiesForTest, gnip.GetActivities(digg, DateTime.Parse("7/8/2008 5:58pm GMT")));
+            CollectionAssert.AreEqual(activitiesForTest, gnip.GetPublisherActivities("digg", DateTime.Parse("7/8/2008 5:58pm GMT")));
         }
 
         [Test]
@@ -124,7 +124,7 @@ namespace Gnip.Tests.Unit
         {
             server.Expect("Post", "/publishers/bob/activity.xml", activitiesForTest.ToXml());
 
-            gnip.Publish(new Publisher("bob"), activitiesForTest);
+            gnip.Publish("bob", activitiesForTest);
         }
     }
 }

@@ -13,15 +13,14 @@ As a consumer one thing you might be interested in immediately is to
 grab recent activity at a particular publisher.  To do this you must
 create a connection to Gnip using your user name and password.  Once
 that connection is established you can get the publisher and request
-it's activities stream.
+its activities stream.
 
 	using Gnip;
 	...
 
 	Connection gnip = new Connection("me@mydomain.com", "my-password");
 
-	Publisher digg = gnip.GetPublisher("digg");
-	Activities activities = gnip.GetActivities(digg);
+	Activities activities = gnip.GetActivities("digg");
 
 === Example 2: Retrieve all activities at a publisher around a specific time
 
@@ -36,35 +35,29 @@ include some activities before and after the time you specify.
 
 	Connection gnip = new Connection("me@mydomain.com", "my-password");
 
-	Publisher digg = gnip.GetPublisher("digg");
-	Activities activities = gnip.GetActivities(digg, DateTime.Now);
+	Activities activities = gnip.GetActivities("digg", DateTime.Now);
 
 === Example 3: Create an activity stream that includes only activities
     done by users you care about.
 
 If you would like to filter a set of publishers by the user that
 performed the activity you may create a collection to do so.  Once
-created a collection's activity stream is retrieved much like a
-publishers.  Activity that has already occured will not be included in
-a collection.  Therefore any new collection will be empty until some
+created a filter's activity stream is retrieved much like a
+publisher's.  Activity that has already occured will not be included in
+a filter.  Therefore any new filter will be empty until some
 new matching activity has occured.
-
-Note: Collection names must be unique across the system so you might
-want to attach your username to the logical name of any collections
-you create.
 
 	using Gnip;
 	...
 
 	Connection gnip = new Connection("me@mydomain.com", "my-password");
 
-	Publisher digg = new Publisher("digg");
 
 	Collection myCollection = new Collection("myCollection");
-	myCollection.Uids.Add(new Uid(digg), "Burento");
+	myCollection.Rules.Add(new Rule("actor", "me"));
 
-	gnip.Create(myCollection);
-	Activities activities = gnip.GetActivities(myCollection);
+	gnip.Create("digg", myCollection);
+	Activities activities = gnip.GetActivities("digg", myCollection);
 
 === Example 4: Delete a collection
 
@@ -76,8 +69,7 @@ past you can remove it.
 
 	Connection gnip = new Connection("me@mydomain.com", "my-password");
 
-	Collection myCollection = gnip.GetCollection("myCollection");
-	gnip.Delete(myCollection);
+	gnip.Delete("digg", "myCollection");
 
 == Publisher
 
@@ -92,9 +84,11 @@ published in it's activity stream.
 
 	Connection gnip = new Connection("me@mydomain.com", "my-password");
 
-	Publisher publisher = new Publisher("myservice");
-	gnip.Create(publisher);
+	Publisher myPublisher = new Publisher("myservice");
+	gnip.Create(myPublisher);
 	
 	Activities activities = new Activities();
-	activities.Add(new Activity("joe", "post", DateTime.now, "http://mydomain.com/joe/my-new-blog-post"));
-	gnip.Publish(publisher, activities);
+	activities.Add(new Activity(DateTime.now, "upload", "joe", "blog_post",
+		"web", "trains,planes,automobiles", "bob", 
+		"http://mydomain.com/joe/my-new-blog-post"));
+	gnip.Publish(myPublisher, activities);

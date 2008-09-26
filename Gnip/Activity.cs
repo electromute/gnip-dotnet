@@ -20,54 +20,67 @@ namespace Gnip
     [XmlType("activity")]
     public class Activity
     {
-        [XmlAttribute("uid")]
-        public string Uid;
-
         [XmlAttribute("at")]
         public DateTime At;
 
-        [XmlAttribute("guid")]
-        public string Guid;
+        [XmlAttribute("action")]
+        public string Action;
 
-        [XmlAttribute("type")]
-        public string Type;
+        [XmlAttribute("actor")]
+        public string Actor;
 
-        private string publisherName;
-        [XmlIgnore]
-        public Publisher Publisher
-        {
-            get { return new Publisher(publisherName); }
-            set { publisherName = value.Name; }
-        }
+        [XmlAttribute("regarding")]
+        public string Regarding;
+
+        [XmlAttribute("source")]
+        public string Source;
+
+        [XmlAttribute("tags")]
+        public string Tags;
+
+        [XmlAttribute("to")]
+        public string To;
+
+        [XmlAttribute("url")]
+        public string Url;
 
         public Activity() { }
 
-        public Activity(string uid, string type, DateTime at, string guid, Publisher publisher) : this(uid, type, at, guid)
+        public Activity(DateTime at, string action, string actor, string regarding, string source, string tags, string to, string url)
         {
-            this.Publisher = publisher;
-        }
-
-        public Activity(string uid, string type, DateTime at, string guid)
-        {
-            this.Uid = uid;
             this.At = at;
-            this.Type = type;
-            this.Guid = guid;
+            this.Action = action;
+            this.Actor = actor;
+            this.Regarding = regarding;
+            this.Source = source;
+            this.Tags = tags;
+            this.To = to;
+            this.Url = url;
         }
 
         public override bool Equals(object obj)
         {
             return obj is Activity &&
-                ((Activity)obj).Uid == Uid &&
                 ((Activity)obj).At == At &&
-                ((Activity)obj).Guid == Guid &&
-                ((Activity)obj).Type == Type &&
-                ((Activity)obj).publisherName == publisherName;
+                ((Activity)obj).Action == Action &&
+                ((Activity)obj).Actor == Actor &&
+                ((Activity)obj).Regarding == Regarding &&
+                ((Activity)obj).Source == Source &&
+                ((Activity)obj).Tags == Tags &&
+                ((Activity)obj).To == To &&
+                ((Activity)obj).Url == Url;
         }
 
         public override int GetHashCode()
         {
-            return Guid.GetHashCode();
+            return At.GetHashCode() + 
+                Action.GetHashCode() +
+                Actor.GetHashCode() +
+                Regarding.GetHashCode() +
+                Source.GetHashCode() +
+                Tags.GetHashCode() +
+                To.GetHashCode() + 
+                Url.GetHashCode();
         }
 
         public String ToXml()

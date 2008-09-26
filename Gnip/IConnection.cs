@@ -10,18 +10,24 @@ namespace Gnip
         Publishers GetPublishers();
         
         Publisher GetPublisher(string name);
-        Collection GetCollection(string name);
+        Filter GetFilter(string publisher, string name);
         
         void Create(Publisher publisher);
-        void Create(Collection collection);
+        void Create(string publisher, Filter filter);
 
-        void Update(Collection collection);
+        void Update(string publisher, Filter filter);
 
-        void Delete(Collection collection);
+        void Delete(string publisher, string filter);
         
-        void Publish(Publisher publisher, Activities activities);
-        
-        Activities GetActivities(Resource resource);
-        Activities GetActivities(Resource resource, DateTime bucket);
+        void Publish(string publisher, Activities activities);
+
+        Activities GetPublisherActivities(String publisher);
+        Activities GetPublisherActivities(String publisher, DateTime bucket);
+        Activities GetPublisherNotifications(String publisher);
+        Activities GetPublisherNotifications(String publisher, DateTime bucket);
+        Activities GetFilterActivities(String publisher, String filter);
+        Activities GetFilterActivities(String publisher, String filter, DateTime bucket);
+        Activities GetFilterNotifications(String publisher, String filter);
+        Activities GetFilterNotifications(String publisher, String filter, DateTime bucket);
     }
 }

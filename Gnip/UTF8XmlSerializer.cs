@@ -12,9 +12,6 @@ namespace Gnip
             MemoryStream stream = new MemoryStream();
             using (XmlTextWriter writer = new XmlTextWriter(stream, new UTF8Encoding(false)))
             {
-                writer.Formatting = Formatting.Indented;
-                writer.Indentation = 4;
-
                 new XmlSerializer(typeof(T)).Serialize(writer, obj);
             }
 
@@ -23,6 +20,7 @@ namespace Gnip
 
         public static T Deserialize<T>(string xml)
         {
+            System.Console.Write(xml);
             XmlSerializer serializer = new XmlSerializer(typeof(T));
             return (T) serializer.Deserialize(new StringReader(xml));
         }

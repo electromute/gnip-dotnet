@@ -16,8 +16,11 @@ namespace Gnip
     }
 
     [XmlType("publisher")]
-    public class Publisher : Resource
+    public class Publisher
     {
+        [XmlAttribute("name")]
+        public string Name; 
+
         public Publisher(string name)
         {
             this.Name = name;

@@ -20,19 +20,20 @@ namespace Gnip
             this.server = server;
         }
 
+
         public Publishers GetPublishers()
         {
             return GetPublishers("/publishers.xml");
         }
 
-        public Publisher GetPublisher(string name)
+        public Publisher GetPublisher(string publisher)
         {
-            return UTF8XmlSerializer.Deserialize<Publisher>(server.Get(new Publisher(name).Url + ".xml"));
+            return UTF8XmlSerializer.Deserialize<Publisher>(server.Get("/publishers/" + publisher + ".xml"));
         }
 
-        public Collection GetCollection(string name)
+        public Filter GetFilter(string publisher, string filter)
         {
-            return UTF8XmlSerializer.Deserialize<Collection>(server.Get(new Collection(name).Url + ".xml"));
+            return UTF8XmlSerializer.Deserialize<Filter>(server.Get("/publishers/" + publisher + "/filters/" + filter + ".xml"));
         }
 
         public void Create(Publisher publisher)
@@ -40,36 +41,65 @@ namespace Gnip
             server.Post("/publishers.xml", publisher.ToXml());
         }
 
-        public void Create(Collection collection)
+        public void Create(string publisher, Filter filter)
         {
-            server.Post("/collections.xml", collection.ToXml());
+            server.Post("/publishers/" + publisher + "/filters.xml", filter.ToXml());
         }
 
-        public void Delete(Collection collection)
+        public void Update(string publisher, Filter filter)
         {
-            server.Delete(collection.Url + ".xml");
+            server.Put("/publishers/" + publisher + "/filters/" + filter.Name + ".xml", filter.ToXml());
         }
 
-        public void Update(Collection collection)
+        public void Delete(string publisher, string filter)
         {
-            server.Put(collection.Url + ".xml", collection.ToXml());
+            server.Delete("/publishers/" + publisher + "/filters/" + filter + ".xml");
         }
 
-        public Activities GetActivities(Resource resource)
+        public void Publish(string publisher, Activities activities)
         {
-            return GetActivities(resource.Url + "/activity/current.xml");
+            server.Post("/publishers/" + publisher + "/activity.xml", activities.ToXml());
         }
 
-        public Activities GetActivities(Resource resource, DateTime time)
+        public Activities GetPublisherActivities(string publisher)
         {
-            return GetActivities(string.Format("{0}/activity/{1}.xml", resource.Url, GetBucket(time)));
+            return GetActivities("/publishers/" + publisher + "/activity/current.xml");
         }
 
-        public void Publish(Publisher publisher, Activities activities)
+        public Activities GetPublisherActivities(string publisher, DateTime bucket)
         {
-            server.Post(publisher.Url + "/activity.xml", activities.ToXml());
+            return GetActivities(string.Format("{0}/activity/{1}.xml", "/publishers/" + publisher, GetBucket(bucket)));
         }
 
+        public Activities GetPublisherNotifications(string publisher)
+        {
+            return GetActivities("/publishers/" + publisher + "/notification/current.xml");
+        }
+
+        public Activities GetPublisherNotifications(string publisher, DateTime bucket)
+        {
+            return GetActivities(string.Format("{0}/notification/{1}.xml", "/publishers/" + publisher, GetBucket(bucket)));
+        }
+
+        public Activities GetFilterActivities(string publisher, string filter)
+        {
+            return GetActivities("/publishers/" + publisher + "/filters/" + filter + "/activity/current.xml");
+        }
+
+        public Activities GetFilterActivities(string publisher, string filter, DateTime bucket)
+        {
+            return GetActivities(string.Format("{0}/activity/{1}.xml", "/publishers/" + publisher + "/filters/" + filter, GetBucket(bucket)));
+        }
+
+        public Activities GetFilterNotifications(string publisher, string filter)
+        {
+            return GetActivities("/publishers/" + publisher + "/filters/" + filter + "/notification/current.xml");
+        }
+
+        public Activities GetFilterNotifications(string publisher, string filter, DateTime bucket)
+        {
+            return GetActivities(string.Format("{0}/notification/{1}.xml", "/publishers/" + publisher + "/filters/" + filter, GetBucket(bucket)));
+        }
 
         protected Activities GetActivities(string url)
         {

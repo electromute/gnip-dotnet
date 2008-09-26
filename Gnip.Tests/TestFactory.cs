@@ -10,31 +10,26 @@ namespace Gnip.Tests
 {
     class TestFactory
     {
-        // todo - replace this with not my user / pass :)
-        public static Publisher ExistingPublisher = new Publisher("bob");
+        public static Publisher ExistingPublisher = new Publisher("gniptest");
         public static Connection LiveConnection()
         {
-            return new Connection("jeremy.lightsmith@gmail.com", "test");
+            return new Connection("test@gnipcentral.com", "test1test");
         }
-
-        public static Guid TestRunGuid = Guid.NewGuid();
 
         public static Activities Activities()
         {
-            return UTF8XmlSerializer.Deserialize<Activities>(
-@"<activities>
-    <activity at='2008-07-01T07:19:45-04:00' guid='152481660' type='dugg' uid='jobshopcc'/>
-    <activity at='2008-07-01T07:19:45-04:00' guid='152481659' type='dugg' uid='rileynathanael'/>
-</activities>");
+            Activities activities = UTF8XmlSerializer.Deserialize<Activities>(@"<activities><activity at=""2008-07-01T23:19:36Z"" action=""upload"" actor=""sally"" regarding="""" source=""web"" tags=""trains,planes,automobiles"" to=""bob"" url=""http://example.com"" /><activity at=""2008-07-01T23:19:37Z"" action=""upload"" actor=""sally"" regarding="""" source=""web"" tags=""trains,planes,automobiles"" to=""bob"" url=""http://example.com"" /></activities>");
+
+            string randIntString = (new Random()).Next(0, 99999999).ToString();
+            activities[0].Regarding = randIntString;
+            activities[1].Regarding = randIntString;
+            
+            return activities;
         }
 
-        public static Collection Collection()
+        public static Filter Filter()
         {
-            return UTF8XmlSerializer.Deserialize<Collection>(
-@"<collection name='example1'>
-    <uid name='john.doe' publisher.name='twitter'/>
-    <uid name='jane' publisher.name='digg'/>
-</collection>");
+            return UTF8XmlSerializer.Deserialize<Filter>(@"<filter name='example1' fullData='false'><rule type='actor' value='me'/><rule type='actor' value='you'/></filter>");
         }
     }
 }
