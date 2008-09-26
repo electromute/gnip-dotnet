@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Gnip.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Pivotal Labs")]
+[assembly: AssemblyCompany("Gnip")]
 [assembly: AssemblyProduct("Gnip.Tests")]
-[assembly: AssemblyCopyright("Copyright © Pivotal Labs 2008")]
+[assembly: AssemblyCopyright("Copyright © Gnip 2008")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

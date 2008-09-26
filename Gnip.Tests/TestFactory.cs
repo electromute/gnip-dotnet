@@ -10,10 +10,10 @@ namespace Gnip.Tests
 {
     class TestFactory
     {
-        public static Publisher ExistingPublisher = new Publisher("gniptest");
+        public static Publisher ExistingPublisher = new Publisher("");
         public static Connection LiveConnection()
         {
-            return new Connection("test@gnipcentral.com", "test1test");
+            return new Connection("", "");
         }
 
         public static Activities Activities()
