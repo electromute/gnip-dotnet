@@ -96,11 +96,11 @@ namespace Gnip.Tests.Unit
         // activities
 
         [Test]
-        public void CanGetCurrentActivitiesPerPublisher()
+        public void CanGetCurrentNotificationsPerPublisher()
         {
-            server.ExpectAndReturn("Get", activitiesForTest.ToXml(), "/publishers/digg/activity/current.xml");
+            server.ExpectAndReturn("Get", activitiesForTest.ToXml(), "/publishers/digg/notification/current.xml");
             
-            CollectionAssert.AreEqual(activitiesForTest, gnip.GetPublisherActivities("digg"));
+            CollectionAssert.AreEqual(activitiesForTest, gnip.GetPublisherNotifications("digg"));
         }
 
         [Test]
@@ -114,7 +114,7 @@ namespace Gnip.Tests.Unit
         [Test]
         public void CanGetActivitiesForSpecificBucket()
         {
-            server.ExpectAndReturn("Get", activitiesForTest.ToXml(), "/publishers/digg/activity/200807081755.xml");
+            server.ExpectAndReturn("Get", activitiesForTest.ToXml(), "/publishers/digg/activity/200807081758.xml");
 
             CollectionAssert.AreEqual(activitiesForTest, gnip.GetPublisherActivities("digg", DateTime.Parse("7/8/2008 5:58pm GMT")));
         }

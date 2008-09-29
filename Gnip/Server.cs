@@ -19,7 +19,7 @@ namespace Gnip
         public string Username;
         public string Password;
 
-        public string BaseUrl = "https://review.gnipcentral.com";
+        public string BaseUrl = "https://s.gnipcentral.com";
 
         public Server(string username, string password) 
         {

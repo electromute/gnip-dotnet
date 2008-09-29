@@ -113,16 +113,7 @@ namespace Gnip
 
         protected string GetBucket(DateTime time)
         {
-            DateTime flooredDate = FiveMinuteFloor(time.ToUniversalTime());
-            return flooredDate.ToString("yyyyMMddHHmm");
+            return time.ToUniversalTime().ToString("yyyyMMddHHmm");
         }
-
-        private static DateTime FiveMinuteFloor(DateTime time)
-        {
-            long floor = time.Ticks / FIVE_MINUTES;
-            return new DateTime(floor * FIVE_MINUTES, DateTimeKind.Utc);
-        }
-
-        private const long FIVE_MINUTES = 5 * TimeSpan.TicksPerMinute;
     }
 }
