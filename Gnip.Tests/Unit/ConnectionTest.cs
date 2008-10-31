@@ -12,7 +12,7 @@ namespace Gnip.Tests.Unit
         IConnection gnip;
         Activities activitiesForTest;
         Filter filterForTest;
-        Publisher digg = new Publisher("digg");
+        Publisher digg = new Publisher("digg", new RuleTypes() { new RuleType("actor") });
 
         [SetUp]
         public void Setup()
@@ -35,7 +35,7 @@ namespace Gnip.Tests.Unit
         [Test]
         public void CanListPublishers()
         {
-            server.ExpectAndReturn("Get", "<publishers><publisher name=\"digg\"/></publishers>", "/publishers.xml");
+            server.ExpectAndReturn("Get", "<publishers><publisher name=\"digg\"><supportedRuleTypes><type>actor</type></supportedRuleTypes></publisher></publishers>", "/publishers.xml");
 
             List<Publisher> publishers = gnip.GetPublishers();
             

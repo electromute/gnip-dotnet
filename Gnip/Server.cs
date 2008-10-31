@@ -19,7 +19,7 @@ namespace Gnip
         public string Username;
         public string Password;
 
-        public string BaseUrl = "https://s.gnipcentral.com";
+        public string BaseUrl = "https://prod.gnipcentral.com";
 
         public Server(string username, string password) 
         {
@@ -60,6 +60,7 @@ namespace Gnip
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(BaseUrl + url);
             request.Credentials = new NetworkCredential(Username, Password);
             request.Method = verb;
+            request.UserAgent = "Gnip-Client-CSharp/2.0.1";
 
             if (xmlContent != null)
             {

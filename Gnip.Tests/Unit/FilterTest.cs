@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 using NUnit.Framework;
 
 namespace Gnip.Tests.Unit
@@ -11,7 +13,7 @@ namespace Gnip.Tests.Unit
         [Test]
         public void Properties()
         {
-            Filter filter = new Filter("mine", "false", me, you);
+            Filter filter = new Filter("mine", "false", new List<Rule>(){me, you});
 
             Assert.AreEqual("mine", filter.Name);
             Assert.AreEqual(me, filter.Rules[0]);
@@ -20,10 +22,10 @@ namespace Gnip.Tests.Unit
         [Test]
         public void EqualitySemantics()
         {
-            Assert.AreEqual(new Filter("mine", "false", me, you),
-                            new Filter("mine", "false", me, you));
-            Assert.AreNotEqual(new Filter("mine", "false", me, you),
-                               new Filter("mine", "false", me));
+            Assert.AreEqual(new Filter("mine", "false", new List<Rule>() { me, you }),
+                            new Filter("mine", "false", new List<Rule>() { me, you }));
+            Assert.AreNotEqual(new Filter("mine", "false", new List<Rule>() { me, you }),
+                               new Filter("mine", "false", new List<Rule>() { me}));
         }
 
         [Test]
@@ -31,7 +33,7 @@ namespace Gnip.Tests.Unit
         {
             string xml = @"<?xml version=""1.0"" encoding=""utf-8""?><filter xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" name=""mine"" fullData=""false""><rule type=""actor"" value=""me"" /><rule type=""actor"" value=""you"" /></filter>";
 
-            Filter filter = new Filter("mine", "false", me, you);
+            Filter filter = new Filter("mine", "false", new List<Rule>() { me, you });
             Assert.AreEqual(xml, filter.ToXml());
         }
 
@@ -40,7 +42,7 @@ namespace Gnip.Tests.Unit
         {
             string xml = @"<?xml version=""1.0"" encoding=""utf-8""?><filter xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" name=""mine"" fullData=""false""><jid>me@example.com</jid><rule type=""actor"" value=""me"" /><rule type=""actor"" value=""you"" /></filter>";
 
-            Filter filter = new Filter("mine", "false", me, you);
+            Filter filter = new Filter("mine", "false", new List<Rule>() { me, you });
             filter.SetJid("me@example.com");
             Assert.AreEqual(xml, filter.ToXml());
         }
@@ -50,7 +52,7 @@ namespace Gnip.Tests.Unit
         {
             string xml = @"<?xml version=""1.0"" encoding=""utf-8""?><filter xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" name=""mine"" fullData=""false""><postUrl>http://example.com</postUrl><rule type=""actor"" value=""me"" /><rule type=""actor"" value=""you"" /></filter>";
 
-            Filter filter = new Filter("mine", "false", me, you);
+            Filter filter = new Filter("mine", "false", new List<Rule>() { me, you });
             filter.SetPostUrl("http://example.com");
             Assert.AreEqual(xml, filter.ToXml());
         }
@@ -62,6 +64,7 @@ namespace Gnip.Tests.Unit
 
             Filter filter = UTF8XmlSerializer.Deserialize<Filter>(xml);
             Assert.AreEqual("mine", filter.Name);
+            Assert.IsTrue(filter.Rules.Count > 0);
         }
 
         [Test]

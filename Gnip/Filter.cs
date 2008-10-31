@@ -26,11 +26,11 @@ namespace Gnip
 
         private Filter() { }
 
-        public Filter(string name, string fullData, params Rule [] uids)
+        public Filter(string name, string fullData, List<Rule> rules)
         {
             this.Name = name;
             this.FullData = fullData;
-            this.Rules = new List<Rule>(uids);
+            this.Rules = rules;
         }
 
         public void SetJid(string jid)

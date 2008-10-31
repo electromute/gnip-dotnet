@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity.cs" />
+    <Compile Include="RuleType.cs" />
     <Compile Include="Filter.cs" />
     <Compile Include="IConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -6,12 +6,14 @@
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6683DE2C-7A36-4083-8472-384C6689DB33}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Gnip.Tests</RootNamespace>
     <AssemblyName>Gnip.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -56,7 +58,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Integration\FilterIntegrationTest.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Unit\ActivityTest.cs" />
+    <Compile Include="Unit\RuleTypesTest.cs" />
+    <Compile Include="Unit\RuleTypeTest.cs" />
+    <Compile Include="Unit\PublishersTests.cs" />
     <Compile Include="Unit\FilterTest.cs" />
     <Compile Include="Integration\PublisherIntegrationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,6 +76,9 @@
       <Project>{8B46EAA0-CCE5-47E8-85D1-10ED68F059C0}</Project>
       <Name>Gnip</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="gnip.xsd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

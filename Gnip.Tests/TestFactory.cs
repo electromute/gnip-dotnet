@@ -10,7 +10,7 @@ namespace Gnip.Tests
 {
     class TestFactory
     {
-        public static Publisher ExistingPublisher = new Publisher("");
+        public static Publisher ExistingPublisher = new Publisher("", new RuleTypes() { new RuleType("actor") });
         public static Connection LiveConnection()
         {
             return new Connection("", "");
