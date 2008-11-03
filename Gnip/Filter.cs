@@ -14,41 +14,24 @@ namespace Gnip
         public string FullData; 
        
         [XmlElement("postUrl")]
-        [XmlElement("jid")]
-        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemElementName")]
-        public string OptionalItem;  
-
-        [XmlIgnoreAttribute()]
-        public ItemChoiceType ItemElementName;
+        public string PostUrl;  
       
         [XmlElement("rule")]
         public List<Rule> Rules;
 
         private Filter() { }
 
-        public Filter(string name, string fullData, List<Rule> rules)
+        public Filter(string name, string fullData, string postUrl, List<Rule> rules)
         {
             this.Name = name;
             this.FullData = fullData;
             this.Rules = rules;
-        }
-
-        public void SetJid(string jid)
-        {
-            this.OptionalItem = jid;
-            this.ItemElementName = ItemChoiceType.jid;
+            this.PostUrl = postUrl;
         }
 
         public void SetPostUrl(string postUrl)
         {
-            this.OptionalItem = postUrl;
-            this.ItemElementName = ItemChoiceType.postUrl;
-        }
-
-        public enum ItemChoiceType
-        {
-            postUrl,
-            jid
+            this.PostUrl = postUrl;
         }
 
         public override bool Equals(object obj)
