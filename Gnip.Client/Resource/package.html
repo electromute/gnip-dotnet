@@ -1,0 +1,30 @@
+<html>
+<body>
+This package contains the model objects that are exchanged between clients and a Gnip server.  Model objects are used
+by the Gnip client library in two basic ways:
+<ol>
+    <li>
+        As Java object representations of XML objects that exist on a Gnip server.  For example, {@link Filter filters}
+        or {@link Publisher publishers} that already exist on a Gnip server can be requested using a
+        {@link GnipConnection} which will send an HTTP request that returns XML which is marshalled into a Java
+        model object.
+    </li>
+    <li>
+        As Java objects that will be converted into XML to send to a Gnip server.  For example, an
+        {@link Activities activities} object can be created and populated with {@link Activity activity} data
+        and then published to a Publisher via {@link GnipConnection}.  This will convert the Java model
+        objects into XML and transmit them over HTTP to a Gnip server.
+    </li>
+</ol>
+<br/>
+<br/>
+Subscribers interested in reading data from Gnip will be particularly interested in {@link Publisher publishers},
+{@link Filter filters}, {@link Rule rules}, and {@link RuleType rule types}.  These objects can be used as sources
+of {@link Activity activity} dat.
+<br/>
+<br/>
+Publishers interested in writing data to Gnip will be particularly interested in {@link Publisher publishers} and
+{@link Activities activities} to which {@link Activity activity} data wrapping an {@link Payload activity payload}
+can be sent.
+</body>
+</html>

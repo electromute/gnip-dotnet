@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\rick\dev\gnip\gnip-dotnet\Gnip.ClientTest\gnip.nunit" total="6" failures="0" not-run="0" date="2009-01-18" time="17:16:34">
+  <environment nunit-version="2.4.8.0" clr-version="2.0.50727.3053" os-version="Microsoft Windows NT 6.0.6001 Service Pack 1" platform="Win32NT" cwd="C:\Programs\NUnit-2.4.8-net-2.0\bin" machine-name="HYDROGEN" user="rick" user-domain="MONDOROBOT" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite name="C:\rick\dev\gnip\gnip-dotnet\Gnip.ClientTest\gnip.nunit" success="True" time="2.149" asserts="0">
+    <results>
+      <test-suite name="C:\rick\dev\gnip\gnip-dotnet\Gnip.ClientTest\bin\Debug\Gnip.ClientTest.exe" success="True" time="2.142" asserts="0">
+        <results>
+          <test-suite name="Gnip" success="True" time="2.142" asserts="0">
+            <results>
+              <test-suite name="Client" success="True" time="2.140" asserts="0">
+                <results>
+                  <test-suite name="Resource" success="True" time="2.135" asserts="0">
+                    <results>
+                      <test-suite name="ActivityTest" success="True" time="2.111" asserts="0">
+                        <results>
+                          <test-case name="Gnip.Client.Resource.ActivityTest.TestActivityConstructor_01" executed="True" success="True" time="0.582" asserts="13" />
+                          <test-case name="Gnip.Client.Resource.ActivityTest.TestActivityConstructor_02" executed="True" success="True" time="0.005" asserts="12" />
+                          <test-case name="Gnip.Client.Resource.ActivityTest.TestActivityConstructor_03" executed="True" success="True" time="0.011" asserts="16" />
+                          <test-case name="Gnip.Client.Resource.ActivityTest.TestActivityDeserialize_01" executed="True" success="True" time="1.476" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.ActivityTest.TestActivitySerialize_01" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.ActivityTest.TestActivitySerialize_02" executed="True" success="True" time="0.006" asserts="1" />
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

@@ -1,0 +1,74 @@
+<project name='Gnip' default='all'>
+  <property name='version' value='3.0' />
+ 
+  <target name='clean'>
+    <delete failonerror='false'>
+      <fileset>
+        <include name='**/bin/**'/>
+        <include name='**/obj/**'/>
+        <include name='*.zip'/>
+        <include name='*.dll'/>
+        <include name='*.cache'/>
+        <include name='gnip-results.xml'/>
+      </fileset>
+    </delete>
+  </target>
+ 
+  <target name='compile'>
+    <exec program='msbuild.exe'
+      basedir='c:\WINDOWS\Microsoft.NET\Framework\v3.5'
+      workingdir='.'>
+      <arg value='Gnip.Client.sln' />
+      <arg value='/property:Configuration=Debug' />
+      <arg value='/nologo' />
+      <arg value='/verbosity:quiet' />
+    </exec>
+  </target>
+ 
+  <target name='dist' depends='compile'>
+    <delete failonerror='false'>
+      <fileset>
+        <include name='*.zip'/>
+      </fileset>
+    </delete>
+ 
+    <mkdir dir='bin'/>
+    <copy file='Gnip.Client/bin/Debug/Gnip.Client.dll' todir='bin'/>
+ 
+    <zip zipfile="gnip-dotnet-${version}.zip" includeemptydirs="true">
+      <fileset basedir=".">
+        <include name="**/*"/>
+        <exclude name=".git/**"/>
+        <exclude name=".gitignore"/>
+        <exclude name='*/bin/**'/>
+        <exclude name='**/obj/**'/>
+        <exclude name="**/*.cache"/>
+        <exclude name="**/*.log"/>
+        <exclude name="**/*.suo"/>
+        <exclude name="**/*.csproj.user"/>
+        <exclude name="**/*.zip"/>
+        <exclude name="Gnip.Lib/*/**/*"/>
+        <exclude name="*results.xml"/>
+        <include name="bin/**"/>
+      </fileset>
+    </zip>
+  </target>
+ 
+  <target name='test' depends='compile'>
+    <exec program='c:/Programs/NUnit-2.4.8-net-2.0/bin/nunit-console.exe'>
+      <arg value='/xml=gnip-results.xml' />
+      <arg value='Gnip.ClientTest/gnip.nunit' />
+    </exec>
+  </target>
+  
+  <target name='all' depends='clean, test, dist'/>
+
+  <target name="clean-svn" description="remove all svn files">
+    <delete>
+      <fileset basedir="." defaultexcludes="False">
+        <include name="**/.svn/**/*" />
+        <include name="**/.svn" />
+      </fileset>
+    </delete>
+  </target>
+</project>

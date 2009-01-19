@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BFDB606E-9C16-47C0-863B-F8B4294DE8CF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gnip.Client</RootNamespace>
+    <AssemblyName>Gnip.Client</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Gnip.Lib\log4net-1.2.10\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config.cs" />
+    <Compile Include="GnipConnection.cs" />
+    <Compile Include="GnipException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resource\Activities.cs" />
+    <Compile Include="Resource\Activity.cs" />
+    <Compile Include="Resource\Actor.cs" />
+    <Compile Include="Resource\Error.cs" />
+    <Compile Include="Resource\Filter.cs" />
+    <Compile Include="Resource\GnipSchema.cs" />
+    <Compile Include="Resource\GnipUrl.cs" />
+    <Compile Include="Resource\GnipValue.cs" />
+    <Compile Include="Resource\PublisherType.cs" />
+    <Compile Include="Util\IDeepCompare.cs" />
+    <Compile Include="Resource\MessageBase.cs" />
+    <Compile Include="Resource\Payload.cs" />
+    <Compile Include="Resource\Place.cs" />
+    <Compile Include="Resource\Publisher.cs" />
+    <Compile Include="Resource\Publishers.cs" />
+    <Compile Include="Resource\IResource.cs" />
+    <Compile Include="Resource\Result.cs" />
+    <Compile Include="Resource\Rule.cs" />
+    <Compile Include="Resource\Rules.cs" />
+    <Compile Include="Resource\RuleType.cs" />
+    <Compile Include="Util\ArrayUtils.cs" />
+    <Compile Include="Util\HTTPConnection.cs" />
+    <Compile Include="Util\HTTPMethod.cs" />
+    <Compile Include="Util\ListUtils.cs" />
+    <Compile Include="Util\ObjectUtils.cs">
+    </Compile>
+    <Compile Include="Util\StreamUtils.cs" />
+    <Compile Include="Util\StringUtils.cs" />
+    <Compile Include="Util\XmlUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resource\package.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Xsd\gnip.xsd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
