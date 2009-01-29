@@ -28,7 +28,7 @@ namespace Gnip.Client.Resource
 	{
         private string title;
         private string body;
-        private List<GnipUrl> mediaUrls;
+        private List<MediaUrl> mediaUrls;
 		private string raw;
         private string decodedRaw = null;
 
@@ -54,7 +54,7 @@ namespace Gnip.Client.Resource
         /// </summary>
         private void Initialize()
         {
-            this.mediaUrls = new List<GnipUrl>();
+            this.mediaUrls = new List<MediaUrl>();
         }
 
         /// <summary> 
@@ -88,7 +88,7 @@ namespace Gnip.Client.Resource
         /// <param name="body">the value of the body</param>
         /// <param name="raw">the value of the activity's raw data</param>
         /// <param name="isEncoded">a flag set for whether the raw data is encoded</param>
-        public Payload(string title, string body, List<GnipUrl> mediaUrls, string raw, bool isEncoded)
+        public Payload(string title, string body, List<MediaUrl> mediaUrls, string raw, bool isEncoded)
             : this(true)
         {
             this.title = title;
@@ -98,7 +98,7 @@ namespace Gnip.Client.Resource
         }
 
         /// <summary> 
-        /// Retrieves the payload's title.
+        /// Gets/Sets the payload's title.
         /// </summary>
         [XmlElement(ElementName = "title")]
         public string Title
@@ -108,7 +108,7 @@ namespace Gnip.Client.Resource
         }
 
 		/// <summary> 
-        /// Retrieves the payload's body.
+        /// Gets/Set the payload's body.
         /// </summary>
         [XmlElement(ElementName="body")]
 	    public string Body
@@ -118,10 +118,10 @@ namespace Gnip.Client.Resource
 		}
 
         /// <summary> 
-        /// Retrieves the payload's mediaUrl.
+        /// Gets/Sets the payload's mediaUrls.
         /// </summary>
         [XmlElement(ElementName = "mediaURL")]
-        public List<GnipUrl> MediaUrls
+        public List<MediaUrl> MediaUrls
         {
             get { return this.mediaUrls; }
             set { this.mediaUrls = value; }
@@ -226,7 +226,7 @@ namespace Gnip.Client.Resource
 
             return (string.Equals(this.title, that.title) &&
                 string.Equals(this.body, that.body) &&
-                ListUtils.AreDeepEqual<GnipUrl>(this.mediaUrls, that.mediaUrls) &&
+                ListUtils.AreDeepEqual<MediaUrl>(this.mediaUrls, that.mediaUrls) &&
                 string.Equals(this.raw, that.raw));
         }
 

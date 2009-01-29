@@ -1,6 +1,7 @@
 <project name='Gnip' default='all'>
   <property name='version' value='3.0' />
- 
+  <property name='nunit.bin' value='c:/Programs/NUnit-2.4.8-net-2.0/bin' />
+  
   <target name='clean'>
     <delete failonerror='false'>
       <fileset>
@@ -55,7 +56,7 @@
   </target>
  
   <target name='test' depends='compile'>
-    <exec program='c:/Programs/NUnit-2.4.8-net-2.0/bin/nunit-console.exe'>
+    <exec program='${nunit.bin}/nunit-console.exe'>
       <arg value='/xml=gnip-results.xml' />
       <arg value='Gnip.ClientTest/gnip.nunit' />
     </exec>

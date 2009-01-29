@@ -7,6 +7,7 @@ using log4net;
 using Gnip.Client.Utils;
 using Gnip.Client.Resource;
 using System.Reflection;
+using System.Globalization;
 
 namespace Gnip.Client.Util
 {
@@ -30,9 +31,17 @@ namespace Gnip.Client.Util
     internal class HTTPConnection
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(HTTPConnection));
-        private static string USER_AGENT_STRING = "Gnip-Client-CSharp/2.0.1";
+        private static readonly string USER_AGENT_STRING;
 
         private Config config;
+
+        static HTTPConnection()
+        {
+            Assembly thisAssembly = Assembly.GetExecutingAssembly();
+            AssemblyName name = thisAssembly.GetName();
+            Version version = name.Version;
+            USER_AGENT_STRING = "Gnip-Client-CSharp/" + version.Major + "." + version.Minor + "." + version.Build;
+        }
 
         /// <summary> Create a new {@link HTTPConnection} with the provided configuration.</summary>
         /// <param name="config">the configuration for the connection
@@ -40,6 +49,38 @@ namespace Gnip.Client.Util
         public HTTPConnection(Config config)
         {
             this.config = config;
+        }
+
+        /// <summary> 
+        /// Get the Timespan different betweet the server time and the client time. This allows
+        /// the server time to be approximated more accurately by
+        /// DateTime.Now.Add(GetServerTimeDelta());
+        /// </summary>
+        /// <param name="urlString">the URL to receive the GET</param>
+        /// <returns>the TimeSpan difference between this computer and the server.</returns>
+        /// <throws>IOException if an exception occurs communicating with the server</throws>
+        public TimeSpan GetServerTimeDelta()
+        {
+            Uri url = new Uri(this.config.GnipServer);
+            HttpWebRequest urlConnection = (System.Net.HttpWebRequest)WebRequest.Create(url);
+            urlConnection.Method = "GET";
+            urlConnection.UserAgent = USER_AGENT_STRING;
+            urlConnection.Timeout = config.RequestTimeout;
+            urlConnection.ReadWriteTimeout = config.ReadWriteTimeout;
+
+            DateTime now = DateTime.Now;
+            WebHeaderCollection headers =  GetHeaders(urlConnection);
+            String dateString = headers["Date"];
+
+            TimeSpan ret = TimeSpan.Zero;
+
+            if (dateString != null)
+            {
+                DateTime dateTime = DateTime.ParseExact(dateString, "R", null).ToLocalTime();
+                ret = dateTime.Subtract(now);
+            }
+
+            return ret;
         }
 
         /// <summary> 
@@ -72,7 +113,7 @@ namespace Gnip.Client.Util
 
             Result ret = TransferData(data, urlConnection);
 
-            if(Log.IsDebugEnabled)
+            if (Log.IsDebugEnabled)
                 Log.Debug("POST Result Message: " + ret.Message);
 
             return ret;
@@ -239,6 +280,36 @@ namespace Gnip.Client.Util
 
             return resultData;
 
+        }
+
+        // <summary>
+        /// Gets the response headers for the request.
+        /// </summary>
+        /// <param name="urlConnection"></param>
+        /// <returns>WebHeaderCollection</returns>
+        private WebHeaderCollection GetHeaders(HttpWebRequest request)
+        {
+            HttpWebResponse response = null;
+
+            try
+            {
+                response = (HttpWebResponse)request.GetResponse();
+                if (response.StatusCode != HttpStatusCode.OK)
+                {
+                    throw new IOException("Error with request code:" + response.StatusCode + " message: " + response.StatusDescription);
+                }
+            }
+            catch (WebException wex)
+            {
+                Log.Error("Exception Getting Response. Url: " + request.Address, wex);
+                throw;
+            }
+
+            WebHeaderCollection collection = response.Headers;
+
+            response.Close();
+
+            return collection;
         }
 
         /// <summary>

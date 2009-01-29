@@ -38,7 +38,9 @@ namespace Gnip.Client
 			config.ReadWriteTimeout = 10000;
             config.RequestTimeout = 60000;
 			gnipConnection = new GnipConnection(config);
-			
+            // Auto sync to the servers time.
+            gnipConnection.TimeCorrection = gnipConnection.GetServerTimeDelta();
+
 			string localPublisherId = CONFIG.Publisher;
 			localPublisher = gnipConnection.GetPublisher(CONFIG.PublisherType, localPublisherId);
 			if (localPublisher == null)

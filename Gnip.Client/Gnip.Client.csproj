@@ -60,6 +60,7 @@
     <Compile Include="Resource\GnipSchema.cs" />
     <Compile Include="Resource\GnipUrl.cs" />
     <Compile Include="Resource\GnipValue.cs" />
+    <Compile Include="Resource\MediaUrl.cs" />
     <Compile Include="Resource\PublisherType.cs" />
     <Compile Include="Util\IDeepCompare.cs" />
     <Compile Include="Resource\MessageBase.cs" />
@@ -83,7 +84,7 @@
     <Compile Include="Util\XmlUtils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resource\package.html" />
+    <None Include="Xsd\gnip-old.xsd" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Xsd\gnip.xsd" />

@@ -14,7 +14,7 @@ namespace Gnip.Client
                 if (TestConfig.singleton != null)
                     return TestConfig.singleton;
 
-                NameValueCollection appSettings = System.Configuration.ConfigurationSettings.AppSettings;
+                NameValueCollection appSettings = System.Configuration.ConfigurationManager.AppSettings;
                 TestConfig.singleton = new TestConfig(
                     appSettings["gnip.username"], 
                     appSettings["gnip.password"], 

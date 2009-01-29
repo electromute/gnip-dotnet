@@ -99,7 +99,7 @@ namespace Gnip.Client
 		
 		// this test can only be run if your user has permission
 		// to access full data from Gnip
-        public void TestGetActivityWithPayloadForPublisherFromGnip()
+        public void TestGetActivityWithPayloadForPublisherFromGnip_01()
         {
             Activities activities = new Activities();
 
@@ -121,6 +121,32 @@ namespace Gnip.Client
             Assert.AreEqual(body, activitiesList[idx].Payload.Body);
             Assert.AreEqual(encodedRaw, activitiesList[idx].Payload.Raw);
             Assert.AreEqual(raw, activitiesList[idx].Payload.DecodedRaw);
+        }
+
+        // this test can only be run if your user has permission
+        // to access full data from Gnip
+        public void TestGetActivityWithPayloadForPublisherFromGnip_02()
+        {
+            Activities activities = new Activities();
+
+            String body = "joe's update payload body";
+            String raw = "joe's update body raw";
+            List<MediaUrl> mediaUrls = new List<MediaUrl>() { new MediaUrl("url 1", "width 1", "height 1", "duration 1", "mimeType 1", "type 1") };
+            Payload payload = new Payload("title", body, mediaUrls, raw, false);
+            Activity activity = new Activity(new Actor("joe"), "update", payload);
+            activities.Items.Add(activity);
+            String encodedRaw = activity.Payload.Raw;
+
+            gnipConnection.Publish(localPublisher, activities);
+
+            WaitForServerWorkToComplete();
+
+            activities = gnipConnection.GetActivities(localPublisher);
+            Assert.IsNotNull(activities);
+            List<Activity> activitiesList = activities.Items;
+            int idx = activitiesList.Count - 1;
+            Assert.AreEqual(activity.Action, activitiesList[idx].Action);
+            Assert.IsTrue(payload.DeepEquals(activitiesList[idx].Payload));
         }
 
         [Test]
@@ -157,10 +183,6 @@ namespace Gnip.Client
                 Activities activities = gnipConnection.GetActivities(localPublisher, existingFilter);
                 Assert.IsNotNull(activities);
                 Assert.AreEqual(activity1.Action, activities.Items[0].Action);
-            }
-            catch (System.Exception e)
-            {
-                throw e;
             }
             finally
             {
@@ -206,10 +228,6 @@ namespace Gnip.Client
                 Assert.IsTrue(activity1.DeepEquals(serverActivities.Items[0]));
                 Assert.IsTrue(activity3.DeepEquals(serverActivities.Items[1]));
             }
-            catch (System.Exception e)
-            {
-                throw e;
-            }
             finally
             {
                 Result res = gnipConnection.Delete(localPublisher, existingFilter);
@@ -254,10 +272,6 @@ namespace Gnip.Client
                 Assert.IsTrue(activity1.DeepEquals(serverActivities.Items[0]));
                 Assert.IsTrue(activity3.DeepEquals(serverActivities.Items[1]));
             }
-            catch (System.Exception e)
-            {
-                throw e;
-            }
             finally
             {
                 Result res = gnipConnection.Delete(localPublisher, existingFilter);
@@ -284,8 +298,8 @@ namespace Gnip.Client
                 localActivities.Items.Add(new Activity(new Actor("tom10"), "update2"));
                 localActivities.Items.Add(new Activity(new Actor("jane10"), "update3"));
 
-                gnipConnection.Publish(localPublisher, localActivities);
                 DateTime now = DateTime.Now;
+                gnipConnection.Publish(localPublisher, localActivities);
 
                 WaitForServerWorkToComplete();
 
@@ -294,10 +308,6 @@ namespace Gnip.Client
                 Assert.AreEqual(2, remoteActivities.Items.Count);
                 Assert.AreEqual(localActivities.Items[0].Action, remoteActivities.Items[0].Action);
                 Assert.AreEqual(localActivities.Items[2].Action, remoteActivities.Items[1].Action);
-            }
-            catch (System.Exception e)
-            {
-                throw e;
             }
             finally
             {
@@ -325,8 +335,8 @@ namespace Gnip.Client
                 localActivities.Items.Add(new Activity(new Actor("tom10"), "update2"));
                 localActivities.Items.Add(new Activity(new Actor("jane10"), "update3"));
 
-                gnipConnection.Publish(localPublisher, localActivities);
                 DateTime now = DateTime.Now;
+                gnipConnection.Publish(localPublisher, localActivities);
 
                 WaitForServerWorkToComplete();
 
@@ -335,10 +345,6 @@ namespace Gnip.Client
                 Assert.AreEqual(2, remoteActivities.Items.Count);
                 Assert.AreEqual(localActivities.Items[0].Action, remoteActivities.Items[0].Action);
                 Assert.AreEqual(localActivities.Items[2].Action, remoteActivities.Items[1].Action);
-            }
-            catch (System.Exception e)
-            {
-                throw e;
             }
             finally
             {
@@ -350,19 +356,19 @@ namespace Gnip.Client
         public Activity GetActivity1(int val, string actor, string action)
         {
             Activity activity = new Activity(true);
-
             activity.At = DateTime.Now;
             activity.Action = action;
             activity.ActivityId = "activityID " + val;
             activity.Url = "http://www.gnip.com/" + val;
             activity.Sources.Add("sources " + val);
+            activity.Keywords.Add("keywords " + val);
             activity.Places.Add(new Place(new double[] { 1.2, 3.4 }));
             activity.Actors.Add(new Actor(actor, "Actors.uid " + val, "http://www.google.com/Actors.metaUrl/" + val));
             activity.DestinationUrls.Add(new GnipUrl("http://www.gnip.com/DestinationUrls.value" + val, "http://www.gnip.com/DestinationUrls.metaUrl" + val));
             activity.Tags.Add(new GnipValue("Tags.value " + val, "http://www.gnip.com/Tags.metaUrl" + val));
             activity.Tos.Add(new GnipValue("Tos.value " + val, "http://www.gnip.com/Tos.metaUrl" + val));
             activity.RegardingUrls.Add(new GnipUrl("http://www.gnip.com/RegardingUrls.value" + val, "http://www.gnip.com/RegardingUrls.metaUrl" + val));
-            activity.Payload = new Payload("Payload.title 1", "Payload.body 1", "Payload.raw 1", false);
+            activity.Payload = new Payload("Payload.title " + val, "Payload.body " + val, new List<MediaUrl>() { new MediaUrl("http://www.gnip.com/MediaUrl.url" + val, "width " + val, "height " + val, "duration " + val, "mimeType " + val, "type " + val) }, "Payload.raw " + val, false);
 
             return activity;
         }
@@ -376,6 +382,7 @@ namespace Gnip.Client
             activity.ActivityId = "activityID " + (val + 0);
             activity.Url = "http://www.gnip.com/" + (val + 0);
             activity.Sources = new List<string> { "sources " + (val + 0), "sources " + (val + 1) };
+            activity.Keywords = new List<string> { "keywords " + (val + 0), "keywords " + (val + 1) };
             activity.Places = new List<Place> { new Place(new double[] { 1.2, 3.4 }), new Place(new double[] { 2.2, 4.4 }) };
             activity.Actors = new List<Actor> {
                 new Actor(actor1, "Actors.uid " + (val + 0), "http://www.gnip.com/Actors.metaUrl" + (val + 0)),

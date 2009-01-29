@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
+<!-- Note: This schema differs slightly from the published schema. Here nested types 
+     are factored out for the purposes of unit testing. Not other changes were made and
+     any XML document that validates to the original XSD is guranteed to validate to this 
+     one. -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
   <!-- Root element of representations a set of activities. -->
@@ -103,16 +107,30 @@
         <xs:element name="activityID" type="xs:string" minOccurs="0" maxOccurs="1"/>
         <xs:element name="URL" type="xs:anyURI" minOccurs="0" maxOccurs="1"/>
         <xs:element name="source" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-        <xs:element name="place" minOccurs="0" maxOccurs="unbounded" type="place"/>
-        <xs:element name="actor" minOccurs="0" maxOccurs="unbounded" type="actor"/>
-        <xs:element name="destinationURL" minOccurs="0" maxOccurs="unbounded" type="gnipURL" />
-        <xs:element name="tag" minOccurs="0" maxOccurs="unbounded" type="gnipValue" />
-        <xs:element name="to" minOccurs="0" maxOccurs="unbounded" type="gnipValue" />
-        <xs:element name="regardingURL" minOccurs="0" maxOccurs="unbounded" type="gnipURL" />
-        <xs:element name="payload" minOccurs="0" maxOccurs="1" type="payload"/>
+        <xs:element name="keyword" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element name="place" type="place" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="actor" type="actor" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="destinationURL" type="gnipURL" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="tag" type="gnipValue" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="to" type="gnipValue" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="regardingURL" type="gnipValue" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="payload" type="payload" minOccurs="0" maxOccurs="1" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+
+  <xs:element name="place" type="place" />
+  
+  <xs:complexType name="place">
+    <xs:sequence>
+      <xs:element name="point" type="pointType" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="elev" type="xs:double" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="floor" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="featuretypetag" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="featurename" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="relationshiptag" type="xs:string" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
 
   <xs:element name="actor" type="actor" />
   
@@ -121,6 +139,51 @@
       <xs:extension base="xs:string">
         <xs:attribute name="metaURL" use="optional" type="xs:anyURI"/>
         <xs:attribute name="uid" use="optional" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:element name="gnipURL" type="gnipURL" />
+  
+  <xs:complexType name="gnipURL">
+    <xs:simpleContent>
+      <xs:extension base="xs:anyURI">
+        <xs:attribute name="metaURL" use="optional" type="xs:anyURI"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:element name="gnipValue" type="gnipValue" />
+
+  <xs:complexType name="gnipValue">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="metaURL" use="optional" type="xs:anyURI"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:element name="payload" type="payload" />
+  
+  <xs:complexType name="payload">
+    <xs:sequence>
+      <xs:element name="title" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="body" type="xs:normalizedString" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="mediaURL" type="mediaURL" minOccurs="0" maxOccurs="unbounded" />
+      <xs:element name="raw" type="xs:base64Binary" minOccurs="1" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="mediaURL" type="mediaURL" />
+
+  <xs:complexType name="mediaURL">
+    <xs:simpleContent>
+      <xs:extension base="xs:anyURI">
+        <xs:attribute name="height" use="optional" type="xs:string"/>
+        <xs:attribute name="width" use="optional" type="xs:string"/>
+        <xs:attribute name="duration" use="optional" type="xs:string"/>
+        <xs:attribute name="mimeType" use="optional" type="xs:string"/>
+        <xs:attribute name="type" use="optional" type="xs:string"/>
       </xs:extension>
     </xs:simpleContent>
   </xs:complexType>
@@ -140,38 +203,6 @@
     </xs:complexType>
   </xs:element>
 
-  <xs:element name="place" type="place"/>
-  
-  <xs:complexType name="place">
-    <xs:sequence>
-      <xs:element name="point" type="pointType" minOccurs="1" maxOccurs="1"/>
-      <xs:element name="elev" type="xs:double" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="floor" type="xs:integer" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="featuretypetag" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="featurename" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="relationshiptag" type="xs:string" minOccurs="0" maxOccurs="1"/>
-    </xs:sequence>
-  </xs:complexType>
-  
-  <xs:element name="payload" type="payload"/>
-  
-  <xs:complexType name="payload">
-    <xs:sequence>
-      <xs:element name="title" type="xs:string" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="body" type="xs:normalizedString" minOccurs="0" maxOccurs="1"/>
-      <xs:element name="mediaURL" minOccurs="0" maxOccurs="unbounded">
-        <xs:complexType>
-          <xs:simpleContent>
-            <xs:extension base="xs:anyURI">
-              <xs:attribute name="metaURL" use="optional" type="xs:anyURI"/>
-            </xs:extension>
-          </xs:simpleContent>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="raw" type="xs:base64Binary" minOccurs="1" maxOccurs="1"/>
-    </xs:sequence>
-  </xs:complexType>
-
   <xs:element name="rule" type="rule"/>
 
   <xs:complexType name="rule">
@@ -182,26 +213,6 @@
     </xs:simpleContent>
   </xs:complexType>
 
-  <xs:element name="gnipURL" type="gnipURL"/>
-  
-  <xs:complexType name="gnipURL">
-    <xs:simpleContent>
-      <xs:extension base="xs:anyURI">
-        <xs:attribute name="metaURL" use="optional" type="xs:anyURI"/>
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-
-  <xs:element name="gnipValue" type="gnipValue"/>
-
-  <xs:complexType name="gnipValue">
-    <xs:simpleContent>
-      <xs:extension base="xs:string">
-        <xs:attribute name="metaURL" use="optional" type="xs:anyURI"/>
-      </xs:extension>
-    </xs:simpleContent>
-  </xs:complexType>
-  
   <xs:simpleType name="uriSafeType">
     <xs:restriction base="xs:string">
       <xs:pattern value="[A-z0-9.+\-]+"/>

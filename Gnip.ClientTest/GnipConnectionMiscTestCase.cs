@@ -24,7 +24,9 @@ namespace Gnip.Client
         [Test]
         public void TestCalculateServerDelta()
         {
-            base.gnipConnection.SyncToServerTime();
+            TimeSpan span = base.gnipConnection.GetServerTimeDelta();
+            base.gnipConnection.TimeCorrection = span;
+            Assert.AreEqual(span, base.gnipConnection.TimeCorrection);
         }
     }
 }

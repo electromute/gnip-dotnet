@@ -78,6 +78,7 @@ namespace Gnip.Client.Resource
                                 "<activityID>activityID 1</activityID>" +
                                 "<URL>url 1</URL>" +
                                 "<source>sources 1</source>" +
+                                "<keyword>keywords 1</keyword>" +
                                 "<place>" +
                                     "<point>1.2 3.4</point>" +
                                 "</place>" +
@@ -98,6 +99,7 @@ namespace Gnip.Client.Resource
                                 "<activityID>activityID 2</activityID>" +
                                 "<URL>url 2</URL>" +
                                 "<source>sources 2</source>" +
+                                "<keyword>keywords 2</keyword>" +
                                 "<place>" +
                                     "<point>1.2 3.4</point>" +
                                 "</place>" +
@@ -118,6 +120,7 @@ namespace Gnip.Client.Resource
                                 "<activityID>activityID 3</activityID>" +
                                 "<URL>url 3</URL>" +
                                 "<source>sources 3</source>" +
+                                "<keyword>keywords 3</keyword>" +
                                 "<place>" +
                                     "<point>1.2 3.4</point>" +
                                 "</place>" +

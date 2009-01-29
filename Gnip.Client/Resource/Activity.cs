@@ -27,6 +27,7 @@ namespace Gnip.Client.Resource
         private string activityId;
         private string url;
         private List<string> sources;
+        private List<string> keywords;
         private List<Place> places;
         private List<Actor> actors;
         private List<GnipUrl> destinationUrls;
@@ -55,14 +56,38 @@ namespace Gnip.Client.Resource
         /// <summary> A basic constructor for creating an activity from an actor, often a username, and an
         /// action, often something the actor did.
         /// </summary>
+        /// <param name="at">the time at which the activity occured.</param>
+        /// <param name="action">the action performed by the actor
+        /// </param>
+        public Activity(DateTime at, string action)
+            : this(true)
+        {
+            this.at = at;
+            this.action = action;
+        }
+
+        /// <summary> A basic constructor for creating an activity from an actor, often a username, and an
+        /// action, often something the actor did.
+        /// </summary>
+        /// <param name="at">the time at which the activity occured.</param>
+        /// <param name="action">the action performed by the actor</param>
+        /// <param name="payload">the data associated with the activity</param>
+        public Activity(DateTime at, string action, Payload payload)
+            : this(at, action)
+        {
+            this.payload = payload;
+        }
+
+        /// <summary> A basic constructor for creating an activity from an actor, often a username, and an
+        /// action, often something the actor did.
+        /// </summary>
         /// <param name="actor">the actor</param>
         /// <param name="action">the action performed by the actor
         /// </param>
-        public Activity(Actor actor, string action) : this(true)
+        public Activity(Actor actor, string action)
+            : this(DateTime.Now, action)
         {
-            this.at = DateTime.Now;
             this.actors.Add(actor);
-            this.action = action;
         }
 
         /// <summary> A constructor for creating an activity from an actor, often a username, and an action, often
@@ -84,6 +109,7 @@ namespace Gnip.Client.Resource
         protected virtual void Initialize()
         {
             this.sources = new List<string>();
+            this.keywords = new List<string>();
             this.places = new List<Place>();
             this.actors = new List<Actor>();
             this.destinationUrls = new List<GnipUrl>();
@@ -140,6 +166,16 @@ namespace Gnip.Client.Resource
         {
             get { return this.sources; }
             set { this.sources = value; }
+        }
+
+        /// <summary>
+        /// Gets/Sets the keywords of the activity.
+        /// </summary>
+        [XmlElement(ElementName = "keyword")]
+        public List<string> Keywords
+        {
+            get { return this.keywords; }
+            set { this.keywords = value; }
         }
 
         /// <summary>
@@ -278,6 +314,7 @@ namespace Gnip.Client.Resource
                 string.Equals(this.activityId, that.activityId) &&
                 string.Equals(this.url, that.url) &&
                 ListUtils.AreEqual<string>(this.sources,that.sources) &&
+                ListUtils.AreEqual<string>(this.keywords, that.keywords) &&
                 ListUtils.AreDeepEqual<Place>(this.places,that.places) &&
                 ListUtils.AreDeepEqual<Actor>(this.actors,that.actors) &&
                 ListUtils.AreDeepEqual<GnipUrl>(this.destinationUrls,that.destinationUrls) &&
@@ -307,6 +344,7 @@ namespace Gnip.Client.Resource
                 string.Equals(this.activityId, that.activityId) &&
                 string.Equals(this.url, that.url) &&
                 this.sources == that.sources &&
+                this.keywords == that.keywords &&
                 this.places == that.places &&
                 this.actors == that.actors &&
                 this.destinationUrls == that.destinationUrls &&

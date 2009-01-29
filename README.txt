@@ -9,17 +9,19 @@ library supports activities related to publishing and subscribing to data.
 Dependency Urls coppied into the Gnip.Lib folder.
 
 = Required Dependencies =
-  - .NET 3.0
+
+  - .NET 3.5
   - A user account on Gnip http://gnipcentral.com/
-  - log4net - Copy the log4net.dll and log4net.xml to the 
-    Gnip.Lib/log4net-<version> folder. If you are using a 
+  - log4net - The files log4net.dll and log4net.xml live in
+    the Gnip.Lib/log4net-<version> folder. If you are using a 
     different version of log4net, you may want to create a 
     new folder using the version number and change your 
     dependency on the Gnip.Client and Gnip.Test project to 
     point to the appropriate version.
 
 = Test Dependencies =
-  - NUnit - Copy the nunit.framework.dll to the Gnip.Lib/NUnit-<version>
+
+  - NUnit - The file nunit.framework.dll lives in Gnip.Lib/NUnit-<version>
     folder. If you are using a different version of NUnit, you may
     want to create a new folder using the version number and change
     your dependency on the Gnip.Test project to point to the 
@@ -30,25 +32,26 @@ Resource links for the above dependencies can be found here:
   http://www.nunit.org/
 
 == Quick Start ==
+
 Gnip has a test publisher "gnip-test-publisher":
-https://prod.gnipcentral.com/publishers/gnip-test-publisher/notification/
+https://prod.gnipcentral.com/gnip/publishers/gnip-test-publisher/notification/
 
 The following example get the twitter publisher:
 
     Config config = new Config("<username>", "<password>");
     GnipConnection gnip = new GnipConnection(config);
-    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "twitter");
+    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnip-test-publisher");
     Console.WriteLine("Got Publisher: " + publisher.Name);
 
 The following example retrieves notification data from the current bucket for 
-twitteryour own publisher. Please note that the current bucket is not static and 
+gnip-test-publisher. Please note that the current bucket is not static and 
 therefore will contain a variable amount of data, but you'll get quick feedback 
 to know if you can connect and access the public notification data.
 
     Config config = new Config("<username>", "<password>");
     GnipConnection gnip = new GnipConnection(config);
-    Publisher publisher = gnip.GetPublisher(PublisherType.My, "valid_publisher");
-    Activities activities = gnip.GetActivities(publisher);
+    Publisher publisher = gnip.GetPublisher(PublisherType.My, "gnip-test-publisher");
+    Activities activities = gnip.GetNotifications(publisher);
     foreach(Activity activity in activities.Items)
     {
         Console.WriteLine("Twitter Activity Actors for activity at " + activity.At + ": ");
@@ -67,6 +70,18 @@ You should see an array of objects printed.
 Open the Gnip.Client.sln in VisualStudio and perform a build. The dll will be in 
 Gnip.Client/bin/[Debug | Release].
 
+Alternatively, you can use the nant script, Gnip.build, and issues the command:
+
+> nant compile
+
+If you would like to run the tests, you can run the NUnit UI and load the 
+nunit project Gnip.clientTest/gnip.nunit. Alternatively, you can edit the
+nant script nunit.bin property and run
+
+> nant test
+
+on the command line.
+
 = Debugging =
 The Gnip .NET library uses the log4net Logger to send messages to the logs. By default
 the library does not log. However, the logger is configured to run with the Gnip.ClientTest
@@ -80,7 +95,7 @@ see http://loggin.apache.org/log4net for more.
 = Unit Tests Tips =
 NUnit tests are set up for these libraries. There are unit tests and 
 integration tests. They live in Gnip.ClientTest. The parameters for the
-tests are setup in Gnip.ClientTest/App.config. You will want to create
+tests are configured in Gnip.ClientTest/App.config. You will want to create
 a producer at http://prod.gnipcentral.com/. Under 'your publishers' select
 'create a new one'. Then use the pubisher name in the app.config file.
 an file names Gnip.ClientTest/gnip.nuit exists for the nunit client application.
@@ -88,7 +103,7 @@ an file names Gnip.ClientTest/gnip.nuit exists for the nunit client application.
 The tests in Gnip.ClientTest/Resources and Gnip.ClientTest/Util are unit tests for
 the object model objects and utilities. They do not connect to a server, nor do they 
 require the App.config. The tests in Gnip.ClientTest/*Test.cs are integration
-tests.
+tests and require the configuration as they do connect to the server.
 
 ==== Subscriber Actions ====
 
@@ -152,6 +167,20 @@ You can also view the current notifications bucket via web on the Gnip site:
 You can see the running list of notification buckets on the Gnip site:
     https://prod.gnipcentral.com/gnip/publishers/gnip-test-publisher/notification/
 	
+When activities are published to date buckets, they are published accoring to
+the gnip server GMT time. Thus, when passing a client generated dateTime as a parameter to
+the GetActivities and GetNotifications methods, you may not get expected results if your client time is 
+different than that of the server, which it likely is. For instance, say you want all the
+notifications published one minute ago. You would get the current time and subtract one minute.
+However, that time is likely to be, at the very least, a little different than the server 
+time (even when adjusted for time zone). You have two options to adjust that time. You can add the 
+results of gnip.GetServerTimeDelta() to the local time, or you can set 
+
+	gnip.TimeCorrection = gnip.GetServerTimeDelta();
+
+and the GnipConnection will automatically add that TimeSpan to the dateTime passed to the GetActivities 
+and GetNotifications methods.
+
 === Example 2: Filter notifications or activities by a set of users ===
 
 You can create a filter to stream activity data for the users you care about. 

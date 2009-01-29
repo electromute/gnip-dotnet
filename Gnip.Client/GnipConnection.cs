@@ -53,6 +53,7 @@ namespace Gnip.Client
 
         private HTTPConnection connection;
         private Config config;
+        private TimeSpan timeCorrection = TimeSpan.Zero;
 
         /// <summary>
         /// Create a new GnipConnection with the specified config.
@@ -72,6 +73,50 @@ namespace Gnip.Client
         {
             get { return this.config; }
             set { this.config = value; }
+        }
+
+        /// <summary>
+        /// Gets/Sets a TimeSpan that is added to the DateTime passed to 
+        /// GetActivities(..., DateTime) abd GetNotifications(..., DateTime). Typically this is 
+        /// either set to TimeSpan.Zero (default) or GetServerTimeDelta(). 
+        /// 
+        /// When activities are published to date buckets, they are published accoring to
+        /// the gnip server GMT time. Thus, when passing a client generated dateTime as a parameter to
+        /// the methods mentioned above, you may not get expected results if your client time is 
+        /// different than that of the server, which it likely is. For instance, say you want all the
+        /// activities published one minute ago. you would get the current time and subtract one minute.
+        /// However, that time is likely to be, at the very least, a little different than the server 
+        /// time. You have two options to adjust that time. you can add the results of GetServerTimeDelta()
+        /// to the local time, or you can set TimeCorrection to GetServerTimeDelta() and the GnipConnection
+        /// will automatically add that TimeSpan to the the dateTime passed to the GetActivities and 
+        /// GetNotifications methods.
+        /// </summary>
+        public TimeSpan TimeCorrection
+        {
+            get { return this.timeCorrection; }
+            set { this.timeCorrection = value; }
+        }
+
+        /// <summary>
+        /// This method gets a TimeSpan that is the difference between the client time and the server time. 
+        /// Adding this timespan to the local machine time should approximate the servers
+        /// actual time. This value can then used to adjust times when getting time sensitive data such as
+        /// getting activities from buckets. Please see the TimeCorrection property for more information.
+        /// </summary>
+        public TimeSpan GetServerTimeDelta()
+        {
+            try
+            {
+                return this.connection.GetServerTimeDelta();
+            }
+            catch (WebException e)
+            {
+                throw new GnipException("Exception occurred synching time", e);
+            }
+            catch(FormatException e)
+            {
+                throw new GnipException("Exception occurred synching time", e);
+            }
         }
 
         /// <summary> 
@@ -98,7 +143,7 @@ namespace Gnip.Client
                 }
                 return publishers;
             }
-            catch (IOException e)
+            catch (WebException e)
             {
                 throw new GnipException("Exception occurred getting Publishers", e);
             }
@@ -118,7 +163,7 @@ namespace Gnip.Client
                 byte[] data = this.ConvertToBytes<Publisher>(publisher);
                 return connection.DoPost(this.GetPublishersUrl(publisher.Type), data);
             }
-            catch (IOException e)
+            catch (WebException e)
             {
                 throw new GnipException("Exception occurred creating Publisher", e);
             }
@@ -138,7 +183,7 @@ namespace Gnip.Client
                 byte[] data = this.ConvertToBytes<Filter>(filter);
                 return connection.DoPost(this.GetFilterCreateUrl(publisher.Type, publisher.Name), data);
             }
-            catch (IOException e)
+            catch (WebException e)
             {
                 throw new GnipException("Exception occurred creating Filter", e);
             }
@@ -166,7 +211,7 @@ namespace Gnip.Client
 
                 return publisher;
             }
-            catch (IOException e)
+            catch (WebException e)
             {
                 throw new GnipException("Exception occurred getting Publisher", e);
             }
@@ -525,7 +570,7 @@ namespace Gnip.Client
         /// <summary> 
         /// Retrieves the Activity data from the given Publisher for an activity bucket at a given date.
         /// This method expects that publisher the has a public timeline and that the publisher makes
-        /// full activity data available to the cerdentials set in the Config instance used to configure
+        /// full activity data available to the credentials set in the Config instance used to configure
         /// this GnipConnection.
         /// 
         /// Note, not all Publisher publishers have a timeline of activity data.
@@ -539,12 +584,15 @@ namespace Gnip.Client
         /// Most Gnip users will need to use GetNotifications(Gnip.Client.Resource.Publisher)
         /// or GetNotifications(Gnip.Client.Resource.Publisher, System.DateTime) to
         /// get the notifications for a Publisher.
+        /// 
         /// </summary>
         /// <param name="publisher">the publisher whose activities to get</param>
         /// <param name="dateTime">the timestamp of the activity bucket to retrieve </param>
         /// <returns> the Activities model, which contains a set of Activity activities or an empty
         /// Activities object if no notifications where found in the activity bucket</returns>
-        /// <param name="dateTime">timestamp</param>
+        /// <param name="dateTime">timestamp - DateTime.MinValue insures that activities are
+        /// read from the latest bucket. Refer to the TimeCorrection property for more 
+        /// information about the dateTime parameter.</param>
         /// <throws> GnipException if the publisher doesn't exist, if there were 
         /// problems authenticating with the Gnip server, or if another error occurred.</throws>
         public Activities GetActivities(Publisher publisher, DateTime dateTime)
@@ -593,7 +641,9 @@ namespace Gnip.Client
         /// </summary>
         /// <param name="publisher">the publisher that owns the filter</param>
         /// <param name="filter">the filter whose notifications or activities to retrieve</param>
-        /// <param name="dateTime">the timestamp of the bucket whose notifications or activities to retrieve </param>
+        /// <param name="dateTime">timestamp - DateTime.MinValue insures that activities are
+        /// read from the latest bucket. Refer to the TimeCorrection property for more 
+        /// information about the dateTime parameter.</param>
         /// <returns> the notifications or activities in the current bucket or an empty Activities object if no
         /// notifications or activities were found in the current bucket.
         /// </returns>
@@ -649,7 +699,9 @@ namespace Gnip.Client
         /// use a Filter that has Filter.IsFullData = true}.
         /// </summary>
         /// <param name="publisher">the publisher whose notifications to get</param>
-        /// <param name="dateTime">the timestamp of the notification bucket to retrieve</param>
+        /// <param name="dateTime">timestamp -  DateTime.MinValue insures that notifications are
+        /// read from the latest bucket. Refer to the TimeCorrection property for more 
+        /// information about the dateTime parameter.</param>
         /// <returns> the Activities model, which contains a set of Activity objects, or an empty
         /// Activities object if no notifications were found in the current notification bucket.</returns>
         /// <throws> GnipException if the publisher doesn't exist, if there were 
@@ -874,7 +926,7 @@ namespace Gnip.Client
         /// <returns>a string rep. of date.</returns>
         private string GetDateString(DateTime date)
         {
-            DateTime flooredDate = GnipConnection.GetBucketFloor(date.ToUniversalTime());
+            DateTime flooredDate = GnipConnection.GetBucketFloor(date.Add(this.timeCorrection).ToUniversalTime());
             return flooredDate.ToString("yyyyMMddHHmm");
         }
 

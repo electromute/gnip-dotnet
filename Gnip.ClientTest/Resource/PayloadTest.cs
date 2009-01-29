@@ -96,7 +96,7 @@ namespace Gnip.Client.Resource
         [Test]
         public void TestPayloadSerialize_03()
         {
-            Payload payload = new Payload("title 1", "payload 1", new List<GnipUrl> { new GnipUrl("value 1") }, "raw 1", false);
+            Payload payload = new Payload("title 1", "payload 1", new List<MediaUrl> { new MediaUrl("url 1") }, "raw 1", false);
 
             string str = XmlHelper.Instance.ToXmlString<Payload>(payload);
 
@@ -104,7 +104,49 @@ namespace Gnip.Client.Resource
                 "<payload xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" +
                 "<title>title 1</title>" +
                 "<body>payload 1</body>" +
-                "<mediaURL>value 1</mediaURL>" + 
+                "<mediaURL>url 1</mediaURL>" + 
+                "<raw>H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3mkuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZkAWz2zkrayZ4hgKrIHz9+fB8/IursKt39fwCZjk5TBQAAAA==</raw>" +
+                "</payload>",
+                str);
+        }
+
+        [Test]
+        public void TestPayloadSerialize_04()
+        {
+            Payload payload = new Payload("title 1", "payload 1", new List<MediaUrl> { new MediaUrl("url 1", "width 1", "height 1", "duration 1", "mimeType 1", "type 1") }, "raw 1", false);
+
+            string str = XmlHelper.Instance.ToXmlString<Payload>(payload);
+
+            Assert.AreEqual("<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                "<payload xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" +
+                "<title>title 1</title>" +
+                "<body>payload 1</body>" +
+                "<mediaURL height=\"height 1\" width=\"width 1\" duration=\"duration 1\" mimeType=\"mimeType 1\" type=\"type 1\">url 1</mediaURL>" +
+                "<raw>H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3mkuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZkAWz2zkrayZ4hgKrIHz9+fB8/IursKt39fwCZjk5TBQAAAA==</raw>" +
+                "</payload>",
+                str);
+        }
+
+        [Test]
+        public void TestPayloadSerialize_05()
+        {
+            Payload payload = new Payload(
+                "title 1", 
+                "payload 1", 
+                new List<MediaUrl> { 
+                new MediaUrl("url 1", "width 1", "height 1", "duration 1", "mimeType 1", "type 1"),
+                new MediaUrl("url 2", "width 2", "height 2", "duration 2", "mimeType 2", "type 2")}, 
+                "raw 1", 
+                false);
+
+            string str = XmlHelper.Instance.ToXmlString<Payload>(payload);
+
+            Assert.AreEqual("<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                "<payload xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\">" +
+                "<title>title 1</title>" +
+                "<body>payload 1</body>" +
+                "<mediaURL height=\"height 1\" width=\"width 1\" duration=\"duration 1\" mimeType=\"mimeType 1\" type=\"type 1\">url 1</mediaURL>" +
+                "<mediaURL height=\"height 2\" width=\"width 2\" duration=\"duration 2\" mimeType=\"mimeType 2\" type=\"type 2\">url 2</mediaURL>" +
                 "<raw>H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3mkuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZkAWz2zkrayZ4hgKrIHz9+fB8/IursKt39fwCZjk5TBQAAAA==</raw>" +
                 "</payload>",
                 str);

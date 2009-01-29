@@ -1,221 +1,239 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
-  <TopNode>[0-1000]C:\rick\dev\gnip\gnip-dotnet\Gnip.ClientTest\gnip.nunit</TopNode>
-  <SelectedNode>[0-1086]Gnip.Client.Resource.ActivityTest</SelectedNode>
+  <TopNode>[0-1000]C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\gnip.nunit</TopNode>
+  <SelectedNode>[0-1148]Gnip</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
-    <Node UniqueName="[0-1000]C:\rick\dev\gnip\gnip-dotnet\Gnip.ClientTest\gnip.nunit" Expanded="true">
+    <Node UniqueName="[0-1000]C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\gnip.nunit" Expanded="true">
       <Nodes>
-        <Node UniqueName="[0-1135]C:\rick\dev\gnip\gnip-dotnet\Gnip.ClientTest\bin\Debug\Gnip.ClientTest.exe" Expanded="true">
+        <Node UniqueName="[0-1147]C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\bin\Debug\Gnip.ClientTest.exe" Expanded="true">
           <Nodes>
-            <Node UniqueName="[0-1136]Gnip" Expanded="true">
+            <Node UniqueName="[0-1148]Gnip" Expanded="true">
               <Nodes>
-                <Node UniqueName="[0-1137]Gnip.Client" Expanded="true">
+                <Node UniqueName="[0-1149]Gnip.Client" Expanded="true">
                   <Nodes>
-                    <Node UniqueName="[0-1019]Gnip.Client.GnipConnectionActivityTestCase" Expanded="true">
+                    <Node UniqueName="[0-1050]Gnip.Client.GnipConnectionActivityTestCase">
                       <Nodes>
-                        <Node UniqueName="[0-1024]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_01" />
-                        <Node UniqueName="[0-1025]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_02" />
-                        <Node UniqueName="[0-1026]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_03" />
-                        <Node UniqueName="[0-1027]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnipWithTime_01" />
-                        <Node UniqueName="[0-1028]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnipWithTime_02" />
-                        <Node UniqueName="[0-1023]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityFromGnip" />
-                        <Node UniqueName="[0-1020]Gnip.Client.GnipConnectionActivityTestCase.TestPayloadEncodeDecode" />
-                        <Node UniqueName="[0-1021]Gnip.Client.GnipConnectionActivityTestCase.TestPublishActivityToGnip" />
-                        <Node UniqueName="[0-1022]Gnip.Client.GnipConnectionActivityTestCase.TestPublishActivityWithPayloadToGnip" />
+                        <Node UniqueName="[0-1055]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_01" />
+                        <Node UniqueName="[0-1056]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_02" />
+                        <Node UniqueName="[0-1057]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_03" />
+                        <Node UniqueName="[0-1058]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnipWithTime_01" />
+                        <Node UniqueName="[0-1059]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnipWithTime_02" />
+                        <Node UniqueName="[0-1054]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityFromGnip" />
+                        <Node UniqueName="[0-1051]Gnip.Client.GnipConnectionActivityTestCase.TestPayloadEncodeDecode" />
+                        <Node UniqueName="[0-1052]Gnip.Client.GnipConnectionActivityTestCase.TestPublishActivityToGnip" />
+                        <Node UniqueName="[0-1053]Gnip.Client.GnipConnectionActivityTestCase.TestPublishActivityWithPayloadToGnip" />
                       </Nodes>
                     </Node>
-                    <Node UniqueName="[0-1061]Gnip.Client.GnipConnectionFilterTestCase">
+                    <Node UniqueName="[0-1001]Gnip.Client.GnipConnectionFilterTestCase" Expanded="true">
                       <Nodes>
-                        <Node UniqueName="[0-1067]Gnip.Client.GnipConnectionFilterTestCase.TestAddRuleToFilter" />
-                        <Node UniqueName="[0-1068]Gnip.Client.GnipConnectionFilterTestCase.TestBatchAddRulesToFilter" />
-                        <Node UniqueName="[0-1063]Gnip.Client.GnipConnectionFilterTestCase.TestCreateFilter" />
-                        <Node UniqueName="[0-1065]Gnip.Client.GnipConnectionFilterTestCase.TestDeleteFilter" />
-                        <Node UniqueName="[0-1069]Gnip.Client.GnipConnectionFilterTestCase.TestDeleteRuleFromFilter" />
-                        <Node UniqueName="[0-1062]Gnip.Client.GnipConnectionFilterTestCase.TestGetFilter" />
-                        <Node UniqueName="[0-1066]Gnip.Client.GnipConnectionFilterTestCase.TestNoSuchFilter" />
-                        <Node UniqueName="[0-1064]Gnip.Client.GnipConnectionFilterTestCase.TestUpdateFilter" />
+                        <Node UniqueName="[0-1007]Gnip.Client.GnipConnectionFilterTestCase.TestAddRuleToFilter" />
+                        <Node UniqueName="[0-1008]Gnip.Client.GnipConnectionFilterTestCase.TestBatchAddRulesToFilter" />
+                        <Node UniqueName="[0-1003]Gnip.Client.GnipConnectionFilterTestCase.TestCreateFilter" />
+                        <Node UniqueName="[0-1005]Gnip.Client.GnipConnectionFilterTestCase.TestDeleteFilter" />
+                        <Node UniqueName="[0-1009]Gnip.Client.GnipConnectionFilterTestCase.TestDeleteRuleFromFilter" />
+                        <Node UniqueName="[0-1002]Gnip.Client.GnipConnectionFilterTestCase.TestGetFilter" />
+                        <Node UniqueName="[0-1006]Gnip.Client.GnipConnectionFilterTestCase.TestNoSuchFilter" />
+                        <Node UniqueName="[0-1004]Gnip.Client.GnipConnectionFilterTestCase.TestUpdateFilter" />
                       </Nodes>
                     </Node>
-                    <Node UniqueName="[0-1120]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase">
+                    <Node UniqueName="[0-1017]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase" Expanded="true">
                       <Nodes>
-                        <Node UniqueName="[0-1126]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestAddRuleToFilter" />
-                        <Node UniqueName="[0-1127]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestBatchAddRulesToFilter" />
-                        <Node UniqueName="[0-1122]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestCreateFilter" />
-                        <Node UniqueName="[0-1124]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestDeleteFilter" />
-                        <Node UniqueName="[0-1128]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestDeleteRuleFromFilter" />
-                        <Node UniqueName="[0-1121]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestGetFilter" />
-                        <Node UniqueName="[0-1125]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestNoSuchFilter" />
-                        <Node UniqueName="[0-1123]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestUpdateFilter" />
+                        <Node UniqueName="[0-1023]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestAddRuleToFilter" />
+                        <Node UniqueName="[0-1024]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestBatchAddRulesToFilter" />
+                        <Node UniqueName="[0-1019]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestCreateFilter" />
+                        <Node UniqueName="[0-1021]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestDeleteFilter" />
+                        <Node UniqueName="[0-1025]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestDeleteRuleFromFilter" />
+                        <Node UniqueName="[0-1018]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestGetFilter" />
+                        <Node UniqueName="[0-1022]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestNoSuchFilter" />
+                        <Node UniqueName="[0-1020]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestUpdateFilter" />
                       </Nodes>
                     </Node>
-                    <Node UniqueName="[0-1081]Gnip.Client.GnipConnectionNotificationTestCase">
+                    <Node UniqueName="[0-1026]Gnip.Client.GnipConnectionMiscTestCase">
                       <Nodes>
-                        <Node UniqueName="[0-1084]Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForFilterFromGnip" />
-                        <Node UniqueName="[0-1085]Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForFilterFromGnipWithTime" />
-                        <Node UniqueName="[0-1082]Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForPublisherFromGnip" />
-                        <Node UniqueName="[0-1083]Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForPublisherFromGnipWithTime" />
+                        <Node UniqueName="[0-1027]Gnip.Client.GnipConnectionMiscTestCase.TestCalculateServerDelta" />
                       </Nodes>
                     </Node>
-                    <Node UniqueName="[0-1115]Gnip.Client.GnipConnectionPublisherTest" Expanded="true">
+                    <Node UniqueName="[0-1098]Gnip.Client.GnipConnectionNotificationTestCase">
                       <Nodes>
-                        <Node UniqueName="[0-1116]Gnip.Client.GnipConnectionPublisherTest.TestGetPublisher" />
-                        <Node UniqueName="[0-1117]Gnip.Client.GnipConnectionPublisherTest.TestGetPublisherIncludesCapabilities" />
-                        <Node UniqueName="[0-1119]Gnip.Client.GnipConnectionPublisherTest.TestGetPublishers" />
-                        <Node UniqueName="[0-1118]Gnip.Client.GnipConnectionPublisherTest.TestUpdatePublisher" />
+                        <Node UniqueName="[0-1101]Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForFilterFromGnip" />
+                        <Node UniqueName="[0-1102]Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForFilterFromGnipWithTime" />
+                        <Node UniqueName="[0-1099]Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForPublisherFromGnip" />
+                        <Node UniqueName="[0-1100]Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForPublisherFromGnipWithTime" />
                       </Nodes>
                     </Node>
-                    <Node UniqueName="[0-1093]Gnip.Client.GnipConnectionTest">
+                    <Node UniqueName="[0-1103]Gnip.Client.GnipConnectionPublisherTest">
                       <Nodes>
-                        <Node UniqueName="[0-1094]Gnip.Client.GnipConnectionTest.TestFloor" />
+                        <Node UniqueName="[0-1104]Gnip.Client.GnipConnectionPublisherTest.TestGetPublisher" />
+                        <Node UniqueName="[0-1105]Gnip.Client.GnipConnectionPublisherTest.TestGetPublisherIncludesCapabilities" />
+                        <Node UniqueName="[0-1107]Gnip.Client.GnipConnectionPublisherTest.TestGetPublishers" />
+                        <Node UniqueName="[0-1106]Gnip.Client.GnipConnectionPublisherTest.TestUpdatePublisher" />
                       </Nodes>
                     </Node>
-                    <Node UniqueName="[0-1139]Gnip.Client.Resource" Expanded="true">
+                    <Node UniqueName="[0-1048]Gnip.Client.GnipConnectionTest">
                       <Nodes>
-                        <Node UniqueName="[0-1036]Gnip.Client.Resource.ActivitiesTest">
+                        <Node UniqueName="[0-1049]Gnip.Client.GnipConnectionTest.TestFloor" />
+                      </Nodes>
+                    </Node>
+                    <Node UniqueName="[0-1150]Gnip.Client.Resource" Expanded="true">
+                      <Nodes>
+                        <Node UniqueName="[0-1060]Gnip.Client.Resource.ActivitiesTest">
                           <Nodes>
-                            <Node UniqueName="[0-1037]Gnip.Client.Resource.ActivitiesTest.TestActivityConstructor_01" />
-                            <Node UniqueName="[0-1040]Gnip.Client.Resource.ActivitiesTest.TestActivityDeserialize_01" />
-                            <Node UniqueName="[0-1038]Gnip.Client.Resource.ActivitiesTest.TestActivitySerialize_01" />
-                            <Node UniqueName="[0-1039]Gnip.Client.Resource.ActivitiesTest.TestActivitySerialize_02" />
+                            <Node UniqueName="[0-1061]Gnip.Client.Resource.ActivitiesTest.TestActivityConstructor_01" />
+                            <Node UniqueName="[0-1064]Gnip.Client.Resource.ActivitiesTest.TestActivityDeserialize_01" />
+                            <Node UniqueName="[0-1062]Gnip.Client.Resource.ActivitiesTest.TestActivitySerialize_01" />
+                            <Node UniqueName="[0-1063]Gnip.Client.Resource.ActivitiesTest.TestActivitySerialize_02" />
                           </Nodes>
                         </Node>
-                        <Node UniqueName="[0-1086]Gnip.Client.Resource.ActivityTest" Expanded="true">
+                        <Node UniqueName="[0-1039]Gnip.Client.Resource.ActivityTest">
                           <Nodes>
-                            <Node UniqueName="[0-1087]Gnip.Client.Resource.ActivityTest.TestActivityConstructor_01" />
-                            <Node UniqueName="[0-1088]Gnip.Client.Resource.ActivityTest.TestActivityConstructor_02" />
-                            <Node UniqueName="[0-1089]Gnip.Client.Resource.ActivityTest.TestActivityConstructor_03" />
-                            <Node UniqueName="[0-1092]Gnip.Client.Resource.ActivityTest.TestActivityDeserialize_01" />
-                            <Node UniqueName="[0-1090]Gnip.Client.Resource.ActivityTest.TestActivitySerialize_01" />
-                            <Node UniqueName="[0-1091]Gnip.Client.Resource.ActivityTest.TestActivitySerialize_02" />
+                            <Node UniqueName="[0-1040]Gnip.Client.Resource.ActivityTest.TestActivityConstructor_01" />
+                            <Node UniqueName="[0-1041]Gnip.Client.Resource.ActivityTest.TestActivityConstructor_02" />
+                            <Node UniqueName="[0-1042]Gnip.Client.Resource.ActivityTest.TestActivityConstructor_03" />
+                            <Node UniqueName="[0-1046]Gnip.Client.Resource.ActivityTest.TestActivityDeserialize_01" />
+                            <Node UniqueName="[0-1047]Gnip.Client.Resource.ActivityTest.TestActivityDeserialize_02" />
+                            <Node UniqueName="[0-1043]Gnip.Client.Resource.ActivityTest.TestActivitySerialize_01" />
+                            <Node UniqueName="[0-1044]Gnip.Client.Resource.ActivityTest.TestActivitySerialize_02" />
+                            <Node UniqueName="[0-1045]Gnip.Client.Resource.ActivityTest.TestActivitySerialize_03" />
                           </Nodes>
                         </Node>
-                        <Node UniqueName="[0-1108]Gnip.Client.Resource.ActorTest">
+                        <Node UniqueName="[0-1078]Gnip.Client.Resource.ActorTest">
                           <Nodes>
-                            <Node UniqueName="[0-1109]Gnip.Client.Resource.ActorTest.TestActorConstructor_01" />
-                            <Node UniqueName="[0-1110]Gnip.Client.Resource.ActorTest.TestActorConstructor_02" />
-                            <Node UniqueName="[0-1111]Gnip.Client.Resource.ActorTest.TestActorConstructor_03" />
-                            <Node UniqueName="[0-1112]Gnip.Client.Resource.ActorTest.TestActorConstructor_04" />
-                            <Node UniqueName="[0-1114]Gnip.Client.Resource.ActorTest.TestActorDeserialize_01" />
-                            <Node UniqueName="[0-1113]Gnip.Client.Resource.ActorTest.TestActorSerialize_01" />
+                            <Node UniqueName="[0-1079]Gnip.Client.Resource.ActorTest.TestActorConstructor_01" />
+                            <Node UniqueName="[0-1080]Gnip.Client.Resource.ActorTest.TestActorConstructor_02" />
+                            <Node UniqueName="[0-1081]Gnip.Client.Resource.ActorTest.TestActorConstructor_03" />
+                            <Node UniqueName="[0-1082]Gnip.Client.Resource.ActorTest.TestActorConstructor_04" />
+                            <Node UniqueName="[0-1084]Gnip.Client.Resource.ActorTest.TestActorDeserialize_01" />
+                            <Node UniqueName="[0-1083]Gnip.Client.Resource.ActorTest.TestActorSerialize_01" />
                           </Nodes>
                         </Node>
-                        <Node UniqueName="[0-1076]Gnip.Client.Resource.ErrorTest">
+                        <Node UniqueName="[0-1034]Gnip.Client.Resource.ErrorTest">
                           <Nodes>
-                            <Node UniqueName="[0-1077]Gnip.Client.Resource.ErrorTest.TestErrorConstructor_01" />
-                            <Node UniqueName="[0-1078]Gnip.Client.Resource.ErrorTest.TestErrorConstructor_02" />
-                            <Node UniqueName="[0-1080]Gnip.Client.Resource.ErrorTest.TestErrorDeserialize_01" />
-                            <Node UniqueName="[0-1079]Gnip.Client.Resource.ErrorTest.TestErrorSerialize_01" />
+                            <Node UniqueName="[0-1035]Gnip.Client.Resource.ErrorTest.TestErrorConstructor_01" />
+                            <Node UniqueName="[0-1036]Gnip.Client.Resource.ErrorTest.TestErrorConstructor_02" />
+                            <Node UniqueName="[0-1038]Gnip.Client.Resource.ErrorTest.TestErrorDeserialize_01" />
+                            <Node UniqueName="[0-1037]Gnip.Client.Resource.ErrorTest.TestErrorSerialize_01" />
                           </Nodes>
                         </Node>
-                        <Node UniqueName="[0-1052]Gnip.Client.Resource.FilterTest">
+                        <Node UniqueName="[0-1089]Gnip.Client.Resource.FilterTest">
                           <Nodes>
-                            <Node UniqueName="[0-1053]Gnip.Client.Resource.FilterTest.TestFilterConstructor_01" />
-                            <Node UniqueName="[0-1054]Gnip.Client.Resource.FilterTest.TestFilterConstructor_02" />
-                            <Node UniqueName="[0-1055]Gnip.Client.Resource.FilterTest.TestFilterConstructor_03" />
-                            <Node UniqueName="[0-1056]Gnip.Client.Resource.FilterTest.TestFilterConstructor_04" />
-                            <Node UniqueName="[0-1057]Gnip.Client.Resource.FilterTest.TestFilterConstructor_05" />
-                            <Node UniqueName="[0-1060]Gnip.Client.Resource.FilterTest.TestFilterDeserialize_01" />
-                            <Node UniqueName="[0-1058]Gnip.Client.Resource.FilterTest.TestFilterSerialize_01" />
-                            <Node UniqueName="[0-1059]Gnip.Client.Resource.FilterTest.TestFilterSerialize_02" />
+                            <Node UniqueName="[0-1090]Gnip.Client.Resource.FilterTest.TestFilterConstructor_01" />
+                            <Node UniqueName="[0-1091]Gnip.Client.Resource.FilterTest.TestFilterConstructor_02" />
+                            <Node UniqueName="[0-1092]Gnip.Client.Resource.FilterTest.TestFilterConstructor_03" />
+                            <Node UniqueName="[0-1093]Gnip.Client.Resource.FilterTest.TestFilterConstructor_04" />
+                            <Node UniqueName="[0-1094]Gnip.Client.Resource.FilterTest.TestFilterConstructor_05" />
+                            <Node UniqueName="[0-1097]Gnip.Client.Resource.FilterTest.TestFilterDeserialize_01" />
+                            <Node UniqueName="[0-1095]Gnip.Client.Resource.FilterTest.TestFilterSerialize_01" />
+                            <Node UniqueName="[0-1096]Gnip.Client.Resource.FilterTest.TestFilterSerialize_02" />
                           </Nodes>
                         </Node>
-                        <Node UniqueName="[0-1070]Gnip.Client.Resource.GnipUrlTest">
+                        <Node UniqueName="[0-1108]Gnip.Client.Resource.GnipUrlTest">
                           <Nodes>
-                            <Node UniqueName="[0-1071]Gnip.Client.Resource.GnipUrlTest.TestGnipUrlConstructor_01" />
-                            <Node UniqueName="[0-1072]Gnip.Client.Resource.GnipUrlTest.TestGnipUrlConstructor_02" />
-                            <Node UniqueName="[0-1073]Gnip.Client.Resource.GnipUrlTest.TestGnipUrlConstructor_04" />
-                            <Node UniqueName="[0-1075]Gnip.Client.Resource.GnipUrlTest.TestGnipUrlDeserialize_01" />
-                            <Node UniqueName="[0-1074]Gnip.Client.Resource.GnipUrlTest.TestGnipUrlSerialize_01" />
+                            <Node UniqueName="[0-1109]Gnip.Client.Resource.GnipUrlTest.TestGnipUrlConstructor_01" />
+                            <Node UniqueName="[0-1110]Gnip.Client.Resource.GnipUrlTest.TestGnipUrlConstructor_02" />
+                            <Node UniqueName="[0-1111]Gnip.Client.Resource.GnipUrlTest.TestGnipUrlConstructor_04" />
+                            <Node UniqueName="[0-1113]Gnip.Client.Resource.GnipUrlTest.TestGnipUrlDeserialize_01" />
+                            <Node UniqueName="[0-1112]Gnip.Client.Resource.GnipUrlTest.TestGnipUrlSerialize_01" />
                           </Nodes>
                         </Node>
-                        <Node UniqueName="[0-1129]Gnip.Client.Resource.GnipValueTest">
+                        <Node UniqueName="[0-1123]Gnip.Client.Resource.GnipValueTest">
                           <Nodes>
-                            <Node UniqueName="[0-1130]Gnip.Client.Resource.GnipValueTest.TestGnipValueConstructor_01" />
-                            <Node UniqueName="[0-1131]Gnip.Client.Resource.GnipValueTest.TestGnipValueConstructor_02" />
-                            <Node UniqueName="[0-1132]Gnip.Client.Resource.GnipValueTest.TestGnipValueConstructor_04" />
-                            <Node UniqueName="[0-1134]Gnip.Client.Resource.GnipValueTest.TestGnipValueDeserialize_01" />
-                            <Node UniqueName="[0-1133]Gnip.Client.Resource.GnipValueTest.TestGnipValueSerialize_01" />
+                            <Node UniqueName="[0-1124]Gnip.Client.Resource.GnipValueTest.TestGnipValueConstructor_01" />
+                            <Node UniqueName="[0-1125]Gnip.Client.Resource.GnipValueTest.TestGnipValueConstructor_02" />
+                            <Node UniqueName="[0-1126]Gnip.Client.Resource.GnipValueTest.TestGnipValueConstructor_04" />
+                            <Node UniqueName="[0-1128]Gnip.Client.Resource.GnipValueTest.TestGnipValueDeserialize_01" />
+                            <Node UniqueName="[0-1127]Gnip.Client.Resource.GnipValueTest.TestGnipValueSerialize_01" />
                           </Nodes>
                         </Node>
-                        <Node UniqueName="[0-1029]Gnip.Client.Resource.PayloadTest">
+                        <Node UniqueName="[0-1141]Gnip.Client.Resource.MediaUrlTest">
                           <Nodes>
-                            <Node UniqueName="[0-1030]Gnip.Client.Resource.PayloadTest.TestPayloadConstructor_01" />
-                            <Node UniqueName="[0-1031]Gnip.Client.Resource.PayloadTest.TestPayloadConstructor_02" />
-                            <Node UniqueName="[0-1035]Gnip.Client.Resource.PayloadTest.TestPayloadDeserialize_01" />
-                            <Node UniqueName="[0-1032]Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_01" />
-                            <Node UniqueName="[0-1033]Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_02" />
-                            <Node UniqueName="[0-1034]Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_03" />
+                            <Node UniqueName="[0-1142]Gnip.Client.Resource.MediaUrlTest.TestMediaUrlConstructor_01" />
+                            <Node UniqueName="[0-1143]Gnip.Client.Resource.MediaUrlTest.TestMediaUrlConstructor_02" />
+                            <Node UniqueName="[0-1144]Gnip.Client.Resource.MediaUrlTest.TestMediaUrlConstructor_04" />
+                            <Node UniqueName="[0-1146]Gnip.Client.Resource.MediaUrlTest.TestMediaUrlDeserialize_01" />
+                            <Node UniqueName="[0-1145]Gnip.Client.Resource.MediaUrlTest.TestMediaUrlSerialize_01" />
                           </Nodes>
                         </Node>
-                        <Node UniqueName="[0-1045]Gnip.Client.Resource.PlaceTest">
+                        <Node UniqueName="[0-1069]Gnip.Client.Resource.PayloadTest">
                           <Nodes>
-                            <Node UniqueName="[0-1046]Gnip.Client.Resource.PlaceTest.TestPlaceConstructor_01" />
-                            <Node UniqueName="[0-1047]Gnip.Client.Resource.PlaceTest.TestPlaceConstructor_02" />
-                            <Node UniqueName="[0-1048]Gnip.Client.Resource.PlaceTest.TestPlaceConstructor_03" />
-                            <Node UniqueName="[0-1051]Gnip.Client.Resource.PlaceTest.TestPlaceDeserialize_01" />
-                            <Node UniqueName="[0-1049]Gnip.Client.Resource.PlaceTest.TestPlaceSerialize_01" />
-                            <Node UniqueName="[0-1050]Gnip.Client.Resource.PlaceTest.TestPlaceSerialize_02" />
+                            <Node UniqueName="[0-1070]Gnip.Client.Resource.PayloadTest.TestPayloadConstructor_01" />
+                            <Node UniqueName="[0-1071]Gnip.Client.Resource.PayloadTest.TestPayloadConstructor_02" />
+                            <Node UniqueName="[0-1077]Gnip.Client.Resource.PayloadTest.TestPayloadDeserialize_01" />
+                            <Node UniqueName="[0-1072]Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_01" />
+                            <Node UniqueName="[0-1073]Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_02" />
+                            <Node UniqueName="[0-1074]Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_03" />
+                            <Node UniqueName="[0-1075]Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_04" />
+                            <Node UniqueName="[0-1076]Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_05" />
                           </Nodes>
                         </Node>
-                        <Node UniqueName="[0-1041]Gnip.Client.Resource.PublishersTest">
+                        <Node UniqueName="[0-1010]Gnip.Client.Resource.PlaceTest">
                           <Nodes>
-                            <Node UniqueName="[0-1042]Gnip.Client.Resource.PublishersTest.TestPublisherConstructor_01" />
-                            <Node UniqueName="[0-1044]Gnip.Client.Resource.PublishersTest.TestPublisherDeserialize_01" />
-                            <Node UniqueName="[0-1043]Gnip.Client.Resource.PublishersTest.TestPublisherSerialize_01" />
+                            <Node UniqueName="[0-1011]Gnip.Client.Resource.PlaceTest.TestPlaceConstructor_01" />
+                            <Node UniqueName="[0-1012]Gnip.Client.Resource.PlaceTest.TestPlaceConstructor_02" />
+                            <Node UniqueName="[0-1013]Gnip.Client.Resource.PlaceTest.TestPlaceConstructor_03" />
+                            <Node UniqueName="[0-1016]Gnip.Client.Resource.PlaceTest.TestPlaceDeserialize_01" />
+                            <Node UniqueName="[0-1014]Gnip.Client.Resource.PlaceTest.TestPlaceSerialize_01" />
+                            <Node UniqueName="[0-1015]Gnip.Client.Resource.PlaceTest.TestPlaceSerialize_02" />
                           </Nodes>
                         </Node>
-                        <Node UniqueName="[0-1007]Gnip.Client.Resource.PublisherTest">
+                        <Node UniqueName="[0-1065]Gnip.Client.Resource.PublishersTest">
                           <Nodes>
-                            <Node UniqueName="[0-1008]Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_01" />
-                            <Node UniqueName="[0-1009]Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_02" />
-                            <Node UniqueName="[0-1010]Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_03" />
-                            <Node UniqueName="[0-1011]Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_04" />
-                            <Node UniqueName="[0-1012]Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_05" />
-                            <Node UniqueName="[0-1016]Gnip.Client.Resource.PublisherTest.TestPublisherDeserialize_01" />
-                            <Node UniqueName="[0-1017]Gnip.Client.Resource.PublisherTest.TestPublisherDeserialize_02" />
-                            <Node UniqueName="[0-1018]Gnip.Client.Resource.PublisherTest.TestPublisherDeserialize_03" />
-                            <Node UniqueName="[0-1013]Gnip.Client.Resource.PublisherTest.TestPublisherSerialize_01" />
-                            <Node UniqueName="[0-1014]Gnip.Client.Resource.PublisherTest.TestPublisherSerialize_02" />
-                            <Node UniqueName="[0-1015]Gnip.Client.Resource.PublisherTest.TestPublisherSerialize_03" />
+                            <Node UniqueName="[0-1066]Gnip.Client.Resource.PublishersTest.TestPublisherConstructor_01" />
+                            <Node UniqueName="[0-1068]Gnip.Client.Resource.PublishersTest.TestPublisherDeserialize_01" />
+                            <Node UniqueName="[0-1067]Gnip.Client.Resource.PublishersTest.TestPublisherSerialize_01" />
                           </Nodes>
                         </Node>
-                        <Node UniqueName="[0-1099]Gnip.Client.Resource.ResultTest">
+                        <Node UniqueName="[0-1129]Gnip.Client.Resource.PublisherTest">
                           <Nodes>
-                            <Node UniqueName="[0-1100]Gnip.Client.Resource.ResultTest.TestResultConstructor_01" />
-                            <Node UniqueName="[0-1101]Gnip.Client.Resource.ResultTest.TestResultConstructor_02" />
-                            <Node UniqueName="[0-1103]Gnip.Client.Resource.ResultTest.TestResultDeserialize_01" />
-                            <Node UniqueName="[0-1102]Gnip.Client.Resource.ResultTest.TestResultSerialize_01" />
+                            <Node UniqueName="[0-1130]Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_01" />
+                            <Node UniqueName="[0-1131]Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_02" />
+                            <Node UniqueName="[0-1132]Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_03" />
+                            <Node UniqueName="[0-1133]Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_04" />
+                            <Node UniqueName="[0-1134]Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_05" />
+                            <Node UniqueName="[0-1138]Gnip.Client.Resource.PublisherTest.TestPublisherDeserialize_01" />
+                            <Node UniqueName="[0-1139]Gnip.Client.Resource.PublisherTest.TestPublisherDeserialize_02" />
+                            <Node UniqueName="[0-1140]Gnip.Client.Resource.PublisherTest.TestPublisherDeserialize_03" />
+                            <Node UniqueName="[0-1135]Gnip.Client.Resource.PublisherTest.TestPublisherSerialize_01" />
+                            <Node UniqueName="[0-1136]Gnip.Client.Resource.PublisherTest.TestPublisherSerialize_02" />
+                            <Node UniqueName="[0-1137]Gnip.Client.Resource.PublisherTest.TestPublisherSerialize_03" />
                           </Nodes>
                         </Node>
-                        <Node UniqueName="[0-1104]Gnip.Client.Resource.RulesTest">
+                        <Node UniqueName="[0-1118]Gnip.Client.Resource.ResultTest">
                           <Nodes>
-                            <Node UniqueName="[0-1105]Gnip.Client.Resource.RulesTest.TestPublisherConstructor_01" />
-                            <Node UniqueName="[0-1107]Gnip.Client.Resource.RulesTest.TestPublisherDeserialize_01" />
-                            <Node UniqueName="[0-1106]Gnip.Client.Resource.RulesTest.TestPublisherSerialize_01" />
+                            <Node UniqueName="[0-1119]Gnip.Client.Resource.ResultTest.TestResultConstructor_01" />
+                            <Node UniqueName="[0-1120]Gnip.Client.Resource.ResultTest.TestResultConstructor_02" />
+                            <Node UniqueName="[0-1122]Gnip.Client.Resource.ResultTest.TestResultDeserialize_01" />
+                            <Node UniqueName="[0-1121]Gnip.Client.Resource.ResultTest.TestResultSerialize_01" />
                           </Nodes>
                         </Node>
-                        <Node UniqueName="[0-1095]Gnip.Client.Resource.RuleTest">
+                        <Node UniqueName="[0-1085]Gnip.Client.Resource.RulesTest">
                           <Nodes>
-                            <Node UniqueName="[0-1096]Gnip.Client.Resource.RuleTest.TestRuleConstructor_01" />
-                            <Node UniqueName="[0-1098]Gnip.Client.Resource.RuleTest.TestRuleDeserialize_01" />
-                            <Node UniqueName="[0-1097]Gnip.Client.Resource.RuleTest.TestRuleSerialize_01" />
+                            <Node UniqueName="[0-1086]Gnip.Client.Resource.RulesTest.TestPublisherConstructor_01" />
+                            <Node UniqueName="[0-1088]Gnip.Client.Resource.RulesTest.TestPublisherDeserialize_01" />
+                            <Node UniqueName="[0-1087]Gnip.Client.Resource.RulesTest.TestPublisherSerialize_01" />
+                          </Nodes>
+                        </Node>
+                        <Node UniqueName="[0-1030]Gnip.Client.Resource.RuleTest">
+                          <Nodes>
+                            <Node UniqueName="[0-1031]Gnip.Client.Resource.RuleTest.TestRuleConstructor_01" />
+                            <Node UniqueName="[0-1033]Gnip.Client.Resource.RuleTest.TestRuleDeserialize_01" />
+                            <Node UniqueName="[0-1032]Gnip.Client.Resource.RuleTest.TestRuleSerialize_01" />
                           </Nodes>
                         </Node>
                       </Nodes>
                     </Node>
-                    <Node UniqueName="[0-1138]Gnip.Client.Util" Expanded="true">
+                    <Node UniqueName="[0-1151]Gnip.Client.Util" Expanded="true">
                       <Nodes>
-                        <Node UniqueName="[0-1001]Gnip.Client.Util.ArrayUtilsTest">
+                        <Node UniqueName="[0-1028]Gnip.Client.Util.ArrayUtilsTest">
                           <Nodes>
-                            <Node UniqueName="[0-1002]Gnip.Client.Util.ArrayUtilsTest.TestAreEqual_01" />
+                            <Node UniqueName="[0-1029]Gnip.Client.Util.ArrayUtilsTest.TestAreEqual_01" />
                           </Nodes>
                         </Node>
-                        <Node UniqueName="[0-1003]Gnip.Client.Util.ListUtilsTest">
+                        <Node UniqueName="[0-1114]Gnip.Client.Util.ListUtilsTest">
                           <Nodes>
-                            <Node UniqueName="[0-1004]Gnip.Client.Util.ListUtilsTest.TestAreEqual_01" />
-                            <Node UniqueName="[0-1005]Gnip.Client.Util.ListUtilsTest.TestAreEqual_02" />
-                            <Node UniqueName="[0-1006]Gnip.Client.Util.ListUtilsTest.TestAreEqualIgnoreOrder_01" />
+                            <Node UniqueName="[0-1115]Gnip.Client.Util.ListUtilsTest.TestAreEqual_01" />
+                            <Node UniqueName="[0-1116]Gnip.Client.Util.ListUtilsTest.TestAreEqual_02" />
+                            <Node UniqueName="[0-1117]Gnip.Client.Util.ListUtilsTest.TestAreEqualIgnoreOrder_01" />
                           </Nodes>
                         </Node>
                       </Nodes>

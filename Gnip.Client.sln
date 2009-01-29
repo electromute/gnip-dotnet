@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gnip.ClientTest", "Gnip.Cli
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{83B03F09-4B3A-426B-AF20-68C845524825}"
 	ProjectSection(SolutionItems) = preProject
+		Gnip.build = Gnip.build
 		README.txt = README.txt
 	EndProjectSection
 EndProject
