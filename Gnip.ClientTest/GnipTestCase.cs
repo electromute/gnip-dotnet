@@ -13,7 +13,7 @@ namespace Gnip.Client
 {
 	public abstract class GnipTestCase : BaseTestCase
 	{
-		protected internal static TestConfig CONFIG = TestConfig.Instance;
+		protected internal static TestConfig testConfig = TestConfig.Instance;
 		
 		protected internal Config config;
 		protected internal GnipConnection gnipConnection;
@@ -33,19 +33,23 @@ namespace Gnip.Client
             XmlConfigurator.ConfigureAndWatch(new System.IO.FileInfo("gnip.log4net.xml"));
 
 			Log.Debug("========== Test setUp() start");
-			Log.Debug("Attempting to connect to Gnip at " +  CONFIG.Host + " using username " + CONFIG.Username);
-			config = new Config(CONFIG.Username, CONFIG.Password, new System.Uri(CONFIG.Host));
-			config.ReadWriteTimeout = 10000;
-            config.RequestTimeout = 60000;
+			Log.Debug("Attempting to connect to Gnip at " +  testConfig.Host + " using username " + testConfig.Username);
+
+			config = new Config(testConfig.Username, 
+                testConfig.Password, 
+                new System.Uri(testConfig.Host), 
+                testConfig.RequestTimeout, 
+                testConfig.ReadWriteTimeout);
+
 			gnipConnection = new GnipConnection(config);
             // Auto sync to the servers time.
             gnipConnection.TimeCorrection = gnipConnection.GetServerTimeDelta();
 
-			string localPublisherId = CONFIG.Publisher;
-			localPublisher = gnipConnection.GetPublisher(CONFIG.PublisherType, localPublisherId);
+			string localPublisherId = testConfig.Publisher;
+			localPublisher = gnipConnection.GetPublisher(testConfig.PublisherType, localPublisherId);
 			if (localPublisher == null)
 			{
-				throw new AssertionException("No Publisher of type " + CONFIG.PublisherType + " found with name " + localPublisherId + ".  Be sure " + "to provide the name of a publisher you own in the test.properties file.");
+				throw new AssertionException("No Publisher of type " + testConfig.PublisherType + " found with name " + localPublisherId + ".  Be sure " + "to provide the name of a publisher you own in the test.properties file.");
 			}
 			
 			activities = new Activities();
@@ -73,7 +77,7 @@ namespace Gnip.Client
 		
 		protected void WaitForServerWorkToComplete()
 		{
-			Thread.Sleep(CONFIG.IdleMilliseconds);
+			Thread.Sleep(testConfig.IdleMilliseconds);
 		}
 		
 		protected string EncodePayload(string str)

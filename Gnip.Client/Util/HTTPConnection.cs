@@ -108,7 +108,7 @@ namespace Gnip.Client.Util
             HttpWebRequest urlConnection = CreateConnection(urlString, HTTPMethod.POST);
             Log.Debug("HTTP POST to " + urlString);
 
-            if (!config.UseGzip)
+            if (!config.UseGzip && Log.IsDebugEnabled)
                 Log.Debug("with data " + (data == null ? "null" : StringUtils.ToString(data)));
 
             Result ret = TransferData(data, urlConnection);

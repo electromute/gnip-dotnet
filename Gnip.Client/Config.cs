@@ -23,10 +23,10 @@ namespace Gnip.Client
         private string password;
         private string gnipServer;
         private int requestTimeoutMillis = DEFAULT_READ_TIMEOUT_SECONDS * 1000;
-        private int readTimeoutMillis = DEFAULT_READ_TIMEOUT_SECONDS * 1000;
+        private int readWriteTimeoutMillis = DEFAULT_READ_TIMEOUT_SECONDS * 1000;
 
         /// <summary> 
-        /// Create a {@link Config} object with the specified username and password
+        /// Create a Config} object with the specified username and password
         /// to the default Gnip server.
         /// </summary>
         /// <param name="username">The username.</param>
@@ -38,7 +38,7 @@ namespace Gnip.Client
             this.gnipServer = DEFAULT_SERVER_URL;
         }
 
-        /// <summary> Create a {@link Config} object to the Gnip server at the provided URL
+        /// <summary> Create a Config object to the Gnip server at the provided URL
         /// with the username and password credentials.
         /// </summary>
         /// 
@@ -50,6 +50,24 @@ namespace Gnip.Client
             this.username = username;
             this.password = password;
             this.gnipServer = gnipServer.ToString();
+        }
+
+        /// <summary> Create a Config object to the Gnip server at the provided URL
+        /// with the username and password credentials.
+        /// </summary>
+        /// 
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        /// <param name="gnipServer">The gnip server to use.</param>
+        /// <param name="requestTimeout">The timeout used for obtaining an http request.</param>
+        /// <param name="readWriteTimeout">The timeout used for reading and writing to a request.</param>
+        public Config(string username, string password, Uri gnipServer, int requestTimeout, int readWriteTimeout)
+        {
+            this.username = username;
+            this.password = password;
+            this.gnipServer = gnipServer.ToString();
+            this.requestTimeoutMillis = requestTimeout;
+            this.readWriteTimeoutMillis = readWriteTimeout;
         }
 
 		/// <summary> 
@@ -101,8 +119,8 @@ namespace Gnip.Client
 		/// </summary>
         public int ReadWriteTimeout
         {
-            get { return this.readTimeoutMillis; }
-            set { this.readTimeoutMillis = value; }
+            get { return this.readWriteTimeoutMillis; }
+            set { this.readWriteTimeoutMillis = value; }
         }
 
 		/// <summary> 

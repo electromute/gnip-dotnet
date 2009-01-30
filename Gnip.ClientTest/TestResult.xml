@@ -1,487 +1,263 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\gnip.nunit" total="122" failures="34" not-run="0" date="2009-01-29" time="09:55:59">
+<test-results name="C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\gnip.nunit" total="139" failures="0" not-run="0" date="2009-01-29" time="19:01:42">
   <environment nunit-version="2.4.8.0" clr-version="2.0.50727.3053" os-version="Microsoft Windows NT 6.0.6001 Service Pack 1" platform="Win32NT" cwd="C:\Programs\NUnit-2.4.8-net-2.0\bin" machine-name="HYDROGEN" user="rick" user-domain="MONDOROBOT" />
   <culture-info current-culture="en-US" current-uiculture="en-US" />
-  <test-suite name="C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\gnip.nunit" success="False" time="289.623" asserts="0">
+  <test-suite name="C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\gnip.nunit" success="True" time="58.716" asserts="0">
     <results>
-      <test-suite name="C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\bin\Debug\Gnip.ClientTest.exe" success="False" time="289.616" asserts="0">
+      <test-suite name="C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\bin\Debug\Gnip.ClientTest.exe" success="True" time="58.690" asserts="0">
         <results>
-          <test-suite name="Gnip" success="False" time="289.615" asserts="0">
+          <test-suite name="Gnip" success="True" time="58.669" asserts="0">
             <results>
-              <test-suite name="Client" success="False" time="289.615" asserts="0">
+              <test-suite name="Client" success="True" time="58.668" asserts="0">
                 <results>
-                  <test-suite name="GnipConnectionActivityTestCase" success="False" time="59.142" asserts="0">
-                    <failure>
-                      <message><![CDATA[Gnip.Client.GnipException : Exception occurred getting Publisher
-  ----> System.Net.WebException : The remote server returned an error: (401) Unauthorized.]]></message>
-                      <stack-trace><![CDATA[at Gnip.Client.GnipConnection.GetPublisher(PublisherType type, String publisherName) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\GnipConnection.cs:line 218
-at Gnip.Client.GnipTestCase.SetUp() in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\GnipTestCase.cs:line 45
-at Gnip.Client.GnipConnectionActivityTestCase.SetUp() in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\GnipConnectionActivityTestCase.cs:line 20
---WebException
-at System.Net.HttpWebRequest.GetResponse()
-at Gnip.Client.Util.HTTPConnection.GetData(HttpWebRequest request) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\Util\HTTPConnection.cs:line 283
-at Gnip.Client.Util.HTTPConnection.DoGet(String urlString) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\Util\HTTPConnection.cs:line 96
-at Gnip.Client.GnipConnection.GetPublisher(PublisherType type, String publisherName) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\GnipConnection.cs:line 204
-]]></stack-trace>
-                    </failure>
+                  <test-suite name="GnipConnectionActivityGzipTestCase" success="True" time="14.707" asserts="0">
                     <results>
-                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_01" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionActivityTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_02" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionActivityTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_03" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionActivityTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnipWithTime_01" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionActivityTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnipWithTime_02" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionActivityTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityFromGnip" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionActivityTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestPayloadEncodeDecode" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionActivityTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestPublishActivityToGnip" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionActivityTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestPublishActivityWithPayloadToGnip" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionActivityTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
+                      <test-case name="Gnip.Client.GnipConnectionActivityGzipTestCase.TestGetActivityForFilterFromGnip_01" executed="True" success="True" time="3.035" asserts="3" />
+                      <test-case name="Gnip.Client.GnipConnectionActivityGzipTestCase.TestGetActivityForFilterFromGnip_02" executed="True" success="True" time="1.920" asserts="7" />
+                      <test-case name="Gnip.Client.GnipConnectionActivityGzipTestCase.TestGetActivityForFilterFromGnip_03" executed="True" success="True" time="1.279" asserts="7" />
+                      <test-case name="Gnip.Client.GnipConnectionActivityGzipTestCase.TestGetActivityForFilterFromGnipWithTime_01" executed="True" success="True" time="1.344" asserts="5" />
+                      <test-case name="Gnip.Client.GnipConnectionActivityGzipTestCase.TestGetActivityForFilterFromGnipWithTime_02" executed="True" success="True" time="1.226" asserts="5" />
+                      <test-case name="Gnip.Client.GnipConnectionActivityGzipTestCase.TestGetActivityFromGnip" executed="True" success="True" time="0.638" asserts="4" />
+                      <test-case name="Gnip.Client.GnipConnectionActivityGzipTestCase.TestPayloadEncodeDecode" executed="True" success="True" time="0.183" asserts="18" />
+                      <test-case name="Gnip.Client.GnipConnectionActivityGzipTestCase.TestPublishActivityToGnip" executed="True" success="True" time="0.445" asserts="0" />
+                      <test-case name="Gnip.Client.GnipConnectionActivityGzipTestCase.TestPublishActivityWithPayloadToGnip" executed="True" success="True" time="0.440" asserts="0" />
                     </results>
                   </test-suite>
-                  <test-suite name="GnipConnectionFilterTestCase" success="False" time="45.387" asserts="0">
-                    <failure>
-                      <message><![CDATA[Gnip.Client.GnipException : Exception occurred getting Publisher
-  ----> System.Net.WebException : The remote server returned an error: (401) Unauthorized.]]></message>
-                      <stack-trace><![CDATA[at Gnip.Client.GnipConnection.GetPublisher(PublisherType type, String publisherName) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\GnipConnection.cs:line 218
-at Gnip.Client.GnipTestCase.SetUp() in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\GnipTestCase.cs:line 45
-at Gnip.Client.GnipConnectionFilterTestCase.SetUp() in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\GnipConnectionFilterTestCase.cs:line 17
---WebException
-at System.Net.HttpWebRequest.GetResponse()
-at Gnip.Client.Util.HTTPConnection.GetData(HttpWebRequest request) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\Util\HTTPConnection.cs:line 283
-at Gnip.Client.Util.HTTPConnection.DoGet(String urlString) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\Util\HTTPConnection.cs:line 96
-at Gnip.Client.GnipConnection.GetPublisher(PublisherType type, String publisherName) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\GnipConnection.cs:line 204
-]]></stack-trace>
-                    </failure>
+                  <test-suite name="GnipConnectionActivityTestCase" success="True" time="8.030" asserts="0">
                     <results>
-                      <test-case name="Gnip.Client.GnipConnectionFilterTestCase.TestAddRuleToFilter" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionFilterTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionFilterTestCase.TestBatchAddRulesToFilter" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionFilterTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionFilterTestCase.TestCreateFilter" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionFilterTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionFilterTestCase.TestDeleteFilter" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionFilterTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionFilterTestCase.TestDeleteRuleFromFilter" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionFilterTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionFilterTestCase.TestGetFilter" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionFilterTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionFilterTestCase.TestNoSuchFilter" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionFilterTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionFilterTestCase.TestUpdateFilter" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionFilterTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
+                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_01" executed="True" success="True" time="1.207" asserts="3" />
+                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_02" executed="True" success="True" time="1.068" asserts="7" />
+                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_03" executed="True" success="True" time="1.059" asserts="7" />
+                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnipWithTime_01" executed="True" success="True" time="1.303" asserts="5" />
+                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnipWithTime_02" executed="True" success="True" time="1.255" asserts="5" />
+                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityFromGnip" executed="True" success="True" time="0.778" asserts="4" />
+                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestPayloadEncodeDecode" executed="True" success="True" time="0.001" asserts="18" />
+                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestPublishActivityToGnip" executed="True" success="True" time="0.443" asserts="0" />
+                      <test-case name="Gnip.Client.GnipConnectionActivityTestCase.TestPublishActivityWithPayloadToGnip" executed="True" success="True" time="0.440" asserts="0" />
                     </results>
                   </test-suite>
-                  <test-suite name="GnipConnectionFilterTunnelingViaPostTestCase" success="False" time="45.375" asserts="0">
-                    <failure>
-                      <message><![CDATA[Gnip.Client.GnipException : Exception occurred getting Publisher
-  ----> System.Net.WebException : The remote server returned an error: (401) Unauthorized.]]></message>
-                      <stack-trace><![CDATA[at Gnip.Client.GnipConnection.GetPublisher(PublisherType type, String publisherName) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\GnipConnection.cs:line 218
-at Gnip.Client.GnipTestCase.SetUp() in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\GnipTestCase.cs:line 45
-at Gnip.Client.GnipConnectionFilterTestCase.SetUp() in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\GnipConnectionFilterTestCase.cs:line 17
-at Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.SetUp() in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\GnipConnectionFilterTunnelingViaPostTestCase.cs:line 11
---WebException
-at System.Net.HttpWebRequest.GetResponse()
-at Gnip.Client.Util.HTTPConnection.GetData(HttpWebRequest request) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\Util\HTTPConnection.cs:line 283
-at Gnip.Client.Util.HTTPConnection.DoGet(String urlString) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\Util\HTTPConnection.cs:line 96
-at Gnip.Client.GnipConnection.GetPublisher(PublisherType type, String publisherName) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\GnipConnection.cs:line 204
-]]></stack-trace>
-                    </failure>
+                  <test-suite name="GnipConnectionFilterGzipTestCase" success="True" time="9.347" asserts="0">
                     <results>
-                      <test-case name="Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestAddRuleToFilter" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionFilterTunnelingViaPostTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestBatchAddRulesToFilter" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionFilterTunnelingViaPostTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestCreateFilter" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionFilterTunnelingViaPostTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestDeleteFilter" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionFilterTunnelingViaPostTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestDeleteRuleFromFilter" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionFilterTunnelingViaPostTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestGetFilter" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionFilterTunnelingViaPostTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestNoSuchFilter" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionFilterTunnelingViaPostTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestUpdateFilter" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionFilterTunnelingViaPostTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
+                      <test-case name="Gnip.Client.GnipConnectionFilterGzipTestCase.TestAddRuleToFilter" executed="True" success="True" time="1.438" asserts="3" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterGzipTestCase.TestBatchAddRulesToFilter" executed="True" success="True" time="1.375" asserts="4" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterGzipTestCase.TestCreateFilter" executed="True" success="True" time="0.839" asserts="5" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterGzipTestCase.TestDeleteFilter" executed="True" success="True" time="1.068" asserts="1" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterGzipTestCase.TestDeleteRuleFromFilter" executed="True" success="True" time="1.708" asserts="6" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterGzipTestCase.TestGetFilter" executed="True" success="True" time="0.816" asserts="2" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterGzipTestCase.TestNoSuchFilter" executed="True" success="True" time="0.187" asserts="0" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterGzipTestCase.TestUpdateFilter" executed="True" success="True" time="1.518" asserts="3" />
                     </results>
                   </test-suite>
-                  <test-suite name="GnipConnectionMiscTestCase" success="False" time="45.369" asserts="0">
-                    <failure>
-                      <message><![CDATA[Gnip.Client.GnipException : Exception occurred getting Publisher
-  ----> System.Net.WebException : The remote server returned an error: (401) Unauthorized.]]></message>
-                      <stack-trace><![CDATA[at Gnip.Client.GnipConnection.GetPublisher(PublisherType type, String publisherName) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\GnipConnection.cs:line 218
-at Gnip.Client.GnipTestCase.SetUp() in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\GnipTestCase.cs:line 45
-at Gnip.Client.GnipConnectionMiscTestCase.SetUp() in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\GnipConnectionMiscTestCase.cs:line 15
---WebException
-at System.Net.HttpWebRequest.GetResponse()
-at Gnip.Client.Util.HTTPConnection.GetData(HttpWebRequest request) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\Util\HTTPConnection.cs:line 283
-at Gnip.Client.Util.HTTPConnection.DoGet(String urlString) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\Util\HTTPConnection.cs:line 96
-at Gnip.Client.GnipConnection.GetPublisher(PublisherType type, String publisherName) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\GnipConnection.cs:line 204
-]]></stack-trace>
-                    </failure>
+                  <test-suite name="GnipConnectionFilterTestCase" success="True" time="9.096" asserts="0">
                     <results>
-                      <test-case name="Gnip.Client.GnipConnectionMiscTestCase.TestCalculateServerDelta" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionMiscTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
+                      <test-case name="Gnip.Client.GnipConnectionFilterTestCase.TestAddRuleToFilter" executed="True" success="True" time="1.286" asserts="3" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterTestCase.TestBatchAddRulesToFilter" executed="True" success="True" time="1.148" asserts="4" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterTestCase.TestCreateFilter" executed="True" success="True" time="0.879" asserts="5" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterTestCase.TestDeleteFilter" executed="True" success="True" time="1.000" asserts="1" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterTestCase.TestDeleteRuleFromFilter" executed="True" success="True" time="1.668" asserts="6" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterTestCase.TestGetFilter" executed="True" success="True" time="0.849" asserts="2" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterTestCase.TestNoSuchFilter" executed="True" success="True" time="0.203" asserts="0" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterTestCase.TestUpdateFilter" executed="True" success="True" time="1.414" asserts="3" />
                     </results>
                   </test-suite>
-                  <test-suite name="GnipConnectionNotificationTestCase" success="False" time="45.375" asserts="0">
-                    <failure>
-                      <message><![CDATA[Gnip.Client.GnipException : Exception occurred getting Publisher
-  ----> System.Net.WebException : The remote server returned an error: (401) Unauthorized.]]></message>
-                      <stack-trace><![CDATA[at Gnip.Client.GnipConnection.GetPublisher(PublisherType type, String publisherName) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\GnipConnection.cs:line 218
-at Gnip.Client.GnipTestCase.SetUp() in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\GnipTestCase.cs:line 45
-at Gnip.Client.GnipConnectionNotificationTestCase.SetUp() in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\GnipConnectionNotificationTestCase.cs:line 15
---WebException
-at System.Net.HttpWebRequest.GetResponse()
-at Gnip.Client.Util.HTTPConnection.GetData(HttpWebRequest request) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\Util\HTTPConnection.cs:line 283
-at Gnip.Client.Util.HTTPConnection.DoGet(String urlString) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\Util\HTTPConnection.cs:line 96
-at Gnip.Client.GnipConnection.GetPublisher(PublisherType type, String publisherName) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\GnipConnection.cs:line 204
-]]></stack-trace>
-                    </failure>
+                  <test-suite name="GnipConnectionFilterTunnelingViaPostTestCase" success="True" time="8.762" asserts="0">
                     <results>
-                      <test-case name="Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForFilterFromGnip" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionNotificationTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForFilterFromGnipWithTime" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionNotificationTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForPublisherFromGnip" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionNotificationTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForPublisherFromGnipWithTime" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionNotificationTestCase]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
+                      <test-case name="Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestAddRuleToFilter" executed="True" success="True" time="1.209" asserts="3" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestBatchAddRulesToFilter" executed="True" success="True" time="1.251" asserts="4" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestCreateFilter" executed="True" success="True" time="0.812" asserts="5" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestDeleteFilter" executed="True" success="True" time="0.945" asserts="1" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestDeleteRuleFromFilter" executed="True" success="True" time="1.601" asserts="6" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestGetFilter" executed="True" success="True" time="0.854" asserts="2" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestNoSuchFilter" executed="True" success="True" time="0.190" asserts="0" />
+                      <test-case name="Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestUpdateFilter" executed="True" success="True" time="1.383" asserts="3" />
                     </results>
                   </test-suite>
-                  <test-suite name="GnipConnectionPublisherTest" success="False" time="45.392" asserts="0">
-                    <failure>
-                      <message><![CDATA[Gnip.Client.GnipException : Exception occurred getting Publisher
-  ----> System.Net.WebException : The remote server returned an error: (401) Unauthorized.]]></message>
-                      <stack-trace><![CDATA[at Gnip.Client.GnipConnection.GetPublisher(PublisherType type, String publisherName) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\GnipConnection.cs:line 218
-at Gnip.Client.GnipTestCase.SetUp() in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\GnipTestCase.cs:line 45
-at Gnip.Client.GnipConnectionPublisherTest.SetUp() in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\GnipConnectionPublisherTestCase.cs:line 15
---WebException
-at System.Net.HttpWebRequest.GetResponse()
-at Gnip.Client.Util.HTTPConnection.GetData(HttpWebRequest request) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\Util\HTTPConnection.cs:line 283
-at Gnip.Client.Util.HTTPConnection.DoGet(String urlString) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\Util\HTTPConnection.cs:line 96
-at Gnip.Client.GnipConnection.GetPublisher(PublisherType type, String publisherName) in C:\rick\dev\gnip\gnip-dotnet-working\Gnip.Client\GnipConnection.cs:line 204
-]]></stack-trace>
-                    </failure>
+                  <test-suite name="GnipConnectionMiscTestCase" success="True" time="0.588" asserts="0">
                     <results>
-                      <test-case name="Gnip.Client.GnipConnectionPublisherTest.TestGetPublisher" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionPublisherTest]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionPublisherTest.TestGetPublisherIncludesCapabilities" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionPublisherTest]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionPublisherTest.TestGetPublishers" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionPublisherTest]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
-                      <test-case name="Gnip.Client.GnipConnectionPublisherTest.TestUpdatePublisher" executed="True" success="False" time="0.000" asserts="0">
-                        <failure>
-                          <message><![CDATA[TestFixtureSetUp failed in GnipConnectionPublisherTest]]></message>
-                          <stack-trace />
-                        </failure>
-                      </test-case>
+                      <test-case name="Gnip.Client.GnipConnectionMiscTestCase.TestCalculateServerDelta" executed="True" success="True" time="0.199" asserts="1" />
                     </results>
                   </test-suite>
-                  <test-suite name="GnipConnectionTest" success="True" time="0.038" asserts="0">
+                  <test-suite name="GnipConnectionNotificationTestCase" success="True" time="4.550" asserts="0">
                     <results>
-                      <test-case name="Gnip.Client.GnipConnectionTest.TestFloor" executed="True" success="True" time="0.031" asserts="9" />
+                      <test-case name="Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForFilterFromGnip" executed="True" success="True" time="1.401" asserts="5" />
+                      <test-case name="Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForFilterFromGnipWithTime" executed="True" success="True" time="1.539" asserts="5" />
+                      <test-case name="Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForPublisherFromGnip" executed="True" success="True" time="0.638" asserts="4" />
+                      <test-case name="Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForPublisherFromGnipWithTime" executed="True" success="True" time="0.577" asserts="4" />
                     </results>
                   </test-suite>
-                  <test-suite name="Resource" success="True" time="3.387" asserts="0">
+                  <test-suite name="GnipConnectionPublisherTest" success="True" time="2.583" asserts="0">
                     <results>
-                      <test-suite name="ActivitiesTest" success="True" time="1.705" asserts="0">
+                      <test-case name="Gnip.Client.GnipConnectionPublisherTest.TestGetPublisher" executed="True" success="True" time="0.207" asserts="2" />
+                      <test-case name="Gnip.Client.GnipConnectionPublisherTest.TestGetPublisherIncludesCapabilities" executed="True" success="True" time="0.178" asserts="2" />
+                      <test-case name="Gnip.Client.GnipConnectionPublisherTest.TestGetPublishers" executed="True" success="True" time="0.303" asserts="2" />
+                      <test-case name="Gnip.Client.GnipConnectionPublisherTest.TestUpdatePublisher" executed="True" success="True" time="1.484" asserts="5" />
+                    </results>
+                  </test-suite>
+                  <test-suite name="GnipConnectionTest" success="True" time="0.004" asserts="0">
+                    <results>
+                      <test-case name="Gnip.Client.GnipConnectionTest.TestFloor" executed="True" success="True" time="0.004" asserts="9" />
+                    </results>
+                  </test-suite>
+                  <test-suite name="Resource" success="True" time="0.871" asserts="0">
+                    <results>
+                      <test-suite name="ActivitiesTest" success="True" time="0.019" asserts="0">
                         <results>
-                          <test-case name="Gnip.Client.Resource.ActivitiesTest.TestActivityConstructor_01" executed="True" success="True" time="0.060" asserts="4" />
-                          <test-case name="Gnip.Client.Resource.ActivitiesTest.TestActivityDeserialize_01" executed="True" success="True" time="1.636" asserts="4" />
+                          <test-case name="Gnip.Client.Resource.ActivitiesTest.TestActivityConstructor_01" executed="True" success="True" time="0.009" asserts="4" />
+                          <test-case name="Gnip.Client.Resource.ActivitiesTest.TestActivityDeserialize_01" executed="True" success="True" time="0.003" asserts="4" />
                           <test-case name="Gnip.Client.Resource.ActivitiesTest.TestActivitySerialize_01" executed="True" success="True" time="0.001" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.ActivitiesTest.TestActivitySerialize_02" executed="True" success="True" time="0.004" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.ActivitiesTest.TestActivitySerialize_02" executed="True" success="True" time="0.002" asserts="1" />
                         </results>
                       </test-suite>
-                      <test-suite name="ActivityTest" success="True" time="0.192" asserts="0">
+                      <test-suite name="ActivityTest" success="True" time="0.054" asserts="0">
                         <results>
-                          <test-case name="Gnip.Client.Resource.ActivityTest.TestActivityConstructor_01" executed="True" success="True" time="0.007" asserts="14" />
-                          <test-case name="Gnip.Client.Resource.ActivityTest.TestActivityConstructor_02" executed="True" success="True" time="0.003" asserts="12" />
-                          <test-case name="Gnip.Client.Resource.ActivityTest.TestActivityConstructor_03" executed="True" success="True" time="0.004" asserts="16" />
-                          <test-case name="Gnip.Client.Resource.ActivityTest.TestActivityDeserialize_01" executed="True" success="True" time="0.158" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.ActivityTest.TestActivityConstructor_01" executed="True" success="True" time="0.009" asserts="14" />
+                          <test-case name="Gnip.Client.Resource.ActivityTest.TestActivityConstructor_02" executed="True" success="True" time="0.002" asserts="12" />
+                          <test-case name="Gnip.Client.Resource.ActivityTest.TestActivityConstructor_03" executed="True" success="True" time="0.002" asserts="16" />
+                          <test-case name="Gnip.Client.Resource.ActivityTest.TestActivityDeserialize_01" executed="True" success="True" time="0.022" asserts="1" />
                           <test-case name="Gnip.Client.Resource.ActivityTest.TestActivityDeserialize_02" executed="True" success="True" time="0.001" asserts="1" />
                           <test-case name="Gnip.Client.Resource.ActivityTest.TestActivitySerialize_01" executed="True" success="True" time="0.001" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.ActivityTest.TestActivitySerialize_02" executed="True" success="True" time="0.012" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.ActivityTest.TestActivitySerialize_02" executed="True" success="True" time="0.008" asserts="1" />
                           <test-case name="Gnip.Client.Resource.ActivityTest.TestActivitySerialize_03" executed="True" success="True" time="0.001" asserts="1" />
                         </results>
                       </test-suite>
-                      <test-suite name="ActorTest" success="True" time="0.093" asserts="0">
+                      <test-suite name="ActorTest" success="True" time="0.088" asserts="0">
                         <results>
                           <test-case name="Gnip.Client.Resource.ActorTest.TestActorConstructor_01" executed="True" success="True" time="0.001" asserts="1" />
                           <test-case name="Gnip.Client.Resource.ActorTest.TestActorConstructor_02" executed="True" success="True" time="0.001" asserts="8" />
-                          <test-case name="Gnip.Client.Resource.ActorTest.TestActorConstructor_03" executed="True" success="True" time="0.001" asserts="12" />
+                          <test-case name="Gnip.Client.Resource.ActorTest.TestActorConstructor_03" executed="True" success="True" time="0.002" asserts="12" />
                           <test-case name="Gnip.Client.Resource.ActorTest.TestActorConstructor_04" executed="True" success="True" time="0.001" asserts="16" />
-                          <test-case name="Gnip.Client.Resource.ActorTest.TestActorDeserialize_01" executed="True" success="True" time="0.076" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.ActorTest.TestActorDeserialize_01" executed="True" success="True" time="0.077" asserts="1" />
                           <test-case name="Gnip.Client.Resource.ActorTest.TestActorSerialize_01" executed="True" success="True" time="0.001" asserts="1" />
                         </results>
                       </test-suite>
-                      <test-suite name="ErrorTest" success="True" time="0.085" asserts="0">
+                      <test-suite name="ErrorTest" success="True" time="0.081" asserts="0">
                         <results>
-                          <test-case name="Gnip.Client.Resource.ErrorTest.TestErrorConstructor_01" executed="True" success="True" time="0.003" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.ErrorTest.TestErrorConstructor_02" executed="True" success="True" time="0.001" asserts="8" />
-                          <test-case name="Gnip.Client.Resource.ErrorTest.TestErrorDeserialize_01" executed="True" success="True" time="0.077" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.ErrorTest.TestErrorSerialize_01" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.ErrorTest.TestErrorConstructor_01" executed="True" success="True" time="0.002" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.ErrorTest.TestErrorConstructor_02" executed="True" success="True" time="0.002" asserts="8" />
+                          <test-case name="Gnip.Client.Resource.ErrorTest.TestErrorDeserialize_01" executed="True" success="True" time="0.074" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.ErrorTest.TestErrorSerialize_01" executed="True" success="True" time="0.000" asserts="1" />
                         </results>
                       </test-suite>
-                      <test-suite name="FilterTest" success="True" time="0.156" asserts="0">
+                      <test-suite name="FilterTest" success="True" time="0.020" asserts="0">
                         <results>
-                          <test-case name="Gnip.Client.Resource.FilterTest.TestFilterConstructor_01" executed="True" success="True" time="0.007" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.FilterTest.TestFilterConstructor_02" executed="True" success="True" time="0.001" asserts="8" />
-                          <test-case name="Gnip.Client.Resource.FilterTest.TestFilterConstructor_03" executed="True" success="True" time="0.001" asserts="12" />
-                          <test-case name="Gnip.Client.Resource.FilterTest.TestFilterConstructor_04" executed="True" success="True" time="0.001" asserts="16" />
-                          <test-case name="Gnip.Client.Resource.FilterTest.TestFilterConstructor_05" executed="True" success="True" time="0.002" asserts="24" />
-                          <test-case name="Gnip.Client.Resource.FilterTest.TestFilterDeserialize_01" executed="True" success="True" time="0.134" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.FilterTest.TestFilterConstructor_01" executed="True" success="True" time="0.004" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.FilterTest.TestFilterConstructor_02" executed="True" success="True" time="0.002" asserts="8" />
+                          <test-case name="Gnip.Client.Resource.FilterTest.TestFilterConstructor_03" executed="True" success="True" time="0.000" asserts="12" />
+                          <test-case name="Gnip.Client.Resource.FilterTest.TestFilterConstructor_04" executed="True" success="True" time="0.002" asserts="16" />
+                          <test-case name="Gnip.Client.Resource.FilterTest.TestFilterConstructor_05" executed="True" success="True" time="0.003" asserts="24" />
+                          <test-case name="Gnip.Client.Resource.FilterTest.TestFilterDeserialize_01" executed="True" success="True" time="0.001" asserts="1" />
                           <test-case name="Gnip.Client.Resource.FilterTest.TestFilterSerialize_01" executed="True" success="True" time="0.001" asserts="1" />
                           <test-case name="Gnip.Client.Resource.FilterTest.TestFilterSerialize_02" executed="True" success="True" time="0.001" asserts="1" />
                         </results>
                       </test-suite>
-                      <test-suite name="GnipUrlTest" success="True" time="0.089" asserts="0">
+                      <test-suite name="GnipUrlTest" success="True" time="0.085" asserts="0">
                         <results>
-                          <test-case name="Gnip.Client.Resource.GnipUrlTest.TestGnipUrlConstructor_01" executed="True" success="True" time="0.000" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.GnipUrlTest.TestGnipUrlConstructor_01" executed="True" success="True" time="0.002" asserts="1" />
                           <test-case name="Gnip.Client.Resource.GnipUrlTest.TestGnipUrlConstructor_02" executed="True" success="True" time="0.001" asserts="8" />
-                          <test-case name="Gnip.Client.Resource.GnipUrlTest.TestGnipUrlConstructor_04" executed="True" success="True" time="0.000" asserts="12" />
+                          <test-case name="Gnip.Client.Resource.GnipUrlTest.TestGnipUrlConstructor_04" executed="True" success="True" time="0.001" asserts="12" />
                           <test-case name="Gnip.Client.Resource.GnipUrlTest.TestGnipUrlDeserialize_01" executed="True" success="True" time="0.077" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.GnipUrlTest.TestGnipUrlSerialize_01" executed="True" success="True" time="0.002" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.GnipUrlTest.TestGnipUrlSerialize_01" executed="True" success="True" time="0.001" asserts="1" />
                         </results>
                       </test-suite>
-                      <test-suite name="GnipValueTest" success="True" time="0.132" asserts="0">
+                      <test-suite name="GnipValueTest" success="True" time="0.083" asserts="0">
                         <results>
                           <test-case name="Gnip.Client.Resource.GnipValueTest.TestGnipValueConstructor_01" executed="True" success="True" time="0.001" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.GnipValueTest.TestGnipValueConstructor_02" executed="True" success="True" time="0.002" asserts="8" />
+                          <test-case name="Gnip.Client.Resource.GnipValueTest.TestGnipValueConstructor_02" executed="True" success="True" time="0.001" asserts="8" />
                           <test-case name="Gnip.Client.Resource.GnipValueTest.TestGnipValueConstructor_04" executed="True" success="True" time="0.001" asserts="12" />
-                          <test-case name="Gnip.Client.Resource.GnipValueTest.TestGnipValueDeserialize_01" executed="True" success="True" time="0.088" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.GnipValueTest.TestGnipValueSerialize_01" executed="True" success="True" time="0.032" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.GnipValueTest.TestGnipValueDeserialize_01" executed="True" success="True" time="0.077" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.GnipValueTest.TestGnipValueSerialize_01" executed="True" success="True" time="0.000" asserts="1" />
                         </results>
                       </test-suite>
-                      <test-suite name="MediaUrlTest" success="True" time="0.094" asserts="0">
+                      <test-suite name="MediaUrlTest" success="True" time="0.091" asserts="0">
                         <results>
-                          <test-case name="Gnip.Client.Resource.MediaUrlTest.TestMediaUrlConstructor_01" executed="True" success="True" time="0.003" asserts="2" />
+                          <test-case name="Gnip.Client.Resource.MediaUrlTest.TestMediaUrlConstructor_01" executed="True" success="True" time="0.001" asserts="2" />
                           <test-case name="Gnip.Client.Resource.MediaUrlTest.TestMediaUrlConstructor_02" executed="True" success="True" time="0.001" asserts="8" />
-                          <test-case name="Gnip.Client.Resource.MediaUrlTest.TestMediaUrlConstructor_04" executed="True" success="True" time="0.003" asserts="28" />
-                          <test-case name="Gnip.Client.Resource.MediaUrlTest.TestMediaUrlDeserialize_01" executed="True" success="True" time="0.081" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.MediaUrlTest.TestMediaUrlConstructor_04" executed="True" success="True" time="0.002" asserts="28" />
+                          <test-case name="Gnip.Client.Resource.MediaUrlTest.TestMediaUrlDeserialize_01" executed="True" success="True" time="0.082" asserts="1" />
                           <test-case name="Gnip.Client.Resource.MediaUrlTest.TestMediaUrlSerialize_01" executed="True" success="True" time="0.001" asserts="1" />
                         </results>
                       </test-suite>
-                      <test-suite name="PayloadTest" success="True" time="0.150" asserts="0">
+                      <test-suite name="PayloadTest" success="True" time="0.104" asserts="0">
                         <results>
-                          <test-case name="Gnip.Client.Resource.PayloadTest.TestPayloadConstructor_01" executed="True" success="True" time="0.036" asserts="4" />
-                          <test-case name="Gnip.Client.Resource.PayloadTest.TestPayloadConstructor_02" executed="True" success="True" time="0.004" asserts="16" />
-                          <test-case name="Gnip.Client.Resource.PayloadTest.TestPayloadDeserialize_01" executed="True" success="True" time="0.092" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_01" executed="True" success="True" time="0.001" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_02" executed="True" success="True" time="0.002" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_03" executed="True" success="True" time="0.003" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.PayloadTest.TestPayloadConstructor_01" executed="True" success="True" time="0.002" asserts="4" />
+                          <test-case name="Gnip.Client.Resource.PayloadTest.TestPayloadConstructor_02" executed="True" success="True" time="0.002" asserts="16" />
+                          <test-case name="Gnip.Client.Resource.PayloadTest.TestPayloadDeserialize_01" executed="True" success="True" time="0.087" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_01" executed="True" success="True" time="0.000" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_02" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_03" executed="True" success="True" time="0.002" asserts="1" />
                           <test-case name="Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_04" executed="True" success="True" time="0.001" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_05" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.PayloadTest.TestPayloadSerialize_05" executed="True" success="True" time="0.002" asserts="1" />
                         </results>
                       </test-suite>
-                      <test-suite name="PlaceTest" success="True" time="0.115" asserts="0">
+                      <test-suite name="PlaceTest" success="True" time="0.111" asserts="0">
                         <results>
-                          <test-case name="Gnip.Client.Resource.PlaceTest.TestPlaceConstructor_01" executed="True" success="True" time="0.005" asserts="17" />
+                          <test-case name="Gnip.Client.Resource.PlaceTest.TestPlaceConstructor_01" executed="True" success="True" time="0.004" asserts="17" />
                           <test-case name="Gnip.Client.Resource.PlaceTest.TestPlaceConstructor_02" executed="True" success="True" time="0.002" asserts="12" />
                           <test-case name="Gnip.Client.Resource.PlaceTest.TestPlaceConstructor_03" executed="True" success="True" time="0.007" asserts="32" />
-                          <test-case name="Gnip.Client.Resource.PlaceTest.TestPlaceDeserialize_01" executed="True" success="True" time="0.091" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.PlaceTest.TestPlaceSerialize_01" executed="True" success="True" time="0.000" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.PlaceTest.TestPlaceDeserialize_01" executed="True" success="True" time="0.090" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.PlaceTest.TestPlaceSerialize_01" executed="True" success="True" time="0.001" asserts="1" />
                           <test-case name="Gnip.Client.Resource.PlaceTest.TestPlaceSerialize_02" executed="True" success="True" time="0.001" asserts="1" />
                         </results>
                       </test-suite>
-                      <test-suite name="PublishersTest" success="True" time="0.156" asserts="0">
+                      <test-suite name="PublishersTest" success="True" time="0.024" asserts="0">
                         <results>
-                          <test-case name="Gnip.Client.Resource.PublishersTest.TestPublisherConstructor_01" executed="True" success="True" time="0.011" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.PublishersTest.TestPublisherDeserialize_01" executed="True" success="True" time="0.141" asserts="4" />
+                          <test-case name="Gnip.Client.Resource.PublishersTest.TestPublisherConstructor_01" executed="True" success="True" time="0.006" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.PublishersTest.TestPublisherDeserialize_01" executed="True" success="True" time="0.013" asserts="4" />
                           <test-case name="Gnip.Client.Resource.PublishersTest.TestPublisherSerialize_01" executed="True" success="True" time="0.002" asserts="1" />
                         </results>
                       </test-suite>
-                      <test-suite name="PublisherTest" success="True" time="0.117" asserts="0">
+                      <test-suite name="PublisherTest" success="True" time="0.028" asserts="0">
                         <results>
-                          <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_01" executed="True" success="True" time="0.006" asserts="7" />
-                          <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_02" executed="True" success="True" time="0.001" asserts="5" />
+                          <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_01" executed="True" success="True" time="0.002" asserts="7" />
+                          <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_02" executed="True" success="True" time="0.002" asserts="5" />
                           <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_03" executed="True" success="True" time="0.001" asserts="12" />
-                          <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_04" executed="True" success="True" time="0.002" asserts="16" />
-                          <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_05" executed="True" success="True" time="0.003" asserts="24" />
-                          <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherDeserialize_01" executed="True" success="True" time="0.086" asserts="4" />
+                          <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_04" executed="True" success="True" time="0.001" asserts="16" />
+                          <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherConstructor_05" executed="True" success="True" time="0.002" asserts="24" />
+                          <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherDeserialize_01" executed="True" success="True" time="0.002" asserts="4" />
                           <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherDeserialize_02" executed="True" success="True" time="0.001" asserts="5" />
                           <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherDeserialize_03" executed="True" success="True" time="0.002" asserts="3" />
                           <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherSerialize_01" executed="True" success="True" time="0.001" asserts="1" />
                           <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherSerialize_02" executed="True" success="True" time="0.001" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherSerialize_03" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.PublisherTest.TestPublisherSerialize_03" executed="True" success="True" time="0.000" asserts="1" />
                         </results>
                       </test-suite>
-                      <test-suite name="ResultTest" success="True" time="0.086" asserts="0">
+                      <test-suite name="ResultTest" success="True" time="0.011" asserts="0">
                         <results>
-                          <test-case name="Gnip.Client.Resource.ResultTest.TestResultConstructor_01" executed="True" success="True" time="0.002" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.ResultTest.TestResultConstructor_01" executed="True" success="True" time="0.001" asserts="1" />
                           <test-case name="Gnip.Client.Resource.ResultTest.TestResultConstructor_02" executed="True" success="True" time="0.001" asserts="8" />
-                          <test-case name="Gnip.Client.Resource.ResultTest.TestResultDeserialize_01" executed="True" success="True" time="0.075" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.ResultTest.TestResultSerialize_01" executed="True" success="True" time="0.001" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.ResultTest.TestResultDeserialize_01" executed="True" success="True" time="0.005" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.ResultTest.TestResultSerialize_01" executed="True" success="True" time="0.000" asserts="1" />
                         </results>
                       </test-suite>
-                      <test-suite name="RulesTest" success="True" time="0.098" asserts="0">
+                      <test-suite name="RulesTest" success="True" time="0.021" asserts="0">
                         <results>
-                          <test-case name="Gnip.Client.Resource.RulesTest.TestPublisherConstructor_01" executed="True" success="True" time="0.003" asserts="1" />
-                          <test-case name="Gnip.Client.Resource.RulesTest.TestPublisherDeserialize_01" executed="True" success="True" time="0.092" asserts="4" />
+                          <test-case name="Gnip.Client.Resource.RulesTest.TestPublisherConstructor_01" executed="True" success="True" time="0.002" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.RulesTest.TestPublisherDeserialize_01" executed="True" success="True" time="0.016" asserts="4" />
                           <test-case name="Gnip.Client.Resource.RulesTest.TestPublisherSerialize_01" executed="True" success="True" time="0.001" asserts="1" />
                         </results>
                       </test-suite>
-                      <test-suite name="RuleTest" success="True" time="0.086" asserts="0">
+                      <test-suite name="RuleTest" success="True" time="0.014" asserts="0">
                         <results>
                           <test-case name="Gnip.Client.Resource.RuleTest.TestRuleConstructor_01" executed="True" success="True" time="0.001" asserts="3" />
-                          <test-case name="Gnip.Client.Resource.RuleTest.TestRuleDeserialize_01" executed="True" success="True" time="0.081" asserts="1" />
+                          <test-case name="Gnip.Client.Resource.RuleTest.TestRuleDeserialize_01" executed="True" success="True" time="0.010" asserts="1" />
                           <test-case name="Gnip.Client.Resource.RuleTest.TestRuleSerialize_01" executed="True" success="True" time="0.000" asserts="1" />
                         </results>
                       </test-suite>
                     </results>
                   </test-suite>
-                  <test-suite name="Util" success="True" time="0.026" asserts="0">
+                  <test-suite name="Util" success="True" time="0.027" asserts="0">
                     <results>
-                      <test-suite name="ArrayUtilsTest" success="True" time="0.003" asserts="0">
+                      <test-suite name="ArrayUtilsTest" success="True" time="0.002" asserts="0">
                         <results>
                           <test-case name="Gnip.Client.Util.ArrayUtilsTest.TestAreEqual_01" executed="True" success="True" time="0.002" asserts="9" />
                         </results>
                       </test-suite>
-                      <test-suite name="ListUtilsTest" success="True" time="0.020" asserts="0">
+                      <test-suite name="ListUtilsTest" success="True" time="0.017" asserts="0">
                         <results>
                           <test-case name="Gnip.Client.Util.ListUtilsTest.TestAreEqual_01" executed="True" success="True" time="0.003" asserts="9" />
-                          <test-case name="Gnip.Client.Util.ListUtilsTest.TestAreEqual_02" executed="True" success="True" time="0.006" asserts="26" />
-                          <test-case name="Gnip.Client.Util.ListUtilsTest.TestAreEqualIgnoreOrder_01" executed="True" success="True" time="0.008" asserts="12" />
+                          <test-case name="Gnip.Client.Util.ListUtilsTest.TestAreEqual_02" executed="True" success="True" time="0.005" asserts="26" />
+                          <test-case name="Gnip.Client.Util.ListUtilsTest.TestAreEqualIgnoreOrder_01" executed="True" success="True" time="0.006" asserts="12" />
                         </results>
                       </test-suite>
                     </results>

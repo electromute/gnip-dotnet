@@ -21,6 +21,8 @@ namespace Gnip.Client
                     appSettings["gnip.host"],
                     (PublisherType)Enum.Parse(typeof(PublisherType), appSettings["gnip.publisherType"], true), 
                     appSettings["gnip.publisher"],
+                    int.Parse(appSettings["gnip.requestTimeout"]),
+                    int.Parse(appSettings["gnip.readWriteTimeout"]),
                     int.Parse(appSettings["gnip.idlemillis"]));
 
                 return TestConfig.singleton;
@@ -32,15 +34,19 @@ namespace Gnip.Client
         private string host;
         private PublisherType publisherType;
         private string publisher;
+        private int requestTimeout;
+        private int readWriteTimeout;
         private int idleMilliseconds;
 
-        private TestConfig(string username, string password, string host, PublisherType publisherType, string publisher, int idleMilliseconds)
+        private TestConfig(string username, string password, string host, PublisherType publisherType, string publisher, int requestTimeout, int readWriteTimeout, int idleMilliseconds)
 		{
 			this.username = username;
 			this.password = password;
 			this.host = host;
             this.publisherType = publisherType;
 			this.publisher = publisher;
+            this.requestTimeout = requestTimeout;
+            this.readWriteTimeout = readWriteTimeout;
             this.idleMilliseconds = idleMilliseconds;
 		}
 
@@ -73,6 +79,18 @@ namespace Gnip.Client
             get { return this.publisher; }
             set { this.publisher = value; }
 		}
+
+        public int RequestTimeout
+        {
+            get { return this.requestTimeout; }
+            set { this.requestTimeout = value; }
+        }
+
+        public int ReadWriteTimeout
+        {
+            get { return this.readWriteTimeout; }
+            set { this.readWriteTimeout = value; }
+        }
 
 		public int IdleMilliseconds
 		{

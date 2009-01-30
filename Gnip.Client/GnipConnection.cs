@@ -743,7 +743,8 @@ namespace Gnip.Client
             }
 
             XmlHelper.Instance.ToXmlStream<T>(resource, stream);
-            stream.Flush();
+            // must call close rather than flush with a GZipStream to get all the bytes.
+            stream.Close();
 
             byte[] bytes = byteArrayOutputStream.ToArray();
 

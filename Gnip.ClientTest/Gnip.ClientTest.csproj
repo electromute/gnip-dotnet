@@ -64,6 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GnipConnectionFilterGzipTestCase.cs" />
+    <Compile Include="GnipConnectionActivityGzipTestCase.cs" />
     <Compile Include="GnipConnectionMiscTestCase.cs" />
     <Compile Include="GnipConnectionTest.cs" />
     <Compile Include="GnipConnectionActivityTestCase.cs" />

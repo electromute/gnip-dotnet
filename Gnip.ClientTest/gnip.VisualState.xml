@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
   <TopNode>[0-1000]C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\gnip.nunit</TopNode>
-  <SelectedNode>[0-1148]Gnip</SelectedNode>
+  <SelectedNode>[0-1055]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_01</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
     <Node UniqueName="[0-1000]C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\gnip.nunit" Expanded="true">
@@ -12,7 +12,7 @@
               <Nodes>
                 <Node UniqueName="[0-1149]Gnip.Client" Expanded="true">
                   <Nodes>
-                    <Node UniqueName="[0-1050]Gnip.Client.GnipConnectionActivityTestCase">
+                    <Node UniqueName="[0-1050]Gnip.Client.GnipConnectionActivityTestCase" Expanded="true">
                       <Nodes>
                         <Node UniqueName="[0-1055]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_01" />
                         <Node UniqueName="[0-1056]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_02" />
