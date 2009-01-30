@@ -1,9 +1,12 @@
-Welcome to the Gnip .NET convenience library!
+Welcome to the Gnip .NET 2.1 convenience library!
 
 == Overview ==
 
 This library provides a .NET API for accessing Gnip web services. This 
 library supports activities related to publishing and subscribing to data.
+
+Please note that this is a re-write over version 2.0.1 and contains many 
+incompatibilities. 
 
 == Dependencies == 
 Dependency Urls coppied into the Gnip.Lib folder.
