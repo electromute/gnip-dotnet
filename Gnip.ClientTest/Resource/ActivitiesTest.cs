@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using Gnip.Client.Utils;
@@ -151,6 +150,7 @@ namespace Gnip.Client.Resource
 
             string str = XmlHelper.Instance.ToXmlString<Activities>(activities);
             Activities des = XmlHelper.Instance.FromXmlString<Activities>(str);
+
             Assert.AreEqual(3, des.Items.Count);
             for (int idx = 0; idx < des.Items.Count; idx++)
             {

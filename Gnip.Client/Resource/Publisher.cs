@@ -23,13 +23,13 @@ namespace Gnip.Client.Resource
     [XmlRoot(ElementName="publisher")]
     public class Publisher : IResource, IDeepCompare
 	{
-        private PublisherType type = PublisherType.Gnip;
-        private string name;
-        private List<RuleType> ruleTypes;
-
+        /// <summary>
+        /// Constructor.
+        /// </summary>
         public Publisher() 
-        {
-            this.ruleTypes = new List<RuleType>();
+        { 
+             this.Type = PublisherType.Gnip;
+             this.SupportedRuleTypes = new List<RuleType>();
         }
 
         /// <summary> 
@@ -39,8 +39,8 @@ namespace Gnip.Client.Resource
 		/// <param name="name">the name of the publisher</param>
 		public Publisher(PublisherType type, string name) : this()
         {
-            this.type = type;
-            this.name = name;
+            this.Type = type;
+            this.Name = name;
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Gnip.Client.Resource
         public Publisher(PublisherType type, string name, IEnumerable<RuleType> ruleTypes)
             : this(type, name)
         {
-            this.ruleTypes.AddRange(ruleTypes);
+            this.SupportedRuleTypes.AddRange(ruleTypes);
         }
 
         /// <summary>
@@ -63,40 +63,29 @@ namespace Gnip.Client.Resource
         /// <param name="type">The publisher type.</param>
         /// <param name="name">the publisher's name</param>
         /// <param name="ruleTypes">the publisher's rule types</param>
-        public Publisher(PublisherType type, string name, params RuleType[] ruleTypes) : this(type, name, (IEnumerable<RuleType>)ruleTypes) { }
+        public Publisher(PublisherType type, string name, params RuleType[] ruleTypes) 
+            : this(type, name, (IEnumerable<RuleType>)ruleTypes) { }
 
         /// <summary> 
         /// Gets/Sets the PublisherType of this publisher.
         /// </summary>
         /// <returns>the name of the publisher</returns>
         [XmlIgnore]
-        public PublisherType Type
-        {
-            get { return this.type; }
-            set { this.type = value; }
-        }
+        public PublisherType Type { get; set; }
 
 		/// <summary> 
         /// Retrieves the name of this publisher.
         /// </summary>
 		/// <returns>the name of the publisher</returns>
         [XmlAttribute(AttributeName="name")]
-	    public string Name
-		{
-			get { return this.name; }
-            set { this.name = value; }
-		}
+        public string Name { get; set; }
 		
         /// <summary>
         /// Gets/Sets the RuleTypes.
         /// </summary>
         [XmlArray(ElementName="supportedRuleTypes")]
         [XmlArrayItem(ElementName="type")]
-		public List<RuleType> SupportedRuleTypes
-        {
-            get { return this.ruleTypes; }
-            set { this.ruleTypes = value; }
-        }
+        public List<RuleType> SupportedRuleTypes { get; set; }
 
         /// <summary>
         /// Determins if this equals that by performing a deep equals 
@@ -127,9 +116,9 @@ namespace Gnip.Client.Resource
             else if(that == null)
                 return false;
 
-            return (this.type == that.type &&
-                string.Equals(this.name, that.name) &&
-                ListUtils.AreEqualIgnoreOrder<RuleType>(this.ruleTypes, that.ruleTypes));
+            return (this.Type == that.Type &&
+                string.Equals(this.Name, that.Name) &&
+                ListUtils.AreEqualIgnoreOrder<RuleType>(this.SupportedRuleTypes, that.SupportedRuleTypes));
         }
 
         /// <summary>
@@ -147,9 +136,9 @@ namespace Gnip.Client.Resource
 
             Publisher that = (Publisher)o;
 
-            return this.type == that.type && 
-                String.Equals(this.name, that.name) &&
-                this.ruleTypes == that.ruleTypes;
+            return this.Type == that.Type && 
+                String.Equals(this.Name, that.Name) &&
+                this.SupportedRuleTypes == that.SupportedRuleTypes;
 		}
 
         /// <summary>
@@ -159,9 +148,9 @@ namespace Gnip.Client.Resource
         /// <returns>The hash code for this object.</returns>
 		public override int GetHashCode()
 		{
-            int result = this.type.GetHashCode();
-            result = 31 * result + (this.name != null ? this.name.GetHashCode() : 0);
-            result = 31 * result + (this.ruleTypes != null ? this.ruleTypes.GetHashCode() : 0);
+            int result = this.Type.GetHashCode();
+            result = 31 * result + (this.Name != null ? this.Name.GetHashCode() : 0);
+            result = 31 * result + (this.SupportedRuleTypes != null ? this.SupportedRuleTypes.GetHashCode() : 0);
             return result;
 		}
 	}

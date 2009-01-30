@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
-  <TopNode>[0-1000]C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\gnip.nunit</TopNode>
-  <SelectedNode>[0-1055]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_01</SelectedNode>
+  <TopNode>[0-1162]Gnip.Client.GnipConnectionFilterGzipTestCase.TestNoSuchFilter</TopNode>
+  <SelectedNode>[0-1168]Gnip.Client</SelectedNode>
   <ExcludeCategories>false</ExcludeCategories>
   <Nodes>
     <Node UniqueName="[0-1000]C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\gnip.nunit" Expanded="true">
       <Nodes>
-        <Node UniqueName="[0-1147]C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\bin\Debug\Gnip.ClientTest.exe" Expanded="true">
+        <Node UniqueName="[0-1166]C:\rick\dev\gnip\gnip-dotnet-working\Gnip.ClientTest\bin\Debug\Gnip.ClientTest.exe" Expanded="true">
           <Nodes>
-            <Node UniqueName="[0-1148]Gnip" Expanded="true">
+            <Node UniqueName="[0-1167]Gnip" Expanded="true">
               <Nodes>
-                <Node UniqueName="[0-1149]Gnip.Client" Expanded="true">
+                <Node UniqueName="[0-1168]Gnip.Client" Expanded="true">
                   <Nodes>
+                    <Node UniqueName="[0-1147]Gnip.Client.GnipConnectionActivityGzipTestCase" Expanded="true">
+                      <Nodes>
+                        <Node UniqueName="[0-1152]Gnip.Client.GnipConnectionActivityGzipTestCase.TestGetActivityForFilterFromGnip_01" />
+                        <Node UniqueName="[0-1153]Gnip.Client.GnipConnectionActivityGzipTestCase.TestGetActivityForFilterFromGnip_02" />
+                        <Node UniqueName="[0-1154]Gnip.Client.GnipConnectionActivityGzipTestCase.TestGetActivityForFilterFromGnip_03" />
+                        <Node UniqueName="[0-1155]Gnip.Client.GnipConnectionActivityGzipTestCase.TestGetActivityForFilterFromGnipWithTime_01" />
+                        <Node UniqueName="[0-1156]Gnip.Client.GnipConnectionActivityGzipTestCase.TestGetActivityForFilterFromGnipWithTime_02" />
+                        <Node UniqueName="[0-1151]Gnip.Client.GnipConnectionActivityGzipTestCase.TestGetActivityFromGnip" />
+                        <Node UniqueName="[0-1148]Gnip.Client.GnipConnectionActivityGzipTestCase.TestPayloadEncodeDecode" />
+                        <Node UniqueName="[0-1149]Gnip.Client.GnipConnectionActivityGzipTestCase.TestPublishActivityToGnip" />
+                        <Node UniqueName="[0-1150]Gnip.Client.GnipConnectionActivityGzipTestCase.TestPublishActivityWithPayloadToGnip" />
+                      </Nodes>
+                    </Node>
                     <Node UniqueName="[0-1050]Gnip.Client.GnipConnectionActivityTestCase" Expanded="true">
                       <Nodes>
                         <Node UniqueName="[0-1055]Gnip.Client.GnipConnectionActivityTestCase.TestGetActivityForFilterFromGnip_01" />
@@ -23,6 +36,18 @@
                         <Node UniqueName="[0-1051]Gnip.Client.GnipConnectionActivityTestCase.TestPayloadEncodeDecode" />
                         <Node UniqueName="[0-1052]Gnip.Client.GnipConnectionActivityTestCase.TestPublishActivityToGnip" />
                         <Node UniqueName="[0-1053]Gnip.Client.GnipConnectionActivityTestCase.TestPublishActivityWithPayloadToGnip" />
+                      </Nodes>
+                    </Node>
+                    <Node UniqueName="[0-1157]Gnip.Client.GnipConnectionFilterGzipTestCase" Expanded="true">
+                      <Nodes>
+                        <Node UniqueName="[0-1163]Gnip.Client.GnipConnectionFilterGzipTestCase.TestAddRuleToFilter" />
+                        <Node UniqueName="[0-1164]Gnip.Client.GnipConnectionFilterGzipTestCase.TestBatchAddRulesToFilter" />
+                        <Node UniqueName="[0-1159]Gnip.Client.GnipConnectionFilterGzipTestCase.TestCreateFilter" />
+                        <Node UniqueName="[0-1161]Gnip.Client.GnipConnectionFilterGzipTestCase.TestDeleteFilter" />
+                        <Node UniqueName="[0-1165]Gnip.Client.GnipConnectionFilterGzipTestCase.TestDeleteRuleFromFilter" />
+                        <Node UniqueName="[0-1158]Gnip.Client.GnipConnectionFilterGzipTestCase.TestGetFilter" />
+                        <Node UniqueName="[0-1162]Gnip.Client.GnipConnectionFilterGzipTestCase.TestNoSuchFilter" />
+                        <Node UniqueName="[0-1160]Gnip.Client.GnipConnectionFilterGzipTestCase.TestUpdateFilter" />
                       </Nodes>
                     </Node>
                     <Node UniqueName="[0-1001]Gnip.Client.GnipConnectionFilterTestCase" Expanded="true">
@@ -49,12 +74,12 @@
                         <Node UniqueName="[0-1020]Gnip.Client.GnipConnectionFilterTunnelingViaPostTestCase.TestUpdateFilter" />
                       </Nodes>
                     </Node>
-                    <Node UniqueName="[0-1026]Gnip.Client.GnipConnectionMiscTestCase">
+                    <Node UniqueName="[0-1026]Gnip.Client.GnipConnectionMiscTestCase" Expanded="true">
                       <Nodes>
                         <Node UniqueName="[0-1027]Gnip.Client.GnipConnectionMiscTestCase.TestCalculateServerDelta" />
                       </Nodes>
                     </Node>
-                    <Node UniqueName="[0-1098]Gnip.Client.GnipConnectionNotificationTestCase">
+                    <Node UniqueName="[0-1098]Gnip.Client.GnipConnectionNotificationTestCase" Expanded="true">
                       <Nodes>
                         <Node UniqueName="[0-1101]Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForFilterFromGnip" />
                         <Node UniqueName="[0-1102]Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForFilterFromGnipWithTime" />
@@ -62,7 +87,7 @@
                         <Node UniqueName="[0-1100]Gnip.Client.GnipConnectionNotificationTestCase.TestGetNotificationForPublisherFromGnipWithTime" />
                       </Nodes>
                     </Node>
-                    <Node UniqueName="[0-1103]Gnip.Client.GnipConnectionPublisherTest">
+                    <Node UniqueName="[0-1103]Gnip.Client.GnipConnectionPublisherTest" Expanded="true">
                       <Nodes>
                         <Node UniqueName="[0-1104]Gnip.Client.GnipConnectionPublisherTest.TestGetPublisher" />
                         <Node UniqueName="[0-1105]Gnip.Client.GnipConnectionPublisherTest.TestGetPublisherIncludesCapabilities" />
@@ -70,12 +95,12 @@
                         <Node UniqueName="[0-1106]Gnip.Client.GnipConnectionPublisherTest.TestUpdatePublisher" />
                       </Nodes>
                     </Node>
-                    <Node UniqueName="[0-1048]Gnip.Client.GnipConnectionTest">
+                    <Node UniqueName="[0-1048]Gnip.Client.GnipConnectionTest" Expanded="true">
                       <Nodes>
                         <Node UniqueName="[0-1049]Gnip.Client.GnipConnectionTest.TestFloor" />
                       </Nodes>
                     </Node>
-                    <Node UniqueName="[0-1150]Gnip.Client.Resource" Expanded="true">
+                    <Node UniqueName="[0-1169]Gnip.Client.Resource" Expanded="true">
                       <Nodes>
                         <Node UniqueName="[0-1060]Gnip.Client.Resource.ActivitiesTest">
                           <Nodes>
@@ -222,7 +247,7 @@
                         </Node>
                       </Nodes>
                     </Node>
-                    <Node UniqueName="[0-1151]Gnip.Client.Util" Expanded="true">
+                    <Node UniqueName="[0-1170]Gnip.Client.Util" Expanded="true">
                       <Nodes>
                         <Node UniqueName="[0-1028]Gnip.Client.Util.ArrayUtilsTest">
                           <Nodes>

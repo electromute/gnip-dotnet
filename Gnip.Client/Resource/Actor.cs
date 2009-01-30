@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using Gnip.Client.Util;
@@ -11,8 +10,6 @@ namespace Gnip.Client.Resource
     [XmlRoot(ElementName = "actor")]
     public class Actor : GnipValue, IDeepCompare
     {
-        private string uid;
-
         /// <summary>
         /// Default Contructor
         /// </summary>
@@ -40,16 +37,12 @@ namespace Gnip.Client.Resource
         public Actor(string value, string uid, string metaUrl)
             : base(value, metaUrl)
         {
-            this.uid = uid;
+            this.Uid = uid;
         }
 
         /// <remarks/>
         [XmlAttribute(AttributeName = "uid")]
-        public string Uid
-        {
-            get { return this.uid; }
-            set { this.uid = value; }
-        }
+        public string Uid { get; set; }
 
         /// <summary>
         /// Determins if this equals that by performing a deep equals 
@@ -81,7 +74,7 @@ namespace Gnip.Client.Resource
                 return false;
 
             return (base.DeepEquals(that) &&
-                string.Equals(this.uid, that.uid));
+                string.Equals(this.Uid, that.Uid));
         }
 
         /// <summary>
@@ -110,7 +103,7 @@ namespace Gnip.Client.Resource
         public override int GetHashCode()
         {
             int result = base.GetHashCode();
-            result = 31 * result + (this.uid != null ? this.uid.GetHashCode() : 0);
+            result = 31 * result + (this.Uid != null ? this.Uid.GetHashCode() : 0);
             return result;
         }
     }

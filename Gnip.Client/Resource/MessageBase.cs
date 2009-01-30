@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using Gnip.Client.Util;
@@ -14,8 +13,6 @@ namespace Gnip.Client.Resource
     [XmlRoot(ElementName = "messageBase")]
     public class MessageBase : IResource, IDeepCompare
     {
-        private string message;
-
         /// <summary>
         /// Default constructor.
         /// </summary>
@@ -25,19 +22,16 @@ namespace Gnip.Client.Resource
         /// Constructor
         /// </summary>
         public MessageBase(string message)
+            : this()
         {
-            this.message = message;
+            this.Message = message;
         }
 
         /// <summary> 
         /// Gets/Sets the messageBase message.
         /// </summary>
         [XmlText]
-        public string Message
-        {
-            get { return this.message; }
-            set { this.message = value; }
-        }
+        public string Message { get; set; }
 
         /// <summary>
         /// Determins if this equals that by performing a deep equals 
@@ -68,7 +62,7 @@ namespace Gnip.Client.Resource
             else if (that == null)
                 return false;
 
-            return (this.message == that.message);
+            return (this.Message == that.Message);
         }
 
         /// <summary>
@@ -94,7 +88,7 @@ namespace Gnip.Client.Resource
         /// <returns>The hash code for this object.</returns>
         public override int GetHashCode()
         {
-            return (this.message != null ? this.message.GetHashCode() : 0);
+            return (this.Message != null ? this.Message.GetHashCode() : 0);
         }
     }
 }

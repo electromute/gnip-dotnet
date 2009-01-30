@@ -12,9 +12,9 @@ namespace Gnip.Client.Resource
     [XmlRoot(ElementName = "rule")]
     public class Rule : IResource, IDeepCompare
 	{
-        private RuleType type;
-        private string value;
-
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
         public Rule() { }
 
         /// <summary>
@@ -23,28 +23,23 @@ namespace Gnip.Client.Resource
 		/// <param name="type">the rule type</param>
 		/// <param name="value">the rule's value</param>
 		public Rule(RuleType type, string value)
+            : this()
 		{
-			this.type = type;
-			this.value = value;
+			this.Type = type;
+			this.Value = value;
 		}
 
         /// <summary> 
         /// Retrieves the rule's type.
         /// </summary>
-        [XmlAttribute(AttributeName="type")]
-        public RuleType Type {
-            get { return this.type; }
-            set { this.type = value; }
-        }
+        [XmlAttribute(AttributeName = "type")]
+        public RuleType Type { get; set; }
         
         /// <summary> 
         /// Retrieves the rule's value.
         /// </summary>
         [XmlText]
-        public string Value {
-            get { return this.value; }
-            set { this.value = value; }
-        }
+        public string Value { get; set; }
 
         /// <summary>
         /// Determins if this equals that by performing a deep equals 
@@ -75,8 +70,8 @@ namespace Gnip.Client.Resource
             else if (that == null)
                 return false;
 
-            if (string.Equals(this.type, that.type) &&
-                string.Equals(this.value, that.value))
+            if (string.Equals(this.Type, that.Type) &&
+                string.Equals(this.Value, that.Value))
             {
                 return true;
             }
@@ -108,8 +103,8 @@ namespace Gnip.Client.Resource
 		public override int GetHashCode()
 		{
 			int result;
-			result = type.GetHashCode();
-			result = 31 * result + (value  != null ? value.GetHashCode() : 0);
+            result = Type.GetHashCode();
+            result = 31 * result + (Value != null ? Value.GetHashCode() : 0);
 			return result;
 		}
 	}

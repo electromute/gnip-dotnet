@@ -13,7 +13,7 @@ namespace Gnip.Client.Resource
     {
         public static Activity GetActivity1(int val, DateTime at)
         {
-            Activity activity = new Activity(true);
+            Activity activity = new Activity();
 
             activity.At = at;
             activity.Action = "action " + val;
@@ -34,7 +34,7 @@ namespace Gnip.Client.Resource
 
         public static Activity GetActivity2(int val, DateTime at)
         {
-            Activity activity = new Activity(false);
+            Activity activity = new Activity();
 
             activity.At = at;
             activity.Action = "action " + (val + 0);

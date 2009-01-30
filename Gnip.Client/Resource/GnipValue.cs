@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using Gnip.Client.Util;
@@ -11,9 +10,6 @@ namespace Gnip.Client.Resource
     [XmlRoot(ElementName = "gnipValue")]
     public class GnipValue : IResource, IDeepCompare
     {
-        private string value;
-        private string metaUrl;
-
         /// <summary>
         /// Default Constructor.
         /// </summary>
@@ -24,8 +20,9 @@ namespace Gnip.Client.Resource
         /// </summary>
         /// <param name="value">The value</param>
         public GnipValue(string value)
+            : this()
         {
-            this.value = value;
+            this.Value = value;
         }
 
         /// <summary>
@@ -36,29 +33,21 @@ namespace Gnip.Client.Resource
         public GnipValue(string value, string metaUrl)
             : this(value)
         {
-            this.metaUrl = metaUrl;
+            this.MetaUrl = metaUrl;
         }
 
         /// <summary>
         /// Gets/Sets the value.
         /// </summary>
         [XmlText]
-        public string Value
-        {
-            get { return this.value; }
-            set { this.value = value; }
-        }
+        public string Value { get; set; }
 
 
         /// <summary>
         /// Gets/Sets the MetaUrl value
         /// </summary>
         [XmlAttribute(AttributeName = "metaURL", DataType = "anyURI")]
-        public string MetaUrl
-        {
-            get { return this.metaUrl; }
-            set { this.metaUrl = value; }
-        }
+        public string MetaUrl { get; set; }
 
         /// <summary>
         /// Determins if this equals that by performing a deep equals 
@@ -89,8 +78,8 @@ namespace Gnip.Client.Resource
             else if (that == null)
                 return false;
 
-            return (string.Equals(this.metaUrl, that.metaUrl) &&
-                string.Equals(this.value, that.value));
+            return (string.Equals(this.MetaUrl, that.MetaUrl) &&
+                string.Equals(this.Value, that.Value));
         }
 
         /// <summary>
@@ -116,8 +105,8 @@ namespace Gnip.Client.Resource
         /// <returns>The hash code for this object.</returns>
         public override int GetHashCode()
         {
-            int result = (this.value != null ? this.value.GetHashCode() : 0);
-            result = 31 * result + (this.metaUrl != null ? this.metaUrl.GetHashCode() : 0);
+            int result = (this.Value != null ? this.Value.GetHashCode() : 0);
+            result = 31 * result + (this.MetaUrl != null ? this.MetaUrl.GetHashCode() : 0);
             return result;
         }
     }

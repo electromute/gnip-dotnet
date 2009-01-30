@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using Gnip.Client.Util;
@@ -11,9 +10,6 @@ namespace Gnip.Client.Resource
     [XmlRoot(ElementName = "gnipURL")]
     public class GnipUrl : IResource, IDeepCompare
     {
-        private string url;
-        private string metaUrl;
-
         /// <summary>
         /// Default Constructor.
         /// </summary>
@@ -23,9 +19,10 @@ namespace Gnip.Client.Resource
         /// Constructor with Url value.
         /// </summary>
         /// <param name="url">The url</param>
-        public GnipUrl(string url)
+        public GnipUrl(string url) 
+            : this()
         {
-            this.url = url;
+            this.Url = url;
         }
 
         /// <summary>
@@ -36,29 +33,21 @@ namespace Gnip.Client.Resource
         public GnipUrl(string url, string metaUrl)
             : this(url)
         {
-            this.metaUrl = metaUrl;
+            this.MetaUrl = metaUrl;
         }
         
         /// <summary>
         /// Gets/Sets the url value.
         /// </summary>
         [XmlText]
-        public string Url
-        {
-            get { return this.url; }
-            set { this.url = value; }
-        }
+        public string Url { get; set; }
 
         
         /// <summary>
         /// Gets/Sets the MetaUrl value
         /// </summary>
         [XmlAttribute(AttributeName = "metaURL", DataType = "anyURI")]
-        public string MetaUrl
-        {
-            get { return this.metaUrl; }
-            set { this.metaUrl = value; }
-        }
+        public string MetaUrl { get; set; }
 
         /// <summary>
         /// Determins if this equals that by performing a deep equals 
@@ -89,8 +78,8 @@ namespace Gnip.Client.Resource
             else if (that == null)
                 return false;
 
-            return (string.Equals(this.metaUrl, that.metaUrl) &&
-                string.Equals(this.url, that.url));
+            return (string.Equals(this.MetaUrl, that.MetaUrl) &&
+                string.Equals(this.Url, that.Url));
         }
 
         /// <summary>
@@ -116,8 +105,8 @@ namespace Gnip.Client.Resource
         /// <returns>The hash code for this object.</returns>
         public override int GetHashCode()
         {
-            int result = (this.url != null ? this.url.GetHashCode() : 0);
-            result = 31 * result + (this.metaUrl != null ? this.metaUrl.GetHashCode() : 0);
+            int result = (this.Url != null ? this.Url.GetHashCode() : 0);
+            result = 31 * result + (this.MetaUrl != null ? this.MetaUrl.GetHashCode() : 0);
             return result;
         }
     }

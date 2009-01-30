@@ -13,31 +13,28 @@ namespace Gnip.Client.Resource
     [XmlRoot(ElementName = "rules")]
 	public class Rules : IResource, IDeepCompare
 	{
-        private List<Rule> rules = new List<Rule>();
-
 		/// <summary> 
         /// Default constructor.
         /// </summary>
-        public Rules() { }
+        public Rules() 
+        { 
+            this.Items = new List<Rule>();
+        }
 
         /// <summary> 
         /// Constructor.
         /// </summary>
         /// <param name="rules">Adds the rules to this list.</param>
-        public Rules(IEnumerable<Rule> rules) 
+        public Rules(IEnumerable<Rule> rules) : this()
         {
-            this.rules.AddRange(rules);
+            this.Items.AddRange(rules);
         }
 
         /// <summary>
         /// Gets/Sets the List of Rule.
         /// </summary>
         [XmlElement(ElementName = "rule")]
-        public List<Rule> Items
-        {
-            get { return this.rules; }
-            set { this.rules = value; }
-        }
+        public List<Rule> Items { get; set; }
 
         /// <summary>
         /// Determins if this equals that by performing a deep equals 
@@ -68,7 +65,7 @@ namespace Gnip.Client.Resource
             else if (that == null)
                 return false;
 
-            return ListUtils.AreDeepEqual<Rule>(this.rules, that.rules);
+            return ListUtils.AreDeepEqual<Rule>(this.Items, that.Items);
         }
 
         /// <summary>
@@ -86,7 +83,7 @@ namespace Gnip.Client.Resource
 
             Rules that = (Rules)o;
 
-            return (this.rules == that.rules);
+            return (this.Items == that.Items);
         }
 
         /// <summary>
@@ -96,7 +93,7 @@ namespace Gnip.Client.Resource
         /// <returns>The hash code for this object.</returns>
         public override int GetHashCode()
         {
-            int result = (this.rules != null ? this.rules.GetHashCode() : 0);
+            int result = (this.Items != null ? this.Items.GetHashCode() : 0);
             return result;
         }
 	}

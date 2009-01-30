@@ -9,11 +9,11 @@ namespace Gnip.Client.Resource
     /// <summary> A model object that represents a Gnip filter.  A Filter is a stream containing activities from a Publisher
     /// that meet subscriber defined criteria.  For example,
     /// a Filter would allow a subscriber to create activity streams that contain just the activities from
-    /// usernames (actors) in which they are interested.  These criteria are defined by adding {@link Rule rules} to
+    /// usernames (actors) in which they are interested.  These criteria are defined by adding Rule rules to
     /// a Filter via {@link #addRule(Rule)}.
     /// 
     /// A Filter can support either full-data activities or notifications but not both by setting the Filter's
-    /// {@link #isFullData() full data} flag.  By default, a Filter supports full data.
+    /// IsFullData full data flag.  By default, a Filter supports full data.
     /// 
     /// By default, a Filter creates an activity stream that is available at an HTTP endpoint on a Gnip server
     /// and can be accessed (even polled) using HTTP GET.  If a Filter specifies a post URL, then the Gnip
@@ -23,44 +23,22 @@ namespace Gnip.Client.Resource
     [XmlRoot(ElementName = "filter")]
     public class Filter : IResource, IDeepCompare
     {
-        private string postUrl;
-        private List<Rule> rules;
-        private string name;
-        private bool isFullData;
-
-        
         /// <summary> 
         /// Create a Filter.
         /// </summary>
-        public Filter() 
+        public Filter()
         {
-            this.rules = new List<Rule>();
+            this.Rules = new List<Rule>();
         }
 
-        /// <summary> 
-        /// Create a Filter.
-        /// </summary>
-        public Filter(bool init)
-        {
-            if (init)
-                this.Initialize();
-        }
-
-        /// <summary>
-        /// Initialize all Lists with new List&lt;/T&gt;()
-        /// </summary>
-        private void Initialize()
-        {
-            this.rules = new List<Rule>();
-        }
 
         /// <summary> 
         /// Create a Filter with the given name.
         /// </summary>
         /// <param name="name">the filter's name</param>
-        public Filter(string name) : this(true)
+        public Filter(string name) : this()
         {
-            this.name = name;
+            this.Name = name;
         }
 
         /// <summary>
@@ -71,7 +49,7 @@ namespace Gnip.Client.Resource
         public Filter(string name, string postUrl)
             : this(name)
         {
-            this.postUrl = postUrl;
+            this.PostUrl = postUrl;
         }
 
         /// <summary> 
@@ -85,7 +63,7 @@ namespace Gnip.Client.Resource
         public Filter(string name, string postUrl, bool isFullData)
             : this(name, postUrl)
         {
-            this.isFullData = isFullData;
+            this.IsFullData = isFullData;
         }
 
         /// <summary>
@@ -100,7 +78,7 @@ namespace Gnip.Client.Resource
         public Filter(string name, string postUrl, bool isFullData, IEnumerable<Rule> rules)
             : this(name, postUrl, isFullData)
         {
-            this.rules.AddRange(rules);
+            this.Rules.AddRange(rules);
         }
 
         /// <summary>
@@ -112,40 +90,28 @@ namespace Gnip.Client.Resource
         /// <param name="postUrl">the post URL</param>
         /// <param name="isFullData">does the filter support the full data</param>
         /// <param name="rules">The rules to add to this filter.</param>
-        public Filter(string name, string postUrl, bool isFullData, params Rule[] rules) : this(name, postUrl, isFullData, (IEnumerable<Rule>)rules) { }
-
+        public Filter(string name, string postUrl, bool isFullData, params Rule[] rules) 
+            : this(name, postUrl, isFullData, (IEnumerable<Rule>)rules) { }
 
         /// <summary> 
         /// Gets/Sets the filter's post URL. If set, the post URL is used by a Gnip server to send either
         /// full data activites or just activity notifications to the subscriber via an HTTP POST.
         /// </summary>
         [XmlElement("postURL")]
-        public string PostUrl
-        {
-            get{ return this.postUrl;}
-            set { this.postUrl = value; }
-        }
+        public string PostUrl { get; set; }
 
         /// <summary> 
         /// Get the list of rules associated with this filter.  {@link Rule Rules} are subscriber-specified
         /// criteria used to activities from a Publisher to the Filter's activity stream. 
         /// </summary>
         [XmlElement(ElementName="rule")]
-        public List<Rule> Rules
-        {
-            get { return this.rules; }
-            set { this.rules = value; }
-        }
+        public List<Rule> Rules { get; set; }
 
         /// <summary>
         /// Retrieves the name of this Filter.
         /// </summary>
         [XmlAttribute(AttributeName = "name")]
-        public string Name
-        {
-            get { return this.name; }
-            set { this.name = value; }
-        }
+        public string Name { get; set; }
 
         /// <summary> 
         /// Gets/Sets the flag describing whether this filter supports access to full activity data or
@@ -155,11 +121,7 @@ namespace Gnip.Client.Resource
         /// <returns> true if the filter supports full data; false otherwise if
         /// the filter just supports notifications.</returns>
         [XmlAttribute(AttributeName = "fullData")]
-        public bool IsFullData
-        {
-            get { return this.isFullData; }
-            set { this.isFullData = value; }
-        }
+        public bool IsFullData { get; set; }
 
         /// <summary>
         /// Determins if this equals that by performing a deep equals 
@@ -191,10 +153,10 @@ namespace Gnip.Client.Resource
                 return false;
 
             return 
-                (string.Equals(this.postUrl, that.postUrl) &&
-                string.Equals(this.name, that.name) &&
-                this.isFullData == that.isFullData &&
-                ListUtils.AreDeepEqual<Rule>(this.rules, that.rules));
+                (string.Equals(this.PostUrl, that.PostUrl) &&
+                string.Equals(this.Name, that.Name) &&
+                this.IsFullData == that.IsFullData &&
+                ListUtils.AreDeepEqual<Rule>(this.Rules, that.Rules));
         }
 
         /// <summary>
@@ -212,11 +174,11 @@ namespace Gnip.Client.Resource
 
             Filter that = (Filter)o;
 
-            return 
-                (string.Equals(this.postUrl, that.postUrl) &&
-                string.Equals(this.name, that.name) &&
-                this.isFullData == that.isFullData &&
-                this.rules == that.rules);
+            return
+                (string.Equals(this.PostUrl, that.PostUrl) &&
+                string.Equals(this.Name, that.Name) &&
+                this.IsFullData == that.IsFullData &&
+                this.Rules == that.Rules);
         }
 
         /// <summary>
@@ -227,10 +189,10 @@ namespace Gnip.Client.Resource
         public override int GetHashCode()
         {
             int result;
-            result = (this.rules != null ? this.rules.GetHashCode() : 0);
-            result = 31 * result + (this.name != null ? this.name.GetHashCode() : 0);
-            result = 31 * result + (this.postUrl != null ? this.postUrl.GetHashCode() : 0);
-            result = 31 * result + this.isFullData.GetHashCode();
+            result = (this.Rules != null ? this.Rules.GetHashCode() : 0);
+            result = 31 * result + (this.Name != null ? this.Name.GetHashCode() : 0);
+            result = 31 * result + (this.PostUrl != null ? this.PostUrl.GetHashCode() : 0);
+            result = 31 * result + this.IsFullData.GetHashCode();
             return result;
         }
     }

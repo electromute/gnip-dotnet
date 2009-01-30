@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using Gnip.Client.Util;
+using System.Globalization;
 
 namespace Gnip.Client.Resource
 {
@@ -12,27 +12,19 @@ namespace Gnip.Client.Resource
     [XmlRoot(ElementName = "place")]
     public class Place : IResource, IDeepCompare
     {
-        private double[] point;
-        private double? elevation;
-        private int? floor;
-        private string featuretypetag;
-        private string featurename;
-        private string relationshiptag;
-
         /// <summary>
         /// Default Constructor.
         /// </summary>
-        public Place()
-        {
-        }
+        public Place() { }
 
         /// <summary>
         /// Constructor with a point.
         /// </summary>
         /// <param name="point">The place point.</param>
         public Place(double[] point)
+            : this()
         {
-            this.point = point;
+            this.Point = point;
         }
 
         /// <summary>
@@ -44,14 +36,14 @@ namespace Gnip.Client.Resource
         /// <param name="featuretypetag">The Feature Type Tag</param>
         /// <param name="featurename">The Feature Name</param>
         /// <param name="relationshiptag">The Relationship Tag</param>
-        public Place(double[] point, double? elevation, int? floor, string featuretypetag, string featurename, string relationshiptag)
+        public Place(double[] point, double? elevation, int? floor, string featureTypeTag, string featureName, string relationshipTag)
         {
-            this.point = point;
-            this.elevation = elevation;
-            this.floor = floor;
-            this.featuretypetag = featuretypetag;
-            this.featurename = featurename;
-            this.relationshiptag = relationshiptag;
+            this.Point = point;
+            this.Elevation = elevation;
+            this.Floor = floor;
+            this.FeatureTypeTag = featureTypeTag;
+            this.FeatureName = featureName;
+            this.RelationshipTag = relationshipTag;
         }
 
         /// <summary>
@@ -63,16 +55,18 @@ namespace Gnip.Client.Resource
         {
             get
             {
-                if (this.point == null || this.point.Length == 0)
+                double[] point = this.Point;
+
+                if (point == null || point.Length == 0)
                 {
                     return null;
                 }
 
                 StringBuilder builder = new StringBuilder();
 
-                for (int idx = 0; idx < this.point.Length; idx++)
+                for (int idx = 0; idx < point.Length; idx++)
                 {
-                    builder.Append(this.point[idx]);
+                    builder.Append(point[idx]);
                     builder.Append(" ");
                 }
 
@@ -84,15 +78,15 @@ namespace Gnip.Client.Resource
             {
                 if (string.IsNullOrEmpty(value))
                 {
-                    this.point = null;
+                    this.Point = null;
                 }
                 else
                 {
                     string[] values = value.Split(' ');
-                    this.point = new double[values.Length];
+                    this.Point = new double[values.Length];
                     for (int idx = 0; idx < values.Length; idx++)
                     {
-                        this.point[idx] = double.Parse(values[idx]);
+                        this.Point[idx] = double.Parse(values[idx], CultureInfo.InvariantCulture);
                     }
                 }
             }
@@ -102,21 +96,13 @@ namespace Gnip.Client.Resource
         /// Gets/Sets the place point.
         /// </summary>
         [XmlIgnore]
-        public double[] Point
-        {
-            get { return this.point; }
-            set { this.point = value; }
-        }
+        public double[] Point { get; set; }
 
         /// <summary>
         /// Gets/Sets the elevation.
         /// </summary>
         [XmlElement(ElementName = "elev")]
-        public double? Elevation
-        {
-            get { return this.elevation; }
-            set { this.elevation = value; }
-        }
+        public double? Elevation { get; set; }
 
         /// <summary>
         /// For XML serialization. Returns wheather or not elevation is null. If null
@@ -125,18 +111,14 @@ namespace Gnip.Client.Resource
         [XmlIgnore]
         public bool ElevationSpecified
         {
-            get { return this.elevation.HasValue; }
+            get { return this.Elevation.HasValue; }
         }
 
         /// <summary>
         /// Gets/Sets the place floor.
         /// </summary>
         [XmlElement(ElementName = "floor")]
-        public int? Floor
-        {
-            get { return this.floor; }
-            set { this.floor = value; }
-        }
+        public int? Floor { get; set; }
 
         /// <summary>
         /// For XML serialization. Returns wheather or not floor is null. If null
@@ -145,38 +127,26 @@ namespace Gnip.Client.Resource
         [XmlIgnore]
         public bool FloorSpecified
         {
-            get { return this.floor.HasValue; }
+            get { return this.Floor.HasValue; }
         }
 
         /// <summary>
         /// Gets/Sets the feature type tag.
         /// </summary>
         [XmlElement(ElementName = "featuretypetag")]
-        public string FeatureTypeTag
-        {
-            get { return this.featuretypetag; }
-            set { this.featuretypetag = value; }
-        }
+        public string FeatureTypeTag { get; set; }
 
         /// <summary>
         /// Gets/Sets the feature name.
         /// </summary>
         [XmlElement(ElementName = "featurename")]
-        public string FeatureName
-        {
-            get { return this.featurename; }
-            set { this.featurename = value; }
-        }
+        public string FeatureName { get; set; }
 
         /// <summary>
         /// Gets/Sets the relationship.
         /// </summary>
         [XmlElement(ElementName = "relationshiptag")]
-        public string RelationshipTag
-        {
-            get { return this.relationshiptag; }
-            set { this.relationshiptag = value; }
-        }
+        public string RelationshipTag { get; set; }
 
         /// <summary>
         /// Determins if this equals that by performing a deep equals 
@@ -208,12 +178,12 @@ namespace Gnip.Client.Resource
                 return false;
 
             return
-                (ArrayUtils.AreEqual<double>(this.point, that.point) &&
-                this.elevation == that.elevation &&
-                this.floor == that.floor &&
-                string.Equals(this.featuretypetag, that.featuretypetag) &&
-                string.Equals(this.featurename, that.featurename) &&
-                string.Equals(this.relationshiptag, that.relationshiptag));
+                (ArrayUtils.AreEqual<double>(this.Point, that.Point) &&
+                this.Elevation == that.Elevation &&
+                this.Floor == that.Floor &&
+                string.Equals(this.FeatureTypeTag, that.FeatureTypeTag) &&
+                string.Equals(this.FeatureName, that.FeatureName) &&
+                string.Equals(this.RelationshipTag, that.RelationshipTag));
         }
 
         /// <summary>
@@ -232,12 +202,12 @@ namespace Gnip.Client.Resource
             Place that = (Place)o;
 
             return
-                (this.point == that.point &&
-                this.elevation == that.elevation &&
-                this.floor == that.floor &&
-                string.Equals(this.featuretypetag, that.featuretypetag) &&
-                string.Equals(this.featurename, that.featurename) &&
-                string.Equals(this.relationshiptag, that.relationshiptag));
+                (this.Point == that.Point &&
+                this.Elevation == that.Elevation &&
+                this.Floor == that.Floor &&
+                string.Equals(this.FeatureTypeTag, that.FeatureTypeTag) &&
+                string.Equals(this.FeatureName, that.FeatureName) &&
+                string.Equals(this.RelationshipTag, that.RelationshipTag));
         }
 
         /// <summary>
@@ -248,12 +218,12 @@ namespace Gnip.Client.Resource
         public override int GetHashCode()
         {
             int result;
-            result = (this.point != null ? this.point.GetHashCode() : 0);
-            result = 31 * result + (this.elevation != null ? this.elevation.GetHashCode() : 0);
-            result = 31 * result + (this.floor != null ? this.floor.GetHashCode() : 0);
-            result = 31 * result + (this.featuretypetag != null ? this.featuretypetag.GetHashCode() : 0);
-            result = 31 * result + (this.featurename != null ? this.featurename.GetHashCode() : 0);
-            result = 31 * result + (this.relationshiptag != null ? this.relationshiptag.GetHashCode() : 0);
+            result = (this.Point != null ? this.Point.GetHashCode() : 0);
+            result = 31 * result + (this.Elevation != null ? this.Elevation.GetHashCode() : 0);
+            result = 31 * result + (this.Floor != null ? this.Floor.GetHashCode() : 0);
+            result = 31 * result + (this.FeatureTypeTag != null ? this.FeatureTypeTag.GetHashCode() : 0);
+            result = 31 * result + (this.FeatureName != null ? this.FeatureName.GetHashCode() : 0);
+            result = 31 * result + (this.RelationshipTag != null ? this.RelationshipTag.GetHashCode() : 0);
             return result;
         }
     }

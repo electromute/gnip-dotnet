@@ -10,7 +10,7 @@ Dependency Urls coppied into the Gnip.Lib folder.
 
 = Required Dependencies =
 
-  - .NET 3.5
+  - .NET 2.0
   - A user account on Gnip http://gnipcentral.com/
   - log4net - The files log4net.dll and log4net.xml live in
     the Gnip.Lib/log4net-<version> folder. If you are using a 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Xml;
 using System.IO;
@@ -14,7 +13,7 @@ namespace Gnip.Client.Utils
         /// <summary>
         /// The singleton XmlSerializer.
         /// </summary>
-        private static XmlHelper singleton = null;
+        private static XmlHelper singleton;
 
         /// <summary>
         /// Get the Singleton ApplicationUserHelper
@@ -39,8 +38,8 @@ namespace Gnip.Client.Utils
         /// </summary>
         protected XmlHelper() { }
 
-        private XmlReaderSettings settings = null;
-        private bool validateXml = false;
+        private XmlReaderSettings settings;
+        private bool validateXml;
 
         public bool ValidateXml
         {
@@ -86,8 +85,7 @@ namespace Gnip.Client.Utils
         /// <returns>A new T</returns>
         public T FromXmlStream<T>(Stream stream)
         {
-            XmlReaderSettings settings = this.ReaderSettings;
-            using (XmlReader reader = XmlReader.Create(stream, settings))
+            using (XmlReader reader = XmlReader.Create(stream, this.ReaderSettings))
             {
                 return (T)new XmlSerializer(typeof(T)).Deserialize(reader);
             }
@@ -101,8 +99,7 @@ namespace Gnip.Client.Utils
         /// <returns>A new T</returns>
         public T FromXmlString<T>(string str)
         {
-            XmlReaderSettings settings = this.ReaderSettings;
-            using (XmlReader reader = XmlReader.Create(new StringReader(str), settings))
+            using (XmlReader reader = XmlReader.Create(new StringReader(str), this.ReaderSettings))
             {
                 return (T)new XmlSerializer(typeof(T)).Deserialize(reader);
             }

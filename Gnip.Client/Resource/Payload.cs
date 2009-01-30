@@ -26,35 +26,15 @@ namespace Gnip.Client.Resource
     [XmlRoot(ElementName = "payload")]
     public class Payload : IResource, IDeepCompare
 	{
-        private string title;
-        private string body;
-        private List<MediaUrl> mediaUrls;
 		private string raw;
-        private string decodedRaw = null;
+        private string decodedRaw;
 
         /// <summary>
-        /// Default constructor. Lists are not initialized.
+        /// Default constructor.
         /// </summary>
-        public Payload()
+        public Payload() 
         {
-        }
-
-        /// <summary>
-        /// Construct with param to initialize lists.
-        /// </summary>
-        /// <param name="init">If true initialize lists.</param>
-        public Payload(bool init)
-        {
-            if (init)
-                this.Initialize();
-        }
-
-        /// <summary>
-        /// Initialize the lists with empty lists.
-        /// </summary>
-        private void Initialize()
-        {
-            this.mediaUrls = new List<MediaUrl>();
+            this.MediaUrls = new List<MediaUrl>();
         }
 
         /// <summary> 
@@ -76,11 +56,12 @@ namespace Gnip.Client.Resource
         /// <param name="body">the value of the body</param>
         /// <param name="raw">the value of the activity's raw data</param>
         /// <param name="isEncoded">a flag set for whether the raw data is encoded</param>
-        public Payload(string title, string body, string raw, bool isEncoded) : this(title, body, null, raw, isEncoded)
+        public Payload(string title, string body, string raw, bool isEncoded) 
+            : this(title, body, null, raw, isEncoded)
         {
-            this.title = title;
-            this.body = body;
-            this.raw = isEncoded ? raw : encode(raw);
+            this.Title = title;
+            this.Body = body;
+            this.Raw = isEncoded ? raw : encode(raw);
         }
 
         /// <summary> Create a payload object.  This constructor can be used to create a Payload with an already encoded raw or</summary>
@@ -89,11 +70,11 @@ namespace Gnip.Client.Resource
         /// <param name="raw">the value of the activity's raw data</param>
         /// <param name="isEncoded">a flag set for whether the raw data is encoded</param>
         public Payload(string title, string body, List<MediaUrl> mediaUrls, string raw, bool isEncoded)
-            : this(true)
+            : this()
         {
-            this.title = title;
-            this.body = body;
-            if (mediaUrls != null) this.mediaUrls.AddRange(mediaUrls);
+            this.Title = title;
+            this.Body = body;
+            if (mediaUrls != null) this.MediaUrls.AddRange(mediaUrls);
             this.raw = isEncoded ? raw : encode(raw);
         }
 
@@ -101,31 +82,19 @@ namespace Gnip.Client.Resource
         /// Gets/Sets the payload's title.
         /// </summary>
         [XmlElement(ElementName = "title")]
-        public string Title
-        {
-            get { return this.title; }
-            set { this.title = value; }
-        }
+        public string Title { get; set; }
 
 		/// <summary> 
         /// Gets/Set the payload's body.
         /// </summary>
         [XmlElement(ElementName="body")]
-	    public string Body
-		{
-			get { return this.body; }
-            set { this.body = value; }
-		}
+        public string Body { get; set; }
 
         /// <summary> 
         /// Gets/Sets the payload's mediaUrls.
         /// </summary>
         [XmlElement(ElementName = "mediaURL")]
-        public List<MediaUrl> MediaUrls
-        {
-            get { return this.mediaUrls; }
-            set { this.mediaUrls = value; }
-        }
+        public List<MediaUrl> MediaUrls { get; set; }
 
 		/// <summary> 
         /// Gets/Sets the payload's raw data. This value will be Base64 encoded.</summary>
@@ -224,9 +193,9 @@ namespace Gnip.Client.Resource
             else if (that == null)
                 return false;
 
-            return (string.Equals(this.title, that.title) &&
-                string.Equals(this.body, that.body) &&
-                ListUtils.AreDeepEqual<MediaUrl>(this.mediaUrls, that.mediaUrls) &&
+            return (string.Equals(this.Title, that.Title) &&
+                string.Equals(this.Body, that.Body) &&
+                ListUtils.AreDeepEqual<MediaUrl>(this.MediaUrls, that.MediaUrls) &&
                 string.Equals(this.raw, that.raw));
         }
 
@@ -244,9 +213,9 @@ namespace Gnip.Client.Resource
 
             Payload that = (Payload)o;
 
-            return (string.Equals(this.title, that.title) &&
-                string.Equals(this.body, that.body) &&
-                string.Equals(this.mediaUrls, that.mediaUrls) &&
+            return (string.Equals(this.Title, that.Title) &&
+                string.Equals(this.Body, that.Body) &&
+                string.Equals(this.MediaUrls, that.MediaUrls) &&
                 string.Equals(this.raw, that.raw));
         }
 
@@ -257,8 +226,8 @@ namespace Gnip.Client.Resource
         /// <returns>The hash code for this object.</returns>
         public override int GetHashCode()
         {
-            int result = (this.title != null ? this.title.GetHashCode() : 0);
-            result = 31 * result + (this.body != null ? this.body.GetHashCode() : 0);
+            int result = (this.Title != null ? this.Title.GetHashCode() : 0);
+            result = 31 * result + (this.Body != null ? this.Body.GetHashCode() : 0);
             result = 31 * result + (this.raw != null ? this.raw.GetHashCode() : 0);
             return result;
         }

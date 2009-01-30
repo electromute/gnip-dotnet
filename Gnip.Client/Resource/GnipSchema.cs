@@ -10,7 +10,7 @@ namespace Gnip.Client.Resource
     /// </summary>
     public static class GnipSchema
     {
-        public static XmlSchema singleton;
+        private static XmlSchema singleton;
 
         public static XmlSchema Instance
         {

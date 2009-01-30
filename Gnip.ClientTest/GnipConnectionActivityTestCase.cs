@@ -355,7 +355,7 @@ namespace Gnip.Client
 
         public Activity GetActivity1(int val, string actor, string action)
         {
-            Activity activity = new Activity(true);
+            Activity activity = new Activity();
             activity.At = DateTime.Now;
             activity.Action = action;
             activity.ActivityId = "activityID " + val;
@@ -375,7 +375,7 @@ namespace Gnip.Client
 
         public Activity GetActivity2(int val, string actor1, string actor2, string action)
         {
-            Activity activity = new Activity(false);
+            Activity activity = new Activity();
 
             activity.At = DateTime.Now;
             activity.Action = action;

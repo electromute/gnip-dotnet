@@ -29,73 +29,32 @@ namespace Gnip.Client
 			}
 		}
 
-        private string username;
-        private string password;
-        private string host;
-        private PublisherType publisherType;
-        private string publisher;
-        private int requestTimeout;
-        private int readWriteTimeout;
-        private int idleMilliseconds;
-
         private TestConfig(string username, string password, string host, PublisherType publisherType, string publisher, int requestTimeout, int readWriteTimeout, int idleMilliseconds)
 		{
-			this.username = username;
-			this.password = password;
-			this.host = host;
-            this.publisherType = publisherType;
-			this.publisher = publisher;
-            this.requestTimeout = requestTimeout;
-            this.readWriteTimeout = readWriteTimeout;
-            this.idleMilliseconds = idleMilliseconds;
+			this.Username = username;
+			this.Password = password;
+			this.Host = host;
+            this.PublisherType = publisherType;
+			this.Publisher = publisher;
+            this.RequestTimeout = requestTimeout;
+            this.ReadWriteTimeout = readWriteTimeout;
+            this.IdleMilliseconds = idleMilliseconds;
 		}
 
-		public string Username
-		{
-			get { return this.username; }
-            set { this.username = value; }
-		}
+        public string Username { get; set; }
 
-		public string Password
-		{
-			get { return this.password; }
-            set { this.password = value; }
-		}
+        public string Password { get; set; }
 
-		public string Host
-		{
-			get { return this.host; }
-            set { this.host = value; }
-		}
+        public string Host { get; set; }
 
-        public PublisherType PublisherType
-        {
-            get { return this.publisherType; }
-            set { this.publisherType = value; }
-        }
+        public PublisherType PublisherType { get; set; }
 
-		public string Publisher
-		{
-            get { return this.publisher; }
-            set { this.publisher = value; }
-		}
+        public string Publisher { get; set; }
 
-        public int RequestTimeout
-        {
-            get { return this.requestTimeout; }
-            set { this.requestTimeout = value; }
-        }
+        public int RequestTimeout { get; set; }
 
-        public int ReadWriteTimeout
-        {
-            get { return this.readWriteTimeout; }
-            set { this.readWriteTimeout = value; }
-        }
+        public int ReadWriteTimeout { get; set; }
 
-		public int IdleMilliseconds
-		{
-			get { return this.idleMilliseconds; }
-            set { this.idleMilliseconds = value; }
-		}
+        public int IdleMilliseconds { get; set; }
 	}
 }

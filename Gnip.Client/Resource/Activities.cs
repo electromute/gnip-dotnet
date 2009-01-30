@@ -14,30 +14,37 @@ namespace Gnip.Client.Resource
     [XmlRoot(ElementName="activities")]
 	public class Activities : IResource, IDeepCompare
 	{
-        private string publisher;
-        private List<Activity> activities = new List<Activity>();
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
+        public Activities() 
+        {
+            this.Items = new List<Activity>();
+        }
+
+        /// <summary> 
+        /// Constructor.
+        /// </summary>
+        /// <param name="rules">Adds the rules to this list.</param>
+        public Activities(IEnumerable<Activity> activities)
+            : this()
+        {
+            this.Items.AddRange(activities);
+        }
 
 		/// <summary> 
         /// If these activities came from a Publisher, retrieves the url of the publisher
         /// </summary>
 		/// <returns> the name of the Publisher or <code>null</code> if the activities were created in the client.
 		/// </returns>
-        [XmlAttribute(AttributeName="publisher")]
-		public string Publisher
-		{
-			get { return this.publisher; }
-            set { this.publisher = value; }
-		}
+        [XmlAttribute(AttributeName = "publisher")]
+        public string Publisher { get; set; }
 
         /// <summary>
         /// Gets/Sets the List of Activitie.
         /// </summary>
         [XmlElement(ElementName = "activity")]
-        public List<Activity> Items
-        {
-            get { return this.activities; }
-            set { this.activities = value; }
-        }
+        public List<Activity> Items { get; set; }
 
         /// <summary>
         /// Determins if this equals that by performing a deep equals 
@@ -68,8 +75,8 @@ namespace Gnip.Client.Resource
             else if (that == null)
                 return false;
 
-            return (this.publisher == that.publisher &&
-                ListUtils.AreDeepEqual<Activity>(this.activities, that.activities));
+            return (this.Publisher == that.Publisher &&
+                ListUtils.AreDeepEqual<Activity>(this.Items, that.Items));
         }
 
         /// <summary>
@@ -87,8 +94,8 @@ namespace Gnip.Client.Resource
 
             Activities that = (Activities)o;
 
-            return (this.publisher == that.publisher &&
-                this.activities == that.activities);
+            return (this.Publisher == that.Publisher &&
+                this.Items == that.Items);
         }
 
         /// <summary>
@@ -98,8 +105,8 @@ namespace Gnip.Client.Resource
         /// <returns>The hash code for this object.</returns>
         public override int GetHashCode()
         {
-            int result = (this.publisher != null ? this.publisher.GetHashCode() : 0);
-            result = 31 * result + (this.activities != null ? this.activities.GetHashCode() : 0);
+            int result = (this.Publisher != null ? this.Publisher.GetHashCode() : 0);
+            result = 31 * result + (this.Items != null ? this.Items.GetHashCode() : 0);
             return result;
         }
 	}

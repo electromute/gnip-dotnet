@@ -10,6 +10,7 @@ using System.IO.Compression;
 using System.Net;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Globalization;
 
 namespace Gnip.Client
 {
@@ -849,7 +850,7 @@ namespace Gnip.Client
             {
                 url = this.TunnelDeleteOverPost(url);
             }
-            return url + "?type=" + this.EncodeUrlParameter(rule.Type.ToString().ToLower()) + "&value=" + this.EncodeUrlParameter(rule.Value);
+            return url + "?type=" + this.EncodeUrlParameter(rule.Type.ToString().ToLower(CultureInfo.InvariantCulture)) + "&value=" + this.EncodeUrlParameter(rule.Value);
         }
 
         /// <summary>
@@ -928,7 +929,7 @@ namespace Gnip.Client
         private string GetDateString(DateTime date)
         {
             DateTime flooredDate = GnipConnection.GetBucketFloor(date.Add(this.timeCorrection).ToUniversalTime());
-            return flooredDate.ToString("yyyyMMddHHmm");
+            return flooredDate.ToString("yyyyMMddHHmm", CultureInfo.InvariantCulture);
         }
 
         public static DateTime GetBucketFloor(DateTime date)

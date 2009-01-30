@@ -17,14 +17,6 @@ namespace Gnip.Client
         public const int DEFAULT_REQUEST_TIMEOUT_SECONDS = 30;
         public const int DEFAULT_READ_TIMEOUT_SECONDS = 10;
 
-        private bool useGzip = false;
-        private bool tunnelOverPost = false;
-        private string username;
-        private string password;
-        private string gnipServer;
-        private int requestTimeoutMillis = DEFAULT_READ_TIMEOUT_SECONDS * 1000;
-        private int readWriteTimeoutMillis = DEFAULT_READ_TIMEOUT_SECONDS * 1000;
-
         /// <summary> 
         /// Create a Config} object with the specified username and password
         /// to the default Gnip server.
@@ -33,9 +25,11 @@ namespace Gnip.Client
         /// <param name="password">The password.</param>
         public Config(string username, string password)
         {
-            this.username = username;
-            this.password = password;
-            this.gnipServer = DEFAULT_SERVER_URL;
+            this.Username = username;
+            this.Password = password;
+            this.GnipServer = DEFAULT_SERVER_URL;
+            this.RequestTimeout = DEFAULT_REQUEST_TIMEOUT_SECONDS * 1000;
+            this.ReadWriteTimeout = DEFAULT_READ_TIMEOUT_SECONDS * 1000;
         }
 
         /// <summary> Create a Config object to the Gnip server at the provided URL
@@ -47,9 +41,11 @@ namespace Gnip.Client
         /// <param name="gnipServer">The gnip server to use.</param>
         public Config(string username, string password, Uri gnipServer)
         {
-            this.username = username;
-            this.password = password;
-            this.gnipServer = gnipServer.ToString();
+            this.Username = username;
+            this.Password = password;
+            this.GnipServer = gnipServer.ToString();
+            this.RequestTimeout = DEFAULT_REQUEST_TIMEOUT_SECONDS * 1000;
+            this.ReadWriteTimeout = DEFAULT_READ_TIMEOUT_SECONDS * 1000;
         }
 
         /// <summary> Create a Config object to the Gnip server at the provided URL
@@ -63,37 +59,25 @@ namespace Gnip.Client
         /// <param name="readWriteTimeout">The timeout used for reading and writing to a request.</param>
         public Config(string username, string password, Uri gnipServer, int requestTimeout, int readWriteTimeout)
         {
-            this.username = username;
-            this.password = password;
-            this.gnipServer = gnipServer.ToString();
-            this.requestTimeoutMillis = requestTimeout;
-            this.readWriteTimeoutMillis = readWriteTimeout;
+            this.Username = username;
+            this.Password = password;
+            this.GnipServer = gnipServer.ToString();
+            this.RequestTimeout = requestTimeout;
+            this.ReadWriteTimeout = readWriteTimeout;
         }
 
 		/// <summary> 
         /// Retrieves the username used to connect to Gnip.
         /// </summary>
-	    public string Username
-		{
-			get { return this.username; }
-            set { this.username = value; }
-		}
+        public string Username { get; set; }
 
 		/// <summary> Gets/Sets the password used to connect to Gnip.</summary>
-	    public string Password
-		{
-			get { return this.password; }
-            set { this.password = value; }
-		}
+        public string Password { get; set; }
 
 		/// <summary> 
         /// Gets/Sets the URL of the Gnip service.
         /// </summary>
-		public string GnipServer
-		{
-            get { return this.gnipServer; }
-            set { this.gnipServer = value; }
-		}
+        public string GnipServer { get; set; }
 
         /// <summary> Gets/Sets Configure the setting that controls how long the local HTTP connection will
         /// wait for a Gnip server's request for a response or a response stream.  When making requests that
@@ -103,11 +87,7 @@ namespace Gnip.Client
         /// 
         /// The default value of this setting is 2 seconds<br/>
         /// </summary>
-        public int RequestTimeout
-        {
-            get { return this.requestTimeoutMillis; }
-            set { this.requestTimeoutMillis = value; }
-        }
+        public int RequestTimeout { get; set; }
 
 		/// <summary> Gets/Sets Configure the setting that controls how long the local HTTP connection will
 		/// wait for a read or write to the Gnip server.  When making requests that
@@ -117,11 +97,7 @@ namespace Gnip.Client
 		/// 
 		/// The default value of this setting is 2 seconds<br/>
 		/// </summary>
-        public int ReadWriteTimeout
-        {
-            get { return this.readWriteTimeoutMillis; }
-            set { this.readWriteTimeoutMillis = value; }
-        }
+        public int ReadWriteTimeout { get; set; }
 
 		/// <summary> 
         /// Gets/Sets the tunnel over post flag.  The default value is false.
@@ -130,11 +106,7 @@ namespace Gnip.Client
 		/// can be useful when a network configuration disallows directly sending PUT
 		/// and DELETE requests.  The default for this setting is <code>false</code>.
 		/// </summary>
-		public bool TunnelOverPost
-		{
-            get { return this.tunnelOverPost; }
-            set { this.tunnelOverPost = value; }
-		}
+        public bool TunnelOverPost { get; set; }
 
 		/// <summary> 
         /// Gets/Sets the compression flag.  The default value is false.
@@ -142,10 +114,6 @@ namespace Gnip.Client
 		/// the the gzip encoding which is set using the Content-Encoding
 		/// and the Accept-Encoding HTTP headers.
 		/// </summary>
-	    public bool UseGzip
-		{
-            get { return this.useGzip; }
-            set { this.useGzip = value; }
-		}
+        public bool UseGzip { get; set; }
 	}
 }

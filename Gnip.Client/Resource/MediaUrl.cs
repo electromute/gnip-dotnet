@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using Gnip.Client.Util;
@@ -11,13 +10,6 @@ namespace Gnip.Client.Resource
     [XmlRoot(ElementName = "mediaURL")]
     public class MediaUrl : IResource, IDeepCompare
     {
-        private string url;
-        private string height;
-        private string width;
-        private string duration;
-        private string mimeType;
-        private string type;
-
         /// <summary>
         /// Default Constructor.
         /// </summary>
@@ -28,8 +20,9 @@ namespace Gnip.Client.Resource
         /// </summary>
         /// <param name="url">The url</param>
         public MediaUrl(string url)
+            : this()
         {
-            this.url = url;
+            this.Url = url;
         }
 
         /// <summary>
@@ -44,72 +37,48 @@ namespace Gnip.Client.Resource
         public MediaUrl(string url, string width, string height, string duration, string mimeType, string type)
             : this(url)
         {
-            this.width = width;
-            this.height = height;
-            this.duration = duration;
-            this.mimeType = mimeType;
-            this.type = type;
+            this.Width = width;
+            this.Height = height;
+            this.Duration = duration;
+            this.MimeType = mimeType;
+            this.Type = type;
         }
 
         /// <summary>
         /// Gets/Sets the url value.
         /// </summary>
         [XmlText]
-        public string Url
-        {
-            get { return this.url; }
-            set { this.url = value; }
-        }
+        public string Url { get; set; }
 
         /// <summary>
         /// Gets/Sets the height value
         /// </summary>
         [XmlAttribute(AttributeName = "height")]
-        public string Height
-        {
-            get { return this.height; }
-            set { this.height = value; }
-        }
+        public string Height { get; set; }
 
         /// <summary>
         /// Gets/Sets the width value
         /// </summary>
         [XmlAttribute(AttributeName = "width")]
-        public string Width
-        {
-            get { return this.width; }
-            set { this.width = value; }
-        }
+        public string Width { get; set; }
 
         /// <summary>
         /// Gets/Sets the duration value
         /// </summary>
         [XmlAttribute(AttributeName = "duration")]
-        public string Duration
-        {
-            get { return this.duration; }
-            set { this.duration = value; }
-        }
+        public string Duration { get; set; }
 
         /// <summary>
         /// Gets/Sets the mimeType value
         /// </summary>
         [XmlAttribute(AttributeName = "mimeType")]
-        public string MimeType
-        {
-            get { return this.mimeType; }
-            set { this.mimeType = value; }
-        }
+        public string MimeType { get; set; }
 
         /// <summary>
         /// Gets/Sets the type value
         /// </summary>
         [XmlAttribute(AttributeName = "type")]
-        public string Type
-        {
-            get { return this.type; }
-            set { this.type = value; }
-        }
+        public string Type { get; set; }
 
         /// <summary>
         /// Determins if this equals that by performing a deep equals 
@@ -140,12 +109,12 @@ namespace Gnip.Client.Resource
             else if (that == null)
                 return false;
 
-            return (string.Equals(this.url, that.url) &&
-                string.Equals(this.height, that.height) &&
-                string.Equals(this.width, that.width) &&
-                string.Equals(this.duration, that.duration) &&
-                string.Equals(this.mimeType, that.mimeType) &&
-                string.Equals(this.type, that.type));
+            return (string.Equals(this.Url, that.Url) &&
+                string.Equals(this.Height, that.Height) &&
+                string.Equals(this.Width, that.Width) &&
+                string.Equals(this.Duration, that.Duration) &&
+                string.Equals(this.MimeType, that.MimeType) &&
+                string.Equals(this.Type, that.Type));
         }
 
         /// <summary>
@@ -171,12 +140,12 @@ namespace Gnip.Client.Resource
         /// <returns>The hash code for this object.</returns>
         public override int GetHashCode()
         {
-            int result = (this.url != null ? this.url.GetHashCode() : 0);
-            result = 31 * result + (this.height != null ? this.height.GetHashCode() : 0);
-            result = 31 * result + (this.width != null ? this.width.GetHashCode() : 0);
-            result = 31 * result + (this.duration != null ? this.duration.GetHashCode() : 0);
-            result = 31 * result + (this.mimeType != null ? this.mimeType.GetHashCode() : 0);
-            result = 31 * result + (this.type != null ? this.type.GetHashCode() : 0);
+            int result = (this.Url != null ? this.Url.GetHashCode() : 0);
+            result = 31 * result + (this.Height != null ? this.Height.GetHashCode() : 0);
+            result = 31 * result + (this.Width != null ? this.Width.GetHashCode() : 0);
+            result = 31 * result + (this.Duration != null ? this.Duration.GetHashCode() : 0);
+            result = 31 * result + (this.MimeType != null ? this.MimeType.GetHashCode() : 0);
+            result = 31 * result + (this.Type != null ? this.Type.GetHashCode() : 0);
             return result;
         }
     }

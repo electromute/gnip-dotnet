@@ -187,8 +187,6 @@ namespace Gnip.Client.Util
                 throw;
             }
 
-            string returnString = response.StatusCode.ToString();
-
             Log.Debug("Received response with response code " + response.StatusDescription);
 
             if (response.StatusCode != HttpStatusCode.OK)
@@ -214,7 +212,7 @@ namespace Gnip.Client.Util
             Stream stream;
 
             string contentEncoding = response.Headers.Get("Content-Encoding");
-            if (contentEncoding != null && contentEncoding.ToUpper().Contains("GZIP"))
+            if (contentEncoding != null && contentEncoding.ToUpper(CultureInfo.InvariantCulture).Contains("GZIP"))
             {
                 stream = new GZipStream(response.GetResponseStream(), CompressionMode.Decompress);
             }

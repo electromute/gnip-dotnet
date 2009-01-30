@@ -12,31 +12,29 @@ namespace Gnip.Client.Resource
     [XmlRoot(ElementName="publishers")]
 	public class Publishers : IResource, IDeepCompare
 	{
-        private List<Publisher> publishers = new List<Publisher>();
-
 		/// <summary> 
         /// Basic constructor.
         /// </summary>
-		public Publishers() { }
+		public Publishers() 
+        {
+            this.Items = new List<Publisher>();
+        }
 
         /// <summary>
         /// Contructor. Adds a copy of publishers to this.
         /// </summary>
         /// <param name="publishers">The IEnumerable of Publishers to add to this.</param>
         public Publishers(IEnumerable<Publisher> publishers) 
+            : this()
         {
-            this.publishers.AddRange(publishers);
+            this.Items.AddRange(publishers);
         }
 
         /// <summary>
         /// Gets/Sets the List of Publisher.
         /// </summary>
-        [XmlElement(ElementName="publisher")]
-        public List<Publisher> Items
-        {
-            get { return this.publishers; }
-            set { this.publishers = value; }
-        }
+        [XmlElement(ElementName = "publisher")]
+        public List<Publisher> Items { get; set; }
 
         /// <summary>
         /// Determins if this equals that by performing a deep equals 
@@ -67,7 +65,7 @@ namespace Gnip.Client.Resource
             else if (that == null)
                 return false;
 
-            return ListUtils.AreDeepEqual<Publisher>(this.publishers, that.publishers);
+            return ListUtils.AreDeepEqual<Publisher>(this.Items, that.Items);
         }
 
         /// <summary>
@@ -85,7 +83,7 @@ namespace Gnip.Client.Resource
 
             Publishers that = (Publishers)o;
 
-            return (this.publishers == that.publishers);
+            return (this.Items == that.Items);
         }
 
         /// <summary>
@@ -95,7 +93,7 @@ namespace Gnip.Client.Resource
         /// <returns>The hash code for this object.</returns>
         public override int GetHashCode()
         {
-            int result = (this.publishers != null ? this.publishers.GetHashCode() : 0);
+            int result = (this.Items != null ? this.Items.GetHashCode() : 0);
             return result;
         }
 	}

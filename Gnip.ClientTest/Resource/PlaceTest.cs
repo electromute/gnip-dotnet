@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using Gnip.Client.Utils;
@@ -26,13 +25,6 @@ namespace Gnip.Client.Resource
         public void TestPlaceConstructor_01()
         {
             DateTime now = DateTime.Now;
-
-        //    private double[] point;
-        //private double? elevation;
-        //private int? floor;
-        //private string featuretypetag;
-        //private string featurename;
-        //private string relationshiptag;
 
             Place place = new Place();
             place.Point = new double[] { 10.0, 20.0 };
