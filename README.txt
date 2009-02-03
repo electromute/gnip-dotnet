@@ -6,15 +6,15 @@ This library provides a .NET API for accessing Gnip web services. This
 library supports activities related to publishing and subscribing to data.
 
 Please note that this is a re-write over version 2.0.1 and contains many 
-incompatibilities. 
+incompatibilities with the old library versions.
 
 == Dependencies == 
-Dependency Urls coppied into the Gnip.Lib folder.
+Dependency URLs copied into the Gnip.Lib folder.
 
 = Required Dependencies =
 
   - .NET 2.0
-  - A user account on Gnip http://gnipcentral.com/
+  - A user account on Gnip https://demo-v21.gnip.com/
   - log4net - The files log4net.dll and log4net.xml live in
     the Gnip.Lib/log4net-<version> folder. If you are using a 
     different version of log4net, you may want to create a 
@@ -36,24 +36,24 @@ Resource links for the above dependencies can be found here:
 
 == Quick Start ==
 
-Gnip has a test publisher "gnip-test-publisher":
-https://prod.gnipcentral.com/gnip/publishers/gnip-test-publisher/notification/
+Gnip has a test publisher "gnipherald":
+https://demo-v21.gnip.com/gnip/publishers/gnipherald/notification/
 
 The following example get the twitter publisher:
 
     Config config = new Config("<username>", "<password>");
     GnipConnection gnip = new GnipConnection(config);
-    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnip-test-publisher");
+    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnipherald");
     Console.WriteLine("Got Publisher: " + publisher.Name);
 
 The following example retrieves notification data from the current bucket for 
-gnip-test-publisher. Please note that the current bucket is not static and 
+gnipherald. Please note that the current bucket is not static and 
 therefore will contain a variable amount of data, but you'll get quick feedback 
 to know if you can connect and access the public notification data.
 
     Config config = new Config("<username>", "<password>");
     GnipConnection gnip = new GnipConnection(config);
-    Publisher publisher = gnip.GetPublisher(PublisherType.My, "gnip-test-publisher");
+    Publisher publisher = gnip.GetPublisher(PublisherType.My, "gnipherald");
     Activities activities = gnip.GetNotifications(publisher);
     foreach(Activity activity in activities.Items)
     {
@@ -88,7 +88,7 @@ on the command line.
 = Debugging =
 The Gnip .NET library uses the log4net Logger to send messages to the logs. By default
 the library does not log. However, the logger is configured to run with the Gnip.ClientTest
-NUnit test. To config the logger in your app include the line:
+NUnit test. To configure the logger in your app include the line:
 
       XmlConfigurator.ConfigureAndWatch(new System.IO.FileInfo("[path to log config file]"));
 
@@ -99,7 +99,7 @@ see http://loggin.apache.org/log4net for more.
 NUnit tests are set up for these libraries. There are unit tests and 
 integration tests. They live in Gnip.ClientTest. The parameters for the
 tests are configured in Gnip.ClientTest/App.config. You will want to create
-a producer at http://prod.gnipcentral.com/. Under 'your publishers' select
+a producer at https://demo-v21.gnip.com/. Under 'your publishers' select
 'create a new one'. Then use the pubisher name in the app.config file.
 an file names Gnip.ClientTest/gnip.nuit exists for the nunit client application.
 
@@ -129,13 +129,13 @@ As a consumer one thing you might be interested in immediately is
 grabbing data from a publisher. To do this you must create a connection to Gnip 
 using your username and password.  Once the connection is established you can 
 get the publisher and request the stream. These examples uses the publisher 
-"gnip-test-publisher".
+"gnipherald".
 
 *** Notification data stream request ***
 
     Config config = new Config("<username>", "<password>");
     GnipConnection gnip = new GnipConnection(config);
-    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnip-test-publisher");
+    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnipherald");
     Console.WriteLine("Got Publisher: " + publisher.Name);
     Activities activities = gnip.GetNotifications(publisher);
     foreach(Activity activity in activities.Items)
@@ -148,14 +148,14 @@ get the publisher and request the stream. These examples uses the publisher
     }
 
 You can also view the current notifications bucket via web on the Gnip site:
-    https://prod.gnipcentral.com/publishers/gnip-test-publisher/notification/current.xml
+    https://demo-v21.gnip.com/publishers/gnipherald/notification/current.xml
 	
 	
 *** Notification data stream request with optional date param ***
 
     Config config = new Config("<user>", "<password>");
     GnipConnection gnip = new GnipConnection(config);
-    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnip-test-publisher");
+    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnipherald");
     Console.WriteLine("Got Publisher: " + publisher.Name);
     Activities activities = gnip.GetNotifications(publisher, DateTime.Now);
     foreach(Activity activity in activities.Items)
@@ -168,10 +168,10 @@ You can also view the current notifications bucket via web on the Gnip site:
     }
 
 You can see the running list of notification buckets on the Gnip site:
-    https://prod.gnipcentral.com/gnip/publishers/gnip-test-publisher/notification/
+    https://demo-v21.gnip.com/gnip/publishers/gnipherald/notification/
 	
-When activities are published to date buckets, they are published accoring to
-the gnip server GMT time. Thus, when passing a client generated dateTime as a parameter to
+When activities are published to date buckets, they are published according to
+the Gnip server GMT time. Thus, when passing a client generated dateTime as a parameter to
 the GetActivities and GetNotifications methods, you may not get expected results if your client time is 
 different than that of the server, which it likely is. For instance, say you want all the
 notifications published one minute ago. You would get the current time and subtract one minute.
@@ -195,8 +195,8 @@ delicious, etc.).
 You can only retrieve activity data (full data) from publishers that you don't own 
 by creating a filter.
 
-The test actor for "gnip-test-publisher" is "joeblow". To test your filter, be sure 
-"joeblow"appears in your rule set.
+The test actor for "gnipherald" is "jvaleski". To test your filter, be sure 
+"jvaleski" appears in your rule set.
 
 The following examples illustrate creating filters for both notification and activity 
 data. Additionally, the two examples show how to use/not use the post URL parameter.
@@ -204,19 +204,19 @@ data. Additionally, the two examples show how to use/not use the post URL parame
 *** Notificiation Filter without POST URL ***
 
 Note that the full data (second parameter) of the filter object must be set to 
-false. This example does not include a POST Url, meaning you'll have to poll 
+false. This example does not include a POST URL, meaning you'll have to poll 
 Gnip for the results when you need them. The following snippet creates (and 
 retrieves) a notification filter called "myNotificationFilter" on the publisher 
-gnip-test-publisher.
+gnipherald.
 
     Config config = new Config("<user>", "<password>");
     GnipConnection gnip = new GnipConnection(config);
-    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnip-test-publisher");
+    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnipherald");
     Console.WriteLine("Got Publisher: " + publisher.Name);
 
     Filter filter = new Filter("myNotificationFilter");
     filter.Rules.Add(new Rule(RuleType.Actor, "joeblow"));
-    filter.Rules.Add(new Rule(RuleType.Actor, "janeblow"));
+    filter.Rules.Add(new Rule(RuleType.Actor, "jvaleski"));
 
     gnip.Create(publisher, filter);
 
@@ -230,37 +230,37 @@ gnip-test-publisher.
         }
     }
 
-You can viewget your filters by running:
+You can view your filters by running:
     Filter filter = gnip.GetFilter(publisher, "myNotificationFilter");
 
-Your actors list should be (not necessarily in this order): joeblow, janeblow
+Your actors list should be (not necessarily in this order): joeblow, jvaleski
 
 You can also see your filters list for each publisher by going to the Gnip site:
-    https://prod.gnipcentral.com/gnip/publishers/gnip-test-publisher/filters
+    https://demo-v21.gnip.com/gnip/publishers/gnipherald/filters
 	
 You can view notification buckets on the Gnip site by going to:
-    https://prod.gnipcentral.com/gnip/publishers/gnip-test-publisher/filters/myNotificationFilter/notification
+    https://demo-v21.gnip.com/gnip/publishers/gnipherald/filters/myNotificationFilter/notification
 	
 *** Activity Filter with POST URL ***
 
 Note that the full data of the filter object must be set to 
-true to view activity data. This example includes the optional POST Url, 
+true to view activity data. This example includes the optional POST URL, 
 meaning Gnip will POST via an HTTP HEAD request to this URL. The following 
 snippet creates (and gets) a notification filter called "myActivityFilter" on 
-the publisher gnip-test-publisher. 
+the publisher gnipherald. 
 
 If you want notifications to be sent to a script on your server for processing, 
-you must ensure that the PostUrl Property you set responds successfully to an 
+you must ensure that the Post URL Property you set responds successfully to an 
 HTTP HEAD request. (note that this example will throw an error because the POST 
-url is invalid).
+URL is invalid).
 
     Config config = new Config("<username>", "<password>");
     GnipConnection gnip = new GnipConnection(config);
-    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnip-test-publisher");
+    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnipherald");
 
     Filter filter = new Filter("myActivityFilter", "http://mysite.com/processingscript.php", true);
     filter.Rules.Add(new Rule(RuleType.Actor, "joeblow"));
-    filter.Rules.Add(new Rule(RuleType.Actor, "janeblow"));
+    filter.Rules.Add(new Rule(RuleType.Actor, "jvaleski"));
 
     gnip.Create(publisher, filter);
 
@@ -268,11 +268,11 @@ You can view your filters by running:
       Filter filter = gnip.GetFilter(publisher, "myActivityFilter");
 
 You can see your filters by going to the Gnip site:
-	https://prod.gnipcentral.com/gnip/publishers/gnip-test-publisher/filters
-Your actors list should be (not necessarily in this order): joeblow, janeblow
+	https://demo-v21.gnip.com/gnip/publishers/gnipherald/filters
+Your actors list should be (not necessarily in this order): joeblow, jvaleski
 
 Once data is available, you can see it here:
-	https://review.gnipcentral.com/gnip/publishers/gnip-test-publisher/activity
+	https://demo-v21.gnip.com/gnip/publishers/gnipherald/activity
 	
 === Example 3: Add rules to an existing filter ===
 
@@ -308,11 +308,11 @@ NOTE: You must create a filter (see Example 2 above) before you can view
 activities for a publisher that you do not own.
 
     GnipConnection gnip = new GnipConnection(new Config("<username>", "<password>"));
-    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnip-test-publisher");
+    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnipherald");
     Activities activities = gnip.GetActivities(publisher);
 
 You can also view the current activity bucket via web on the Gnip site:
-    https://prod.gnipcentral.com/gnip/publishers/gnip-test-publisher/activity/current.xml
+    https://demo-v21.gnip.com/gnip/publishers/gnipherald/activity/current.xml
 
 *** Activity Data Stream Request with Date Param ***
 
@@ -320,11 +320,11 @@ NOTE: You must create a filter (see Example 3 below) before you can view
 activities for a publisher that you do not own.
 
     GnipConnection gnip = new GnipConnection(new Config("<username>", "<password>"));
-    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnip-test-publisher");
+    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnipherald");
     Activities activities = gnip.GetActivities(publisher, DateTime.Now);
 
 You can see the running list of activity buckets on the Gnip site:
-    https://prod.gnipcentral.com/publishers/gnip-test-publisher/activity/
+    https://demo-v21.gnip.com/publishers/gnipherald/activity/
 
 === Example 6: Add rules in large batches ===
 
@@ -333,7 +333,7 @@ for Filters that already contain large rule sets, batch additions must be used t
 change the Filter.  Here's an example of a batch add:
 
     GnipConnection gnip = new GnipConnection(new Config("<username>", "<password>"));
-    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnip-test-publisher");
+    Publisher publisher = gnip.GetPublisher(PublisherType.Gnip, "gnipherald");
     Rules rules = new Rules();
     rules.Items.Add(new Rule(RuleType.Actor, "fluffyblow"));
     rules.Items.Add(new Rule(RuleType.Actor, "roverblow"));
@@ -411,3 +411,18 @@ Here is how you can publish activities to the activity stream:
     Result result = gnipConnection.Publish(publisher, activities);
 
 You should see a result.Message of "Success".
+
+=== Contributing ===
+ 
+Contributions to this library are welcome.
+ 
+Source :: git://github.com/gnip/gnip-dotnet.git
+Community Site :: http://groups.google.com/group/gnip-community
+Mailing List :: gnip-community@googlegroups.com
+ 
+To get started create a clone of the main repository,
+<git://github.com/gnip/gnip-dotnet.git>, and start improving it. Feel
+discuss any changes you are making on the mailing list to get feed
+back from the other users. Once you are ready to publish your changes
+you can send them to the mailing list or, if you are using GitHub,
+send a pull request to the owner of the main repositiory.
